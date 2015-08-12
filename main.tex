@@ -1,0 +1,92 @@
+\documentclass[12pt]{article}
+
+
+\usepackage[brazilian]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{geometry}
+\usepackage{verbatim}
+\usepackage{microtype}
+\usepackage[numbers]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsfonts}
+\usepackage{color}
+\geometry{a4paper}
+
+\title{Portal Web Django para execução de aplicações que demandam alto custo computacional}
+\author{Otávio Migliavacca Madalosso \\ \emph{Universidade Federal de Santa Maria}}
+
+\begin{document}
+\maketitle
+
+
+\section{Identificação}
+
+\begin{description} \itemsep 0pt
+
+\item{\textbf{Resumo:}} Django é um framework web de alto nível escrito em Python que estimula o desenvolvimento rápido e limpo. Tradicionalmente é utilizado para o desenvolvimento de portais web que necessitam de uma ferramenta eficiente para gerência de conteúdo. Porém este trabalho tem como objetivo utilizar os benefícios desse framework para criar um portal que permita gerenciar a execução de algoritmos com custo elevado de processamento de acordo com as configurações definidas pelos usuários do portal.
+
+
+\item{\textbf{Período de Execução}}: Setembro de 2015 até Dezembro de 2015
+
+\item{\textbf{Unidades Participantes}}: 
+
+    Curso de Ciência da Computação
+    
+    Laboratório de Sistemas de Computação
+    
+    
+\item{\textbf{Área do Conhecimento}}:Ciência da Computação
+
+\item{\textbf{Linha de Pesquisa}}:?
+
+\item{\textbf{Titulo do Projeto}}: Trabalho de Conclusão de Curso
+
+\item{\textbf{Participantes}}:
+\\Profª Andrea Schwertner Charão - Orientadora
+\\Otávio Migliavacca Madalosso - Orientando
+\\ 
+\end{description}
+
+
+\section{Introdução}
+
+Algoritmos com grande custo computacional são facilmente encontrados em áreas como meteorologia, biologia e astronomia. Esses algoritmos possuem a característica de utilizar um nível elevado de processamento para concluir sua execução, e consequentemente, seus tempos de execução podem variar dependendo da máquina aonde estão sendo executados.
+
+É comum pesquisadores destas e de outras áreas desenvolverem novas implementações de algoritmos utilizados por seus colegas. Implementações essas que podem trazer muitos benefícios para outros pesquisadores que necessitam deste tipo de solução. Mas normalmente essas implementações ficam restritas a ambientes privados, não por questões de licensa, mas simplesmente pela ausência de um método prático para disponibilizar a nova ferramenta ao público.
+
+O framework web Django foi desenvolvido na linguagem Python para gerenciar um site jornalístico e tornou-se um projeto de código aberto em 2005, publicado sob a licença BSD. Esse framework é amplamente usado para desenvolvimento web pois segue o padrão MVC( Model - View - Controller) e prega simplificar a criação de sites que fazem bastante uso de banco de dados, além de seus princípios de desenvolvimento rápido e características de reusabilidade e \textit{plugability} para aplicações.
+
+Com isso, surge o projeto de utilizar a praticidade de Django para desenvolver um portal web que permita ao usuário o cadastro de um experimento, no qual ele poderá ditar os dados de entrada desse experimento, e qual algoritmo (disponível no sistema) ele deseja utilizar para processar os dados. Depois de requisitar o experimento, o sistema deve providenciar sua execução e quando finalizar, retornar o resultado do experimento ao usuário que o requisitou.
+
+\section{Objetivos}
+\subsection{Objetivo Geral}
+O objetivo deste trabalho é criar um portal web utilizando o framework Django que possibilite aos usuários cadastrados no sistema  executar algoritmos presentes no sistema segundo suas configurações e disponibilizar o resultado da execução após o término da mesma.
+
+\subsection{Objetivos Específicos}
+\begin{itemize}
+	\item Estudo do framework Django.
+	\item Desenvolvimento front-end do servidor.
+	\item Administração das execuções requisitadas.
+	\item Atualização dos estados das requisições no sistema.
+    
+\end{itemize}
+
+\section{Justificativa}
+A ideia do projeto originou-se a partir da proposta do Orientador do projeto de pesquisa... (detalhar?)
+
+O projeto é capaz de gerar benefícios significativos para a comunidade de pesquisa de diversas áreas, criando um ambiente que facilite a divulgação e teste de resultados de algoritmos alternativos para resolução de problemas comuns.
+
+\section{Revisão de Literatura}
+\section{Metodologia}
+\section{Plano de Atividades e Cronograma}
+\section{Recursos}
+Para a realização do projeto será utilizado o equipamento pessoal do orientando, nenhum \textit{hardware} específico será utilizado pois espera-se que seja desenvolvido um sistema que possa ser mantido em um servidor com configurações semelhantes com o de qualquer serivdor web.
+\section{Resultados Esperados}
+Ao término do trabalho, espera-se obter um sistema funcional compatível com o que foi explorado na sessão de Objetivos, um portal web que permita cadastro de usuários e no qual, cada usuário pode requisitar a execução de algoritmos existentes no sistema, utilizando para tal suas proprias configurações de execução (Dados de entrada, propriedades de execução).
+\bibliographystyle{abbrvnat}
+\bibliography{../graphics,../languages}
+
+\end{document}
