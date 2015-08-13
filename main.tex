@@ -15,7 +15,7 @@
 \usepackage{color}
 \geometry{a4paper}
 
-\title{Portal Web Django para execução de aplicações que demandam alto custo computacional}
+\title{Um sistema Web para execução remota de aplicações de alto desempenho}
 \author{Otávio Migliavacca Madalosso \\ \emph{Universidade Federal de Santa Maria}}
 
 \begin{document}
@@ -26,7 +26,7 @@
 
 \begin{description} \itemsep 0pt
 
-\item{\textbf{Resumo:}} Django é um framework web de alto nível escrito em Python que estimula o desenvolvimento rápido e limpo. Tradicionalmente é utilizado para o desenvolvimento de portais web que necessitam de uma ferramenta eficiente para gerência de conteúdo. Porém este trabalho tem como objetivo utilizar os benefícios desse framework para criar um portal que permita gerenciar a execução de algoritmos com custo elevado de processamento de acordo com as configurações definidas pelos usuários do portal.
+\item{\textbf{Resumo:}}Algumas áreas de pesquisa utilizam constantemente algoritmos que demandam alto desempenho dos seus ambientes de execução. Ocasionalmente, surgem algoritmos novos, com diferentes propriedades, que se propoem a resolver um problema de forma mais eficiente e/ou completa. Infelizmente, é comum que esses algoritmos fiquem restritos a ambientes institucionais, limitando muito a sua visibilidade para a comunidade de pesquisa. Este trabalho tem como objetivo criar um portal que permita ao usuário solicitar a execução remota de algoritmos de acordo com as configurações que ele desejar.
 
 
 \item{\textbf{Período de Execução}}: Setembro de 2015 até Dezembro de 2015
@@ -55,19 +55,19 @@
 
 Algoritmos com grande custo computacional são facilmente encontrados em áreas como meteorologia, biologia e astronomia. Esses algoritmos possuem a característica de utilizar um nível elevado de processamento para concluir sua execução, e consequentemente, seus tempos de execução podem variar dependendo da máquina aonde estão sendo executados.
 
-É comum pesquisadores destas e de outras áreas desenvolverem novas implementações de algoritmos utilizados por seus colegas. Implementações essas que podem trazer muitos benefícios para outros pesquisadores que necessitam deste tipo de solução. Mas normalmente essas implementações ficam restritas a ambientes privados, não por questões de licensa, mas simplesmente pela ausência de um método prático para disponibilizar a nova ferramenta ao público.
+É comum pesquisadores destas e de outras áreas desenvolverem novas implementações de algoritmos utilizados por seus colegas. Implementações essas que podem trazer muitos benefícios para outros pesquisadores que necessitam deste tipo de solução. Infelizmente, é comum essas implementações ficarem restritas a ambientes privados, não por questões de licença, mas simplesmente pela ausência de um método prático para disponibilizar a nova ferramenta ao público.
 
-O framework web Django foi desenvolvido na linguagem Python para gerenciar um site jornalístico e tornou-se um projeto de código aberto em 2005, publicado sob a licença BSD. Esse framework é amplamente usado para desenvolvimento web pois segue o padrão MVC( Model - View - Controller) e prega simplificar a criação de sites que fazem bastante uso de banco de dados, além de seus princípios de desenvolvimento rápido e características de reusabilidade e \textit{plugability} para aplicações.
+Com isso, surge a ideia de desenvolver um portal web que permita ao usuário o cadastro de um experimento, no qual ele poderá ditar os dados de entrada desse experimento, e qual algoritmo (disponível no sistema) ele deseja utilizar para processar os dados. Depois de requisitar o experimento, o sistema deve providenciar sua execução e quando finalizar, retornar o resultado do experimento ao usuário que o requisitou.
 
-Com isso, surge o projeto de utilizar a praticidade de Django para desenvolver um portal web que permita ao usuário o cadastro de um experimento, no qual ele poderá ditar os dados de entrada desse experimento, e qual algoritmo (disponível no sistema) ele deseja utilizar para processar os dados. Depois de requisitar o experimento, o sistema deve providenciar sua execução e quando finalizar, retornar o resultado do experimento ao usuário que o requisitou.
+Para este portal, será utilizado um algoritmo desenvolvido para a área de astronomia, uma versão do algoritmo Friends-of-Friends de complexidade n*log(n) paralelizada através do framework OpenMP
 
 \section{Objetivos}
 \subsection{Objetivo Geral}
-O objetivo deste trabalho é criar um portal web utilizando o framework Django que possibilite aos usuários cadastrados no sistema  executar algoritmos presentes no sistema segundo suas configurações e disponibilizar o resultado da execução após o término da mesma.
+O objetivo deste trabalho é criar um portal web que possibilite aos usuários cadastrados no sistema  executar algoritmos presentes no sistema segundo suas configurações e disponibilizar o resultado da execução após o término da mesma.
 
 \subsection{Objetivos Específicos}
 \begin{itemize}
-	\item Estudo do framework Django.
+	\item Estudo de frameworks web para ser utilizado no desenvolvimento.
 	\item Desenvolvimento front-end do servidor.
 	\item Administração das execuções requisitadas.
 	\item Atualização dos estados das requisições no sistema.
@@ -75,13 +75,37 @@ O objetivo deste trabalho é criar um portal web utilizando o framework Django q
 \end{itemize}
 
 \section{Justificativa}
-A ideia do projeto originou-se a partir da proposta do Orientador do projeto de pesquisa... (detalhar?)
-
 O projeto é capaz de gerar benefícios significativos para a comunidade de pesquisa de diversas áreas, criando um ambiente que facilite a divulgação e teste de resultados de algoritmos alternativos para resolução de problemas comuns.
 
 \section{Revisão de Literatura}
 \section{Metodologia}
+O método de pesquisa aplicada será utilizado, pois o projeto se propõe a aplicar os ensinamentos adquiridos no decorrer do curso para explorar as melhores soluções para atingir os objetivos.
+
 \section{Plano de Atividades e Cronograma}
+\begin{enumerate}
+\item \label{activity:frameworks} \textbf{Estudo de Frameworks Web para desenvolvimento}
+Será realizado um estudo dos frameworks mais conhecidos no mercado e selecionado o que mais apresentar benefícios para o desenvolvimento da aplicação proposta
+\item \label{activity:develop} \textbf{Desenvolvimento front-end}
+Após o estudo e seleção do framework para implementação, inicia-se o inicio do desenvolvimento do servidor front-end, criando o portal com as funções CRUD para gerenciar contas de usuários e os experimentos.
+\item \label{activity:exec} \textbf{Administração das Execuções requisitadas}
+Por se tratar de um portal que permitirá a execução remota de aplicações de alto desempenho, sabe-se que será necessário um estudo de como implementar a administração das requisições dos experimentos, visto que não deve existir concorrência de 2 ou mais experimentos no sistema.
+\item  \label{activity:updates} \textbf{Atualização de estados dos experimentos}
+Quando resolver-se a questão de execução dos algoritmos pelo sistema, também será necessário criar um método de verificar quando essas execuções finalizaram, bem como disponibilizar os resultados obtidos para o usuário no portal.
+\end{enumerate}
+\textbf{Cronograma}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{c|ccccc}
+	Etapa & Agosto & Setembro & Outubro & Novembro & Dezembro \\ \hline
+	\ref{activity:frameworks} & \checkmark & & & \\
+	\ref{activity:develop} & \checkmark & \checkmark & & \\
+	\ref{activity:exec} & & \checkmark & \checkmark & \checkmark & \\
+	\ref{activity:updates} & & &\checkmark & \checkmark & \checkmark \\
+\end{tabular}
+\caption{Cronograma de Atividades}
+
+\end{table}
 \section{Recursos}
 Para a realização do projeto será utilizado o equipamento pessoal do orientando, nenhum \textit{hardware} específico será utilizado pois espera-se que seja desenvolvido um sistema que possa ser mantido em um servidor com configurações semelhantes com o de qualquer serivdor web.
 \section{Resultados Esperados}
