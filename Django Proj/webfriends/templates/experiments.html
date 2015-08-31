@@ -1,0 +1,12 @@
+{%extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block head_title%}Executions{%endblock%}
+
+{% block content %}
+	{% if request.user.is_authenticated %}
+		VAI
+	{%else%}
+		Please login to execute experiments
+	{%endif%}
+{%endblock%}
