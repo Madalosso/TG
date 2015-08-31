@@ -1,2 +1,4 @@
 # TG
-Trabalho de Graduação
+Trabalho de Graduação -t1
+to start server: on Django Proj/webfriends/ "./manage.py runserver"
+
