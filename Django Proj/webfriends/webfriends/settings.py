@@ -48,6 +48,7 @@ INSTALLED_APPS = (
     'registration',
     'crispy_forms',
     'experiment',
+    'django_ajax',
 )
 
 MIDDLEWARE_CLASSES = (

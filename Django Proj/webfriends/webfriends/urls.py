@@ -2,8 +2,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
-# import ../experiment/regbackend
 import regbackend
+
 
 urlpatterns = [
 	#urls experiment
@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^contact/$', 'experiment.views.contact', name='contact'),
     url(r'^experiments/$', 'experiment.views.experiments', name='exp'),
 	
+   
 	#urls webfriends
     url(r'^about/$', 'webfriends.views.about', name='about'),
     url(r'^admin/', include(admin.site.urls)),

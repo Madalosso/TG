@@ -5,8 +5,15 @@
 
 {% block content %}
 	{% if request.user.is_authenticated %}
-		VAI
+		<div id='row-form' class="row">
+		    <div class="col-sm-6 col-md-3">
+				<form method="POST" action=".">{% csrf_token %}
+					{{form|crispy}}
+					<input id='execute' class='btn btn-primary' type="submit" value="Executar">
+				</form>
+		  	</div>
+		</div>
 	{%else%}
-		Please login to execute experiments
+		Please login to execute
 	{%endif%}
 {%endblock%}
