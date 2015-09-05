@@ -1,13 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-# class UserProfile(models.Model):
-#   nameUser = models.CharField(max_length=30, blank=False, null=True)
-#   usuario = models.OneToOneField(RegistrationProfile)
-#   def __unicode__(self):
-#       return "batata"
-
 
 class UsuarioFriends(models.Model):
     nickname = models.CharField(max_length=30, blank=False, null=True)
@@ -19,11 +12,25 @@ class UsuarioFriends(models.Model):
         return self.nickname
 
 
+class Algorithms(models.Model):
+    idAlg = models.AutoField(primary_key=True)
+    nameAlg = models.CharField(null=False, blank=False, max_length=100)
+    desc = models.CharField(null=True, blank=False, max_length=500)
+    command = models.CharField(null=False, blank=False, max_length=100)
+
+    def __unicode__(self):
+        return self.nameAlg
+
+
 class Execution(models.Model):
     request_by = models.ForeignKey(UsuarioFriends)
     date_requisition = models.DateTimeField(
         'date_requisition', auto_now_add=True)
     status = models.IntegerField(default=1)
+    opt = models.CharField(null=True, max_length=100)
+    algorithm = models.ForeignKey(Algorithms, null=True, blank=False)
+    # infile
+    # outfile
 
     def __unicode__(self):
         return self.request_by.nickname

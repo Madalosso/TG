@@ -1,14 +1,23 @@
 from django import forms
 from registration.forms import RegistrationFormUniqueEmail
+from .models import Algorithms
+
 
 class UsuarioFriendsForm(RegistrationFormUniqueEmail):
-	nickname = forms.CharField()
+    nickname = forms.CharField()
+
 
 class ExecutionForm(forms.Form):
-	status = forms.IntegerField()
+    Algorithm = forms.ModelChoiceField(queryset=Algorithms.objects.all(),
+                                       empty_label="---Selecione um algoritmo---",
+                                       required=True,
+                                       to_field_name="nameAlg",
+                                       )
+    opt = forms.CharField(required=False)
+
 
 class ContactForm(forms.Form):
-	nome = forms.CharField()
-	email = forms.EmailField()
-	mensagem = forms.CharField()
-	arquivo = forms.FileField(required=False)
+    nome = forms.CharField()
+    email = forms.EmailField()
+    mensagem = forms.CharField()
+    arquivo = forms.FileField(required=False)

@@ -3,7 +3,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from experiment.forms import ExecutionForm, ContactForm
-from experiment.models import Execution,UsuarioFriends
+from experiment.models import Execution, UsuarioFriends, Algorithms
 import os
 
 
@@ -51,10 +51,18 @@ def experiments(request):
     if form.is_valid():
         d_User = User.objects.get(username=request.user)
         execution = Execution(
-            request_by=d_User.usuariofriends, status=form.cleaned_data.get("status"))
+            request_by=d_User.usuariofriends,
+            #     status=form.cleaned_data.get("status"),
+            algorithm=form.cleaned_data.get("Algorithm"),
+            opt=form.cleaned_data.get("opt") #very tenso
+        )
         execution.save()
-        #aqui deve ser feita a call pra executar o algoritmo
-        #os.system('./script.sh')
+        
+        # aqui deve ser feita a call pra executar o algoritmo
+        alg = Algorithms.objects.get(nameAlg=form.cleaned_data.get("Algorithm"))
+        query = alg.command
+        print(query)
+        os.system(query)
     title = "Experiments %s" % (request.user)
     context = {
         "title": title,
