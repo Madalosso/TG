@@ -7,7 +7,7 @@
 	{% if request.user.is_authenticated %}
 		<div id='row-form' class="row">
 		    <div class="col-sm-6 col-md-3">
-				<form method="POST" action=".">{% csrf_token %}
+				<form id='form_exec' method='POST' action='.'>{% csrf_token %}
 					{{form|crispy}}
 					<input id='execute' class='btn btn-primary' type="submit" value="Executar">
 				</form>

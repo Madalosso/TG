@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,render_to_response
+from django.views.decorators.csrf import csrf_protect
+from django.http import HttpResponse
 from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
@@ -45,27 +47,52 @@ def contact(request):
     }
     return render(request, "contact.html", context)
 
-
+@csrf_protect
 def experiments(request):
-    form = ExecutionForm(request.POST or None)  # request POST?
-    if form.is_valid():
+    if request.method == 'POST':
+        print request.POST
+        opt = request.POST.get('opt')
+        algorithm = request.POST.get('Algorithm')
         d_User = User.objects.get(username=request.user)
+        alg = Algorithms.objects.get(nameAlg=algorithm)
         execution = Execution(
-            request_by=d_User.usuariofriends,
-            #     status=form.cleaned_data.get("status"),
-            algorithm=form.cleaned_data.get("Algorithm"),
-            opt=form.cleaned_data.get("opt") #very tenso
-        )
+                request_by=d_User.usuariofriends,
+                #     status=form.cleaned_data.get("status"),
+                algorithm=alg,
+                opt=opt #very tenso
+            )
         execution.save()
-        
-        # aqui deve ser feita a call pra executar o algoritmo
-        alg = Algorithms.objects.get(nameAlg=form.cleaned_data.get("Algorithm"))
+
         query = alg.command
         print(query)
         os.system(query)
-    title = "Experiments %s" % (request.user)
-    context = {
-        "title": title,
-        "form": form
-    }
-    return render(request, "experiments.html", context)
+        resp={}
+        resp['resposta'] = 'FEXAMOS'
+        return render(request, "experiments.html", resp)
+    else:
+        form = ExecutionForm(request.POST or None)  # request POST?
+        if form.is_valid():
+            d_User = User.objects.get(username=request.user)
+            execution = Execution(
+                request_by=d_User.usuariofriends,
+                #     status=form.cleaned_data.get("status"),
+                algorithm=form.cleaned_data.get("Algorithm"),
+                opt=form.cleaned_data.get("opt") #very tenso
+            )
+            execution.save()
+            
+            # aqui deve ser feita a call pra executar o algoritmo
+            alg = Algorithms.objects.get(nameAlg=form.cleaned_data.get("Algorithm"))
+            query = alg.command
+            print(query)
+            os.system(query)
+            resp={}
+            resp['resposta'] = 'FEXAMOS'
+            return render(request, "experiments.html", resp)
+
+        title = "Experiments %s" % (request.user)
+        context = {
+            "title": title,
+            "form": form
+        }
+        return render(request, "experiments.html", context)
