@@ -1,5 +1,7 @@
 var csrftoken = $.cookie('csrftoken');
 
+
+
 function csrfSafeMethod(method) {
     // these HTTP methods do not require CSRF protection
     return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
@@ -14,20 +16,28 @@ $.ajaxSetup({
 
 function create_post(){
 	console.log("create post is working!")
-	$('#form_exec').hide()
+	// $('#form_exec').hide()
 	$.ajax({
-		url : ".", //talvez tenha q ser experiments
+		url : "checkForm", //talvez tenha q ser experiments
 		type : "POST",
-		data : {
-			opt : $('#id_opt').val(),
-			Algorithm : $('#id_Algorithm').val()
-		},
+		data : $('#form_exec').serialize(),
+		 // {
+
+			// opt : $('#id_opt').val(),
+			// Algorithm : $('#id_Algorithm').val()
+		// },
 
 		//handle successful
-		success : function(json){
-			$('#id_opt').val('')
-			console.log(json.resposta)
-			console.log("success")
+		success : function(data){
+	        if (!(data['success'])) {
+	            // Here we replace the form, for the
+	            $('#form_exec').replaceWith(data['form_html']);
+	        }
+	        else {
+	        	//provavelmente nunca vai chegar aqui pq vai ficar pensando
+	            // Here you can show the user a success message or do whatever you need
+	            // $('#form_exec').find('.success-message').show();
+	        }
 		},
 
 		error : function(xhr,errmsg,err){
@@ -42,4 +52,9 @@ $('#form_exec').on('submit', function(event){
     event.preventDefault();
     console.log("form submitted!")  // sanity check
     create_post();
+});
+
+
+$('#execute').click(function(){
+	$('#form_exec').submit();
 });

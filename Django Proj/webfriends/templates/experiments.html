@@ -9,8 +9,9 @@
 		    <div class="col-sm-6 col-md-3">
 				<form id='form_exec' method='POST' action='.'>{% csrf_token %}
 					{{form|crispy}}
-					<input id='execute' class='btn btn-primary' type="submit" value="Executar">
+					
 				</form>
+				<input id='execute' class='btn btn-primary' type="submit" value="Executar">
 		  	</div>
 		</div>
 	{%else%}

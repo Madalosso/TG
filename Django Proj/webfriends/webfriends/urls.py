@@ -9,6 +9,7 @@ urlpatterns = [
 	#urls experiment
     url(r'^$', 'experiment.views.home', name='home'),
     url(r'^contact/$', 'experiment.views.contact', name='contact'),
+    url(r'^experiments/checkForm$', 'experiment.views.checkForm', name='checkForm'),
     url(r'^experiments/$', 'experiment.views.experiments', name='exp'),
 	
    

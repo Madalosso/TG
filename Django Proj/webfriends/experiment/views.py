@@ -13,11 +13,9 @@ import os
 from registration.views import RegistrationView
 from registration.models import RegistrationProfile
 
-# Django Ajax
-#from django_ajax.decorators import ajax
-
-# Create your views here.
-
+#jsonview - Crispy validation
+from jsonview.decorators import json_view
+from  crispy_forms.utils import render_crispy_form
 
 def home(request):
     title = "Home %s" % (request.user)
@@ -47,6 +45,17 @@ def contact(request):
     }
     return render(request, "contact.html", context)
 
+@json_view
+def checkForm(request):
+    form = ExecutionForm(request.POST or None)  # request POST?
+    if form.is_valid():
+        #faz as pootarias
+        return experiments(request)
+    else:
+        form_html =render_crispy_form(form)
+        return {'success' : False, 'form_html': form_html}
+
+
 @csrf_protect
 def experiments(request):
     if request.method == 'POST':
@@ -66,33 +75,37 @@ def experiments(request):
         query = alg.command
         print(query)
         os.system(query)
-        resp={}
-        resp['resposta'] = 'FEXAMOS'
-        return render(request, "experiments.html", resp)
-    else:
-        form = ExecutionForm(request.POST or None)  # request POST?
-        if form.is_valid():
-            d_User = User.objects.get(username=request.user)
-            execution = Execution(
-                request_by=d_User.usuariofriends,
-                #     status=form.cleaned_data.get("status"),
-                algorithm=form.cleaned_data.get("Algorithm"),
-                opt=form.cleaned_data.get("opt") #very tenso
-            )
-            execution.save()
-            
-            # aqui deve ser feita a call pra executar o algoritmo
-            alg = Algorithms.objects.get(nameAlg=form.cleaned_data.get("Algorithm"))
-            query = alg.command
-            print(query)
-            os.system(query)
-            resp={}
-            resp['resposta'] = 'FEXAMOS'
-            return render(request, "experiments.html", resp)
+        return {'success':True}
+        # resp={}
+        # resp['success'] = True
+        # return render(request, "experiments.html", resp)
+# else:
+    
+    #para execucao sem ajax
 
-        title = "Experiments %s" % (request.user)
-        context = {
-            "title": title,
-            "form": form
-        }
-        return render(request, "experiments.html", context)
+    form = ExecutionForm(request.POST or None)
+    # if form.is_valid():
+    #     d_User = User.objects.get(username=request.user)
+    #     execution = Execution(
+    #         request_by=d_User.usuariofriends,
+    #         #     status=form.cleaned_data.get("status"),
+    #         algorithm=form.cleaned_data.get("Algorithm"),
+    #         opt=form.cleaned_data.get("opt") #very tenso
+    #     )
+    #     execution.save()
+        
+    #     # aqui deve ser feita a call pra executar o algoritmo
+    #     alg = Algorithms.objects.get(nameAlg=form.cleaned_data.get("Algorithm"))
+    #     query = alg.command
+    #     print(query)
+    #     os.system(query)
+    #     resp={}
+    #     resp['resposta'] = 'FEXAMOS'
+    #     return render(request, "experiments.html", resp)
+
+    title = "Experiments %s" % (request.user)
+    context = {
+        "title": title,
+        "form": form
+    }
+    return render(request, "experiments.html", context)
