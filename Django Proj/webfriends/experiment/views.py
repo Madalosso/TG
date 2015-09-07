@@ -1,6 +1,7 @@
-from django.shortcuts import render,render_to_response
+from django.shortcuts import render, render_to_response
 from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse
+from django.template import RequestContext
 from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
@@ -13,9 +14,11 @@ import os
 from registration.views import RegistrationView
 from registration.models import RegistrationProfile
 
-#jsonview - Crispy validation
+# jsonview - Crispy validation
 from jsonview.decorators import json_view
-from  crispy_forms.utils import render_crispy_form
+from crispy_forms.utils import render_crispy_form
+from crispy_forms.helper import FormHelper
+
 
 def home(request):
     title = "Home %s" % (request.user)
@@ -38,22 +41,31 @@ def contact(request):
                   from_email,
                   [to_email],
                   fail_silently=False)
-        # for key in form.cleaned_data:
-            # print form.cleaned_data.get(key)
     context = {
         "form": form,
     }
     return render(request, "contact.html", context)
 
+
 @json_view
+@csrf_protect
 def checkForm(request):
     form = ExecutionForm(request.POST or None)  # request POST?
-    if form.is_valid():
-        #faz as pootarias
-        return experiments(request)
+    if form.is_valid():  # processa
+        experiments(request)
+        form_html = render_crispy_form(ExecutionForm(None))
+        return {'success': True, 'form_html': form_html}
+        # exp = experiments(request)
+        # form2 = ExecutionForm(request.POST or None)
+        # return {'success': True, 'form_html': form2}
     else:
-        form_html =render_crispy_form(form)
-        return {'success' : False, 'form_html': form_html}
+        helper = FormHelper()
+        helper.form_id = 'form_exec'
+        helper.form_action = '.'
+        form_html = render_crispy_form(form, helper, RequestContext(request))
+        return {'success': False, 'form_html': form_html}
+        # return render(request, "experiments.html", {'success': False,
+        # 'form_html': form_html})
 
 
 @csrf_protect
@@ -65,44 +77,22 @@ def experiments(request):
         d_User = User.objects.get(username=request.user)
         alg = Algorithms.objects.get(nameAlg=algorithm)
         execution = Execution(
-                request_by=d_User.usuariofriends,
-                #     status=form.cleaned_data.get("status"),
-                algorithm=alg,
-                opt=opt #very tenso
-            )
+            request_by=d_User.usuariofriends,
+            #     status=form.cleaned_data.get("status"),
+            algorithm=alg,
+            opt=opt,  # very tenso
+        )
         execution.save()
-
         query = alg.command
         print(query)
         os.system(query)
-        return {'success':True}
-        # resp={}
-        # resp['success'] = True
-        # return render(request, "experiments.html", resp)
-# else:
-    
-    #para execucao sem ajax
-
+        cont = {}
+        cont['success'] = True
+        cont['form_html'] = ExecutionForm(request.POST or None)
+        return
+        # return cont
+        # return render(request, "experiments.html", cont)
     form = ExecutionForm(request.POST or None)
-    # if form.is_valid():
-    #     d_User = User.objects.get(username=request.user)
-    #     execution = Execution(
-    #         request_by=d_User.usuariofriends,
-    #         #     status=form.cleaned_data.get("status"),
-    #         algorithm=form.cleaned_data.get("Algorithm"),
-    #         opt=form.cleaned_data.get("opt") #very tenso
-    #     )
-    #     execution.save()
-        
-    #     # aqui deve ser feita a call pra executar o algoritmo
-    #     alg = Algorithms.objects.get(nameAlg=form.cleaned_data.get("Algorithm"))
-    #     query = alg.command
-    #     print(query)
-    #     os.system(query)
-    #     resp={}
-    #     resp['resposta'] = 'FEXAMOS'
-    #     return render(request, "experiments.html", resp)
-
     title = "Experiments %s" % (request.user)
     context = {
         "title": title,
