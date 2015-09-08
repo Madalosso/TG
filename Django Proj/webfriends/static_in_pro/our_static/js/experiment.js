@@ -19,6 +19,8 @@ function toggleFormWait(){
 }
 
 function create_post(){
+	$("#id_Algorithm").prop('disabled', false);	
+	$("#id_opt").prop('disabled', false);
 	toggleFormWait();
 	$.ajax({
 		url : "checkForm", //talvez tenha q ser experiments
@@ -36,11 +38,10 @@ function create_post(){
 	        	// $('#form_exec').replaceWith(data.form_html);
 	        	$('#form_exec').replaceWith(data['form_html']);
 	        	$('#form_exec').prepend('<input type="hidden" name="csrfmiddlewaretoken" value="'+csrftoken+'">');   
-	        	$('#form_exec').on('submit', function(event){
-				    event.preventDefault();
-				    console.log("form submitted!")  // sanity check
-				    create_post();
+	        	$('#execute').click(function(){
+					$('#form_exec').submit();
 				});
+				// setHandlers();
 	            // console.log(data['form_html']);
 	            // var formClear = data['form_html'];
 	            // formClear = formClear.replace('<form  id="form_exec" method="post" >','')
@@ -48,13 +49,16 @@ function create_post(){
 	            // $('#formContent').replaceWith(formClear);
 	        }
 	        else {
-	        	console.log("SUCESSOSOSOSOS")
+	        	console.log("SUCESSOSOSOSOS");
 	        	$('#form_exec').replaceWith(data['form_html']);
 	        	$('#form_exec').prepend('<input type="hidden" name="csrfmiddlewaretoken" value="'+csrftoken+'">');   
-	        	$('#form_exec').on('submit', function(event){
-				    event.preventDefault();
-				    console.log("form submitted!")  // sanity check
-				    create_post();
+	   //      	$('#form_exec').on('submit', function(event){
+				//     event.preventDefault();
+				//     console.log("form submitted!")  // sanity check
+				//     create_post();
+				// });
+				$('#execute').click(function(){
+					$('#form_exec').submit();
 				});
 	        	//provavelmente nunca vai chegar aqui pq vai ficar pensando
 	            // Here you can show the user a success message or do whatever you need
@@ -84,4 +88,27 @@ function setTriggers(){
 
 };
 
+function setHandlers(){
+	$('#id_PresetExecution').on("change", function(){
+		var opcao = $('#id_PresetExecution').val();
+		console.log(opcao);
+		var algSelect = $('#id_PresetExecution option:selected').text();
+		if(opcao){
+			$("#id_Algorithm option").filter(function() {
+		   		return $(this).text() == algSelect; 
+			}).prop('selected', true);
+			$("#id_opt").val('');
+			$("#id_Algorithm").prop('disabled', true);	
+			$("#id_opt").prop('disabled', true);
+		}else{
+			$('select#id_Algorithm').prop('selectedIndex', 0);
+			$("#id_opt").val('');	
+			$("#id_Algorithm").prop('disabled', false);	
+			$("#id_opt").prop('disabled', false);	
+		}
+	});
+};
+
+
+setHandlers();
 setTriggers();

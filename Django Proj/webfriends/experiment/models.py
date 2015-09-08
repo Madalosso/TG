@@ -21,6 +21,15 @@ class Algorithms(models.Model):
     def __unicode__(self):
         return self.nameAlg
 
+class ExecModel(models.Model):
+    opt = models.CharField(null=True, max_length=100)
+    algorithm = models.ForeignKey(Algorithms, null=True, blank=False)
+    inputFile = models.FileField(null=True)
+    desc = models.CharField(null=True, blank=False, max_length=500)
+
+    def __unicode__(self):
+        return self.algorithm.nameAlg
+
 
 class Execution(models.Model):
     request_by = models.ForeignKey(UsuarioFriends)
@@ -29,6 +38,8 @@ class Execution(models.Model):
     status = models.IntegerField(default=1)
     opt = models.CharField(null=True, max_length=100)
     algorithm = models.ForeignKey(Algorithms, null=True, blank=False)
+    inputFile = models.FileField(null=True)
+    # outputFile = models.FileField(null=True)
     # infile
     # outfile
 

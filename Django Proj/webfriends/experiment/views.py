@@ -51,9 +51,14 @@ def contact(request):
 @csrf_protect
 def checkForm(request):
     form = ExecutionForm(request.POST or None)  # request POST?
+    print(request.POST)
+    print "\n\n\n\n"
     if form.is_valid():  # processa
         experiments(request)
-        form_html = render_crispy_form(ExecutionForm(None))
+        helper = FormHelper()
+        helper.form_id = 'form_exec'
+        helper.form_action = '.'
+        form_html = render_crispy_form(ExecutionForm(None), helper)
         return {'success': True, 'form_html': form_html}
         # exp = experiments(request)
         # form2 = ExecutionForm(request.POST or None)

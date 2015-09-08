@@ -1,6 +1,6 @@
 from django import forms
 from registration.forms import RegistrationFormUniqueEmail
-from .models import Algorithms
+from .models import Algorithms, ExecModel
 
 
 class UsuarioFriendsForm(RegistrationFormUniqueEmail):
@@ -8,6 +8,9 @@ class UsuarioFriendsForm(RegistrationFormUniqueEmail):
 
 
 class ExecutionForm(forms.Form):
+    PresetExecution = forms.ModelChoiceField(queryset=ExecModel.objects.all(),
+                                             empty_label="---Selecione um modelo---",
+                                             required=False)
     Algorithm = forms.ModelChoiceField(queryset=Algorithms.objects.all(),
                                        empty_label="---Selecione um algoritmo---",
                                        required=True,
