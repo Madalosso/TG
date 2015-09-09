@@ -12,13 +12,14 @@
 		    	<img id="load_gif" src="{% static 'img/ajax-loader.gif' %}">
 		  	</div>
 		    <div id="colForm" class="col-sm-6 col-md-3">
-				<form id='form_exec' method='POST' action='.'>
+				<form id='form_exec' method='POST' action='.' enctype="multipart/form-data">
 				{% csrf_token %}
 					{# <div id="formContent"> Necessario para nao bugar com erro de validacao do crispy #}
 						{{form|crispy}}    {# Crispy que falha nao retorna formulario com o csrf_token  #}
 					{# </div>				   Isso ocasionava um erro de acesso. (gambiarra no javascript) #}
+					<input id='execute' class='btn btn-primary' type="submit" value="Executar">
 				</form>
-				<input id='execute' class='btn btn-primary' type="submit" value="Executar">
+				
 		  	</div>
 		</div>
 	{%else%}

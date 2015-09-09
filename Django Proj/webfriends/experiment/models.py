@@ -21,14 +21,19 @@ class Algorithms(models.Model):
     def __unicode__(self):
         return self.nameAlg
 
+
 class ExecModel(models.Model):
     opt = models.CharField(null=True, max_length=100)
     algorithm = models.ForeignKey(Algorithms, null=True, blank=False)
-    inputFile = models.FileField(null=True)
+    inputFile = models.FileField(
+        upload_to='presetsInputs/', null=True)
     desc = models.CharField(null=True, blank=False, max_length=500)
 
     def __unicode__(self):
         return self.algorithm.nameAlg
+
+def user_directory_path(instance, filename):
+    return './users/user_{0}/{1}/input'.format(instance.request_by.usuario.id, instance.id, filename)
 
 
 class Execution(models.Model):
@@ -38,7 +43,7 @@ class Execution(models.Model):
     status = models.IntegerField(default=1)
     opt = models.CharField(null=True, max_length=100)
     algorithm = models.ForeignKey(Algorithms, null=True, blank=False)
-    inputFile = models.FileField(null=True)
+    inputFile = models.FileField(upload_to=user_directory_path, null=True)
     # outputFile = models.FileField(null=True)
     # infile
     # outfile

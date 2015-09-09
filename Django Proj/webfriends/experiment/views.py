@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from experiment.forms import ExecutionForm, ContactForm
 from experiment.models import Execution, UsuarioFriends, Algorithms
+from django.core.files import File
 import os
 
 
@@ -46,13 +47,15 @@ def contact(request):
     }
     return render(request, "contact.html", context)
 
+# ajax
+
 
 @json_view
 @csrf_protect
 def checkForm(request):
     form = ExecutionForm(request.POST or None)  # request POST?
     print(request.POST)
-    print "\n\n\n\n"
+    print "\n\n"
     if form.is_valid():  # processa
         experiments(request)
         helper = FormHelper()
@@ -60,23 +63,28 @@ def checkForm(request):
         helper.form_action = '.'
         form_html = render_crispy_form(ExecutionForm(None), helper)
         return {'success': True, 'form_html': form_html}
-        # exp = experiments(request)
-        # form2 = ExecutionForm(request.POST or None)
-        # return {'success': True, 'form_html': form2}
     else:
         helper = FormHelper()
         helper.form_id = 'form_exec'
         helper.form_action = '.'
         form_html = render_crispy_form(form, helper, RequestContext(request))
         return {'success': False, 'form_html': form_html}
-        # return render(request, "experiments.html", {'success': False,
-        # 'form_html': form_html})
 
 
 @csrf_protect
 def experiments(request):
     if request.method == 'POST':
-        print request.POST
+        print settings.BASE_DIR
+        form = ExecutionForm(request.POST, request.FILES or None)
+        if not form.is_valid():
+            title = "Experiments %s" % (request.user)
+            form_html = render_crispy_form(form)
+            context = {
+                "form": form,
+                'title': title
+            }
+            return render(request, "experiments.html", context)
+
         opt = request.POST.get('opt')
         algorithm = request.POST.get('Algorithm')
         d_User = User.objects.get(username=request.user)
@@ -88,15 +96,36 @@ def experiments(request):
             opt=opt,  # very tenso
         )
         execution.save()
+        print execution.id
+        # if request.FILES.exists():
+        fileIn = request.FILES["fileIn"]
+        execution.inputFile = fileIn
+        execution.save()
+        print fileIn
         query = alg.command
+        # print settings.MEDIA_URL
+        # diret = settings.MEDIA_URL + 'users/' + \
+            # d_User.username + '/'# + str(execution.id) + '-input'
+        # print diret
+        # if not os.path.exists(diret): os.makedirs(diret)
+        # fileUploaded = request.FILES["fileIn"]
+        # with open(diret+str(execution.id) + '-input', 'w') as inputFile:
+            # for chunk in fileUploaded.chunks():
+                # inputFile.write(chunk)
+        
+
         print(query)
-        os.system(query)
-        cont = {}
-        cont['success'] = True
-        cont['form_html'] = ExecutionForm(request.POST or None)
-        return
+        # os.system(query)
+        title = "Experiments %s" % (request.user)
+        cont = {
+            "title": title,
+            "form": form
+        }
+        # cont['success'] = True
+        # cont['form_html'] = ExecutionForm(request.POST or None)
+        # return
         # return cont
-        # return render(request, "experiments.html", cont)
+        return render(request, "experiments.html", cont)
     form = ExecutionForm(request.POST or None)
     title = "Experiments %s" % (request.user)
     context = {

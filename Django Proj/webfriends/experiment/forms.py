@@ -17,6 +17,7 @@ class ExecutionForm(forms.Form):
                                        to_field_name="nameAlg",
                                        )
     opt = forms.CharField(required=False)
+    fileIn = forms.FileField(required=False)
 
 
 class ContactForm(forms.Form):
