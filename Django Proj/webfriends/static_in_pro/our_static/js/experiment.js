@@ -106,7 +106,7 @@ function setHandlers(){
 			$("#id_opt").val('');	
 			$("#id_Algorithm").prop('disabled', false);	
 			$("#id_opt").prop('disabled', false);
-			$("#id_fileIn").prop('disabled', false);
+			$("#id_fileIn").prop('disabled', false	);
 		}
 	});
 };

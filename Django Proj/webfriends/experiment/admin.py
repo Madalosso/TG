@@ -7,7 +7,7 @@ class UsuarioFriendsAdmin(admin.ModelAdmin):
 
 class ExecutionAdmin(admin.ModelAdmin):
 	fields = ['status','request_by', 'algorithm', 'opt']
-	list_display = ['request_by', 'algorithm', 'opt', 'date_requisition', 'status']
+	list_display = ['request_by', 'algorithm', 'opt', 'date_requisition', 'status', 'inputFile', 'outputFile']
 
 class AlgAdmin(admin.ModelAdmin):
 	fields = ['nameAlg', 'desc', 'command']

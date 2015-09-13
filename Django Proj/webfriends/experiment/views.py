@@ -78,7 +78,7 @@ def experiments(request):
         form = ExecutionForm(request.POST, request.FILES or None)
         if not form.is_valid():
             title = "Experiments %s" % (request.user)
-            form_html = render_crispy_form(form)
+            # form_html = render_crispy_form(form)
             context = {
                 "form": form,
                 'title': title
@@ -91,31 +91,25 @@ def experiments(request):
         alg = Algorithms.objects.get(nameAlg=algorithm)
         execution = Execution(
             request_by=d_User.usuariofriends,
-            #     status=form.cleaned_data.get("status"),
             algorithm=alg,
             opt=opt,  # very tenso
         )
         execution.save()
-        print execution.id
-        # if request.FILES.exists():
         fileIn = request.FILES["fileIn"]
         execution.inputFile = fileIn
         execution.save()
-        print fileIn
-        query = alg.command
-        # print settings.MEDIA_URL
-        # diret = settings.MEDIA_URL + 'users/' + \
-            # d_User.username + '/'# + str(execution.id) + '-input'
-        # print diret
-        # if not os.path.exists(diret): os.makedirs(diret)
-        # fileUploaded = request.FILES["fileIn"]
-        # with open(diret+str(execution.id) + '-input', 'w') as inputFile:
-            # for chunk in fileUploaded.chunks():
-                # inputFile.write(chunk)
-        
-
-        print(query)
-        # os.system(query)
+        queryInputFile = (
+            settings.MEDIA_ROOT +
+            execution.inputFile.name.replace('./', '/')
+        ).replace(' ', '\ ')
+        queryOutputFile = queryInputFile
+        queryOutputFile = queryOutputFile.replace('input', 'output')
+        print "QUERY OYT : " + queryOutputFile
+        query = alg.command + ' ' + queryInputFile + '>' + queryOutputFile
+        print query
+        os.system(query)
+        execution.outputFile =queryOutputFile
+        execution.save()
         title = "Experiments %s" % (request.user)
         cont = {
             "title": title,
