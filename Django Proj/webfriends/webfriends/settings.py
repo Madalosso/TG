@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import djcelery
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -49,6 +50,8 @@ INSTALLED_APPS = (
     'crispy_forms',
     'experiment',
     'django_ajax',
+    'djcelery',
+    'kombu.transport.django',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -99,7 +102,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -124,13 +127,20 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(
     os.path.dirname(BASE_DIR), "static_in_env", "media_root")
 
-#crispy
+# crispy
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-#django registration redux
+# django registration redux
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
+
+# Celery
+
+djcelery.setup_loader()
+BROKER_URL = "django://"
+CELERY_RESULT_BACKEND = 'rpc://'
+CELERY_RESULT_PERSISTENT = True

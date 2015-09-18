@@ -1,19 +1,20 @@
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
-from django.http import HttpResponse
+# from django.http import HttpResponse
 from django.template import RequestContext
 from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from experiment.forms import ExecutionForm, ContactForm
-from experiment.models import Execution, UsuarioFriends, Algorithms
-from django.core.files import File
-import os
+from experiment.models import Execution, Algorithms
+from django.http import HttpResponseRedirect
+from django.http import HttpResponse
+from django.core.urlresolvers import reverse
+# from django.core.files import File
 
+# tasks
+from .tasks import RunExperiment
 
-# registration custom imports
-from registration.views import RegistrationView
-from registration.models import RegistrationProfile
 
 # jsonview - Crispy validation
 from jsonview.decorators import json_view
@@ -22,11 +23,52 @@ from crispy_forms.helper import FormHelper
 
 
 def home(request):
-    title = "Home %s" % (request.user)
-    context = {
-        "title": title
-    }
-    return render(request, "home.html", context)
+    if not request.user.is_authenticated():
+        title = "Welcome"
+        context = {
+            "title": title
+        }
+        return render(request, "welcome.html", context)
+    else:
+        title = "Welcome %s" % request.user
+        # print(request.user.id)
+        executionsUser = Execution.objects.filter(
+            request_by__usuario__id=request.user.id).order_by('-id')
+        # print executionsUser
+        data = executionsUser
+        context = {
+            "title": title,
+            "data": data,
+        }
+        return render(request, "home.html", context)
+
+
+def downloadInputFile(request):
+    expId = request.GET.get('id')
+    execution = Execution.objects.get(pk=expId)
+    if (execution.request_by.usuario.id == request.user.id):
+        print execution.inputFile.url
+        print "Autorizado"
+        response = HttpResponse(execution.inputFile, content_type='application/force-download')
+        response['Content-Disposition'] = 'attachment; filename="entrada-Experimento-'+str(expId)+'"'
+        return response
+    print "Nao autorizado"
+    # criar alerta
+    return HttpResponseRedirect(reverse('home'))
+
+
+def downloadOutputFile(request):
+    expId = request.GET.get('id')
+    execution = Execution.objects.get(pk=expId)
+    if (execution.request_by.usuario.id == request.user.id):
+        print execution.outputFile.url
+        print "Autorizado"
+        response = HttpResponse(execution.outputFile, content_type='application/force-download')
+        response['Content-Disposition'] = 'attachment; filename="Resultado-Experimento-'+str(expId)+'"'
+        return response
+    print "Nao autorizado"
+    # criar alerta
+    return HttpResponseRedirect(reverse('home'))
 
 
 def contact(request):
@@ -46,6 +88,7 @@ def contact(request):
         "form": form,
     }
     return render(request, "contact.html", context)
+
 
 # ajax
 
@@ -74,7 +117,6 @@ def checkForm(request):
 @csrf_protect
 def experiments(request):
     if request.method == 'POST':
-        print settings.BASE_DIR
         form = ExecutionForm(request.POST, request.FILES or None)
         if not form.is_valid():
             title = "Experiments %s" % (request.user)
@@ -84,7 +126,6 @@ def experiments(request):
                 'title': title
             }
             return render(request, "experiments.html", context)
-
         opt = request.POST.get('opt')
         algorithm = request.POST.get('Algorithm')
         d_User = User.objects.get(username=request.user)
@@ -95,31 +136,38 @@ def experiments(request):
             opt=opt,  # very tenso
         )
         execution.save()
-        fileIn = request.FILES["fileIn"]
-        execution.inputFile = fileIn
-        execution.save()
-        queryInputFile = (
-            settings.MEDIA_ROOT +
-            execution.inputFile.name.replace('./', '/')
-        ).replace(' ', '\ ')
-        queryOutputFile = queryInputFile
-        queryOutputFile = queryOutputFile.replace('input', 'output')
-        print "QUERY OYT : " + queryOutputFile
-        query = alg.command + ' ' + queryInputFile + '>' + queryOutputFile
-        print query
-        os.system(query)
-        execution.outputFile =queryOutputFile
+        if (request.FILES):
+            print request.FILES
+            fileIn = request.FILES["FileIn"]
+            execution.inputFile = fileIn
+            execution.save()
+            queryInputFile = (
+                settings.MEDIA_ROOT +
+                execution.inputFile.name.replace('./', '/')
+            ).replace(' ', '\ ')
+            queryOutputFile = queryInputFile
+            queryOutputFile = queryOutputFile.replace('input', 'output')
+            print "QUERY OUT : " + queryOutputFile
+            query = alg.command + ' ' + queryInputFile + '>' + queryOutputFile
+            print query
+        else:
+            query = execution.algorithm.command
+        outputFilePath = './users/user_' + \
+            str(execution.request_by.usuario.id) + \
+            '/' + str(execution.id) + '/output'
+        print(outputFilePath)
+        teste = RunExperiment.delay(query, execution, outputFilePath)
+        print teste.status
+        # RunExperiment.apply_async(
+        #     args=[query, execution, outputFilePath], kwargs={}, countdown=60)
+        # RunExperiment.delay(query, execution, outputFilePath)
+        # os.system(query)
+        # execution.outputFile = queryOutputFile
         execution.save()
         title = "Experiments %s" % (request.user)
-        cont = {
-            "title": title,
-            "form": form
-        }
-        # cont['success'] = True
-        # cont['form_html'] = ExecutionForm(request.POST or None)
-        # return
-        # return cont
-        return render(request, "experiments.html", cont)
+        # cont = {"title": title, "form": form}
+        return HttpResponseRedirect(reverse('home'))
+        # return render(request, "experiments.html", cont)
     form = ExecutionForm(request.POST or None)
     title = "Experiments %s" % (request.user)
     context = {

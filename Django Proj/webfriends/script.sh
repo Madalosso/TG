@@ -1,3 +1,3 @@
 #!/bin/bash
-sleep 3
+sleep 60
 echo 'Nossa! Estou vivo!'

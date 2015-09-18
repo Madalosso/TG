@@ -51,4 +51,4 @@ class Execution(models.Model):
     outputFile = models.FileField(upload_to=user_directory_path_out, null=True)
 
     def __unicode__(self):
-        return self.request_by.nickname
+        return self.request_by.nickname  # arrumar

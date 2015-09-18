@@ -17,11 +17,10 @@ class ExecutionForm(forms.Form):
                                        to_field_name="nameAlg",
                                        )
     opt = forms.CharField(required=False)
-    fileIn = forms.FileField(required=False)
+    FileIn = forms.FileField(required=False)
 
 
 class ContactForm(forms.Form):
     nome = forms.CharField()
     email = forms.EmailField()
     mensagem = forms.CharField()
-    arquivo = forms.FileField(required=False)

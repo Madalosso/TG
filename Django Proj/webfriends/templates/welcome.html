@@ -1,0 +1,27 @@
+{%extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block head_title%}{{title}}{%endblock%}
+
+{% block jumbotron%}
+  <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>Friends of Friends N*log(N)</h1>
+        <p>Bralalalalal whatever Friends of Friends.</p>
+        <p>To see the difference between static and fixed top navbars, just scroll.</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="{% url 'about' %}" role="button">View navbar docs &raquo;</a>
+        </p>
+      </div>
+{%endblock%}
+
+{%block content%}
+<div class="row">
+  <div class = "col-sm-6 col-md-3">
+
+
+  </div>
+</div>
+
+{%endblock%}
