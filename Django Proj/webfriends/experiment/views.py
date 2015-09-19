@@ -10,6 +10,7 @@ from experiment.models import Execution, Algorithms
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.core.files import File
 
 # tasks
@@ -20,6 +21,9 @@ from .tasks import RunExperiment
 from jsonview.decorators import json_view
 from crispy_forms.utils import render_crispy_form
 from crispy_forms.helper import FormHelper
+
+# paginator
+from paginator import paginate
 
 
 def home(request):
@@ -32,13 +36,26 @@ def home(request):
     else:
         title = "Welcome %s" % request.user
         # print(request.user.id)
-        executionsUser = Execution.objects.filter(
+        executionList = Execution.objects.filter(
             request_by__usuario__id=request.user.id).order_by('-id')
         # print executionsUser
-        data = executionsUser
+        # num pode ser armazenado como preferencia de usuario posteriormente
+        paginator = Paginator(executionList, 10)
+        page = request.GET.get('page')
+        if page is None:
+            page = 1
+        try:
+            executions = paginator.page(page)
+        except PageNotAnInteger:
+            executions = paginator.page(1)
+        except EmptyPage:
+            executions = paginator.page(paginator.num_pages)  # da pra tratar
+        data = executions
+        pageI = paginate(page, paginator)
         context = {
             "title": title,
             "data": data,
+            "pagesIndex": pageI,
         }
         return render(request, "home.html", context)
 
@@ -47,12 +64,11 @@ def downloadInputFile(request):
     expId = request.GET.get('id')
     execution = Execution.objects.get(pk=expId)
     if (execution.request_by.usuario.id == request.user.id):
-        print execution.inputFile.url
-        print "Autorizado"
-        response = HttpResponse(execution.inputFile, content_type='application/force-download')
-        response['Content-Disposition'] = 'attachment; filename="entrada-Experimento-'+str(expId)+'"'
+        response = HttpResponse(
+            execution.inputFile, content_type='application/force-download')
+        response[
+            'Content-Disposition'] = 'attachment; filename="entrada-Experimento-' + str(expId) + '"'
         return response
-    print "Nao autorizado"
     # criar alerta
     return HttpResponseRedirect(reverse('home'))
 
@@ -63,8 +79,10 @@ def downloadOutputFile(request):
     if (execution.request_by.usuario.id == request.user.id):
         print execution.outputFile.url
         print "Autorizado"
-        response = HttpResponse(execution.outputFile, content_type='application/force-download')
-        response['Content-Disposition'] = 'attachment; filename="Resultado-Experimento-'+str(expId)+'"'
+        response = HttpResponse(
+            execution.outputFile, content_type='application/force-download')
+        response[
+            'Content-Disposition'] = 'attachment; filename="Resultado-Experimento-' + str(expId) + '"'
         return response
     print "Nao autorizado"
     # criar alerta

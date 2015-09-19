@@ -38,6 +38,49 @@
         {% endfor %}
         </tbody>
     </table>
+
+    <nav>
+      <ul class="pagination">
+      {# CASO SEJA A PRIMEIRA PAGINA #}
+        {% if data.has_previous %}
+        <li>
+          <a href="?page={{ data.previous_page_number }}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li> 
+        {% else %}
+        <li class="disabled">
+          <span aria-hidden="true">&laquo;</span>
+        </li>
+        {% endif %}
+
+        {% for page, value in pagesIndex.items %}
+            {% if value > 0 %}
+              {% if page = 2 %}
+              <li class='active'><a href="?page={{value}}">{{value}}</a></li>
+              {%else%}
+              <li><a href="?page={{value}}">{{value}}</a></li>
+              {% endif %}
+            {%endif%}
+        {% endfor %}
+
+        
+        {% if data.has_next %}
+        <li>
+          <a href="?page={{ data.next_page_number }}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        {% else %}
+        <li class="disabled">
+          <span aria-hidden="true">&raquo;</span>
+        {% endif %}
+        </li>
+        
+      </ul>
+    </nav>
+
+
+
   {# {% else %} #}
     {# <p1>Você não possui experimentos</p1> #}
   {# {% endif %} #}

@@ -7,16 +7,24 @@
 {% block jumbotron%}
   <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>Friends of Friends N*log(N)</h1>
-        <p>Bralalalalal whatever Friends of Friends.</p>
-        <p>To see the difference between static and fixed top navbars, just scroll.</p>
+        <h1>Portal Algoritmo</h1>
+        <p>Texto breve explicando os objetivos</p>
+        <p>Convite para registro e experimentar</p>
         <p>
-          <a class="btn btn-lg btn-primary" href="{% url 'about' %}" role="button">View navbar docs &raquo;</a>
+          <a class="btn btn-lg btn-primary" href="{% url 'register_custom' %}" role="button">Registre-se &raquo;</a>
+        </p>
+      </div>
+      <div class="jumbotron">
+        <h1>Sobre o projeto</h1>
+        <p>Maiores caracteristicas a respeito do projeto</p>
+        <p>Funcionalidades e caracteristicas</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="{% url 'about' %}" role="button">Saiba mais &raquo;</a>
         </p>
       </div>
 {%endblock%}
 
-{%block content%}
+{# {%block content%}
 <div class="row">
   <div class = "col-sm-6 col-md-3">
 
@@ -24,4 +32,4 @@
   </div>
 </div>
 
-{%endblock%}
+{%endblock%} #}
