@@ -2,16 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class UsuarioFriends(models.Model):
-    nickname = models.CharField(max_length=30, blank=False, null=True)
-    usuario = models.OneToOneField(User)
-    date_register = models.DateTimeField('date_register', auto_now_add=True)
-    last_acess = models.DateTimeField('last_acess', auto_now=True)
-
-    def __unicode__(self):
-        return self.nickname
-
-
 class Algorithms(models.Model):
     idAlg = models.AutoField(primary_key=True)
     nameAlg = models.CharField(null=False, blank=False, max_length=100)
@@ -20,6 +10,18 @@ class Algorithms(models.Model):
 
     def __unicode__(self):
         return self.nameAlg
+
+
+class UsuarioFriends(models.Model):
+    nickname = models.CharField(max_length=30, blank=False, null=True)
+    usuario = models.OneToOneField(User)
+    date_register = models.DateTimeField('date_register', auto_now_add=True)
+    last_acess = models.DateTimeField('last_acess', auto_now=True)
+    resultsPerPage = models.IntegerField(default=10)
+    # notifications = models.ManyToManyField(Notification)
+
+    def __unicode__(self):
+        return self.nickname
 
 
 class ExecModel(models.Model):

@@ -15,7 +15,8 @@
             <li><a href="{% url 'about' %}">Sobre</a></li>
             <li><a href="{% url 'contact' %}">Contato</a></li>
             {% if request.user.is_authenticated %}
-              <li><a href="{% url 'exp' %}">Execuções</a></li>
+              <li><a href="{% url 'exp' %}">Experimentos</a></li>
+              <li><a href="{% url 'exp' %}">Configurações de Usuario</a></li>
             {%endif%}
           </ul>
 

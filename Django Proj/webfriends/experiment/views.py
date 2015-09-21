@@ -6,7 +6,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
 from experiment.forms import ExecutionForm, ContactForm
-from experiment.models import Execution, Algorithms
+from experiment.models import Execution, Algorithms, UsuarioFriends
 from django.http import HttpResponseRedirect
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse
@@ -38,9 +38,8 @@ def home(request):
         # print(request.user.id)
         executionList = Execution.objects.filter(
             request_by__usuario__id=request.user.id).order_by('-id')
-        # print executionsUser
-        # num pode ser armazenado como preferencia de usuario posteriormente
-        paginator = Paginator(executionList, 10)
+        UserProf = UsuarioFriends.objects.get(usuario__id=request.user.id)
+        paginator = Paginator(executionList, UserProf.resultsPerPage)
         page = request.GET.get('page')
         if page is None:
             page = 1
@@ -50,7 +49,10 @@ def home(request):
             executions = paginator.page(1)
         except EmptyPage:
             executions = paginator.page(paginator.num_pages)  # da pra tratar
-        data = executions
+        if paginator.count == 0:
+            data = None
+        else:
+            data = executions
         pageI = paginate(page, paginator)
         context = {
             "title": title,
