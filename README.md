@@ -12,3 +12,4 @@ django-jsonview   https://github.com/jsocol/django-jsonview
 
 to start server: on Django Proj/webfriends/ "./manage.py runserver"
 
+to start worker: on Django Proj/webfriends/ "./manage.py celeryd --concurrency=1 -l INFO"
