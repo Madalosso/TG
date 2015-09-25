@@ -49,7 +49,6 @@ INSTALLED_APPS = (
     'registration',
     'crispy_forms',
     'experiment',
-    'django_ajax',
     'djcelery',
     'kombu.transport.django',
 )
