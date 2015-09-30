@@ -18,16 +18,14 @@
 \contentsline {section}{\numberline {3.2}Organiza\IeC {\c c}\IeC {\~a}o do Projeto}{12}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}\emph {manage.py}}{12}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}\emph {Static Files}}{12}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}\emph {Templates}}{12}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}\emph {Media url}}{12}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}\emph {settings.py}}{12}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.3}\emph {Media url}}{12}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}\emph {views.py}}{13}{subsection.3.2.4}
 \contentsline {section}{\numberline {3.3}Modelos de dados}{13}{section.3.3}
 \contentsline {section}{\numberline {3.4}Funcionalidades}{13}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Administrador}{13}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.1}Usu\IeC {\'a}rio Anonimo}{13}{subsection.3.4.1}
 \contentsline {subsection}{\numberline {3.4.2}Usu\IeC {\'a}rio registrado}{13}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Usu\IeC {\'a}rio Anonimo}{13}{subsection.3.4.3}
-\contentsline {section}{\numberline {3.5}Tasks}{13}{section.3.5}
-\contentsline {section}{\numberline {3.6}Design}{13}{section.3.6}
-\contentsline {section}{\numberline {3.7}Administra\IeC {\c c}\IeC {\~a}o}{13}{section.3.7}
-\contentsline {chapter}{\numberline {4}Pr\IeC {\'o}ximas Etapas}{14}{chapter.4}
-\contentsline {chapter}{Refer{\^e}ncias}{15}{chapter*.3}
+\contentsline {subsection}{\numberline {3.4.3}Administrador}{14}{subsection.3.4.3}
+\contentsline {section}{\numberline {3.5}Tasks}{14}{section.3.5}
+\contentsline {section}{\numberline {3.6}Design}{14}{section.3.6}
+\contentsline {chapter}{\numberline {4}Pr\IeC {\'o}ximas Etapas}{15}{chapter.4}
+\contentsline {chapter}{Refer{\^e}ncias}{16}{chapter*.3}

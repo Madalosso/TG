@@ -234,6 +234,11 @@ Para o desenvolvimento do projeto está sendo utilizado o sistema operacional Ub
 Para auxiliar na tarefa de programação do sistema, foi utilizado o editor de texto Sublime Text 2 (REF!), um blabla.... utilizando também o plugin Anaconda... Django algo...
 
 \subsection{Third Party Apps}
+Durante o decorrer do desenvolvimento observou-se que o projeto poderia se beneficiar de outras aplicações django. 
+Django-registration-redux 1.2 foi a ferramenta utilizada para lidar com a tarefa de registro de usuários novos.
+Django Crispy foi utilizada para criar e fazer a verificação de formulários que o usuário deve preencher para executar algum algoritmo ou alterar algum dado de seu perfil.
+Celery é o
+
 Falar dos pacotes que foram utilizados até agora, (Redux registration, Crispy, celery json-django)
 
 \subsection{Controle de Versão - Repositório}
@@ -247,32 +252,29 @@ O framework Django tem uma proposta de criar aplicações fáceis de serem reuti
 \subsection{\emph{manage.py}}
 explicar a funcionalidade do manage e sua importancia para todo o projeto
 \subsection{\emph{Static Files}}
-explicar a opção de gerenciar arquivos estaticos (.css, .js e imgs utilizados nos templates)
-\subsection{\emph{Templates}}
-arquivos html 
+Os arquivos estáticos que o projeto mantém são todos organizados dentro do diretório "static in pro", lá são mantidos arquivos que precisam estar disponíveis por qualquer documento html, em grande maioria são arquivos .css, .js e imagens comuns às páginas do projeto.
 \subsection{\emph{Media url}}
-Explicar a organização do sistema de arquivos de entrada e saída dos experimentos (e o sistema de diretórios)
-\subsection{\emph{settings.py}}
-***falar com a Andrea e descobrir o quanto de texto eu devo abordar...****
-
-
+Media URL é a variável responsável por indicar ao sistema qual diretório será a raiz dos arquivos que serão manipulados pelo sistema. Dentro desse diretório raiz existe uma pasta "Users" e dentro dela, uma pasta com o id de cada usuario cadastrado no banco de dados. Para cada experimento criado por um usuário, em seu respectivo diretório será criado um novo diretório cujo nome será o identificador do experimento, e dentro desse diretório serão mantidos os arquivos de entrada e saída do experimento.
+\subsection{\emph{views.py}}
+Esse arquivo contém as funções que definem telas a serem exibidas para os utilizadores do sistema. Como padrão toda função nesse arquivo recebe com um \emph{request} e retorna alguma resposta html, essa resposta na maioria dos casos utiliza arquivos presentes no diretório "Templates".
 \section{Modelos de dados}
 adicionar imagem de algum software mostrando as relações entre os tipos de dados?
 explicar o que cada classe / atributo tem como objetivo
 \section{Funcionalidades}
-Descvrever aqui as funcionalidades já implementadas ao sistema
-
-\subsection{Administrador}
-\subsection{Usuário registrado}
+As funcionalidades do sistema podem ser divididas até agora em 3 grupos distintos.
 \subsection{Usuário Anonimo}
+Um usuário anônimo possui a permissão de acessar áreas de informação a respeito do sistema, de contato com o administrador do sistema, e da área de registro, onde pode solicitar o registro e, seguindo as orientações apresentadas, fazer login como um usuário registrado.
+\subsection{Usuário registrado}
+O usuário registrado tem permissão de criar experimentos no portal, para isso ele faz o \emph{upload} de um arquivo que será utilizado como entrada no algoritmo selecionado. Além disso o usuário também pode monitorar o estado dos experimentos que ele requisitou e fazer o \emph{download} dos arquivos de cada experimento, tanto o arquivo de entrada, como a saída(se houver) do algoritmo.
+\subsection{Administrador}
+O administrador tem as mesmas capacidades do que um usuário registrado e detem previlégios de acesso ao painel de administração do django. Isso permite a ele cadastro de novos algoritmos no sistema, de novos experimentos padrão e a editar qualquer informação que o sistema detenha no banco de dados.
 \section{Tasks}
 Escrever como foi feito a manipulação e controle de tarefas (Celery).
 \section{Design}
 Explicar uso do Bootstrap,
 jQuery,
 tentativa de usar ajax e o porque não funcionou(por hora)
-\section{Administração}
-O que foi feito até então da parte de administração do sistema pelo administrador django
+
 \iffalse
 
 \begin{figure}
