@@ -203,7 +203,44 @@ Além disso, o django-registration-redux não tem por padrão, nenhuma forma de 
 
 Para contornar essas questões, foi criado um novo modelo de dados que extende a aplicação registration-redux, tornando possível extender as funções de registro para esse modelo novo, de modo que no processo de registro novos dados podem ser requisitados, verificados e validados pelo sistema antes de proceder com a criação do usuário.
 
-\section{Execução de tarefas}
+\section{Modelos de dados}
+Quando a etapa de registro de usuários foi completa, foram criados modelos de dados para representar os algoritmos disponíveis pelo sistema, execuções que seriam requisitadas pelos usuários, e modelos de execuções.
+
+Essas três classes, combinados com a classe de usuário, que mantém os dados do registro, compõem o modelo de dados(Figura 3.1) que integram todas as funcionalidades do sistema até o presente estado de desenvolvimento.
+
+\subsection{Algorithm}
+Essa classe é responsável por manter os dados referentes ao(s) algoritmo(s) que o sistema disponibiliza, é composto por 3 atributos que representem o nome do algoritmo, a descrição de seu propósito, e o comando (shell) que deverá ser utilizado para executá-lo.
+
+\subsection{ExecModel}
+Essa classe foi criada para permitir ao usuário testar os serviços do sistema sem precisar de um conjunto de dados. Assim, essa classe guarda dados referentes a execução pré-definida de um algoritmo, utilizando os dados de entrada já configurados pelo administrador do sistema. Além disso, ele mantém um campo descrição criado com o intúito de explicar ao usuário como funciona o conjunto de dados utilizados como entrada e o que se espera do resultado após o processamento.
+
+\subsection{Execution}
+A classe Execution mantém todas as informações referentes a um pedido de execução. Ela inclui uma chave estrangeira que referencia o usuário que requisitou-a, a data na qual a requisição foi feita, o status da execução, outra chave estrageira que referencia qual algoritmo será utilizado, e dois campos para os endereços nos quais devem ser mantidos os dados de entrada e saída à serem usados nesta execução.
+
+\subsection{PortalUser}
+Representa o usuário no protal, mantém os dados de cadastro e mais alguns referêntes a datas e preferências:
+
+\begin{itemize}
+	\item Username (Utilizado para o login)
+	\item Password 
+	\item E-mail
+	\item Nickname (Utilizado para mensagens de contato e alertas pelo sistema)
+	\item DateRegister (Data de quando foi feito o registro do usuário)
+	\item LastAcess (Data do último acesso do usuário no sistema)
+	\item ResultsPerPage (Preferência de quantos resultados por página o usuário deseja quando for listar os experimentos que requisitou)
+\end{itemize}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{class_diagran_tg}
+	\caption{
+		Diagrama de classes do projeto.
+	}
+	\label{fig:path_tracing}
+\end{figure}
+
+
+\section{Execução Remota de tarefas}
 A execução remota de tarefas foi um requisito que exigiu outro estudo em busca de ferramentas e tecnicas para sua realização. É necessário esclarecer que não é viável que o próprio processo que mantém a aplicação no ar e trata de todos os requests realizados por usuários também lide com as execuções dos experimentos solicitados pelos usuários, pois isso causaria uma lentidão muito grande no sistema.
 
 Para contronar esse problema foram verificadas duas técnicas: a criação de um novo processo que faria a execução do experimento, ou então o uso de alguma aplicação que gerencia-se filas de tarefas e distribuição das mesmas para demais processos e/ou máquinas.
@@ -215,6 +252,16 @@ Compreendida a dimensão e complexidade de criar um sistema para execução de t
 BROKER lidar mensagens
 
 Worker
+
+\section{Funcionalidades}
+As funcionalidades do sistema podem ser divididas até agora em 3 grupos distintos.
+\subsection{Usuário Anonimo}
+Um usuário anônimo possui a permissão de acessar áreas de informação a respeito do sistema, de contato com o administrador do sistema, e da área de registro, onde pode solicitar o registro e, seguindo as orientações apresentadas, fazer login como um usuário registrado.
+\subsection{Usuário registrado}
+O usuário registrado tem permissão de criar experimentos no portal, para isso ele faz o \emph{upload} de um arquivo que será utilizado como entrada no algoritmo selecionado. Além disso o usuário também pode monitorar o estado dos experimentos que ele requisitou e fazer o \emph{download} dos arquivos de cada experimento, tanto o arquivo de entrada, como a saída(se houver) do algoritmo.
+\subsection{Administrador}
+O administrador tem as mesmas capacidades do que um usuário registrado e detem previlégios de acesso ao painel de administração do django. Isso permite a ele cadastro de novos algoritmos no sistema, de novos experimentos padrão e a editar qualquer informação que o sistema detenha no banco de dados.
+
 
 \section{Sistema de Arquivos}
 Como as tarefas realizadas pelo portal exigem dados para serem processados pelo algoritmo, e esse algoritmo gera novos dados, foi necessário criar um sistema de arquivos para manter uma ordem na qual seja possível recuperar esses arquivos após o seu processamento.
@@ -229,6 +276,7 @@ Após a implementação desse sistema de arquivose e combinando as funcionalidad
 	\item "Finalizado": Experimento já foi executado e já possui os dados disponíveis para o usuário.
 \end{itemize}
 
+\iffalse
 \begin{itemize}
 	\item Ambiente de Desenvolvimento
 	\item Organização do Projeto
@@ -263,19 +311,8 @@ Os arquivos estáticos que o projeto mantém são todos organizados dentro do di
 Media URL é a variável responsável por indicar ao sistema qual diretório será a raiz dos arquivos que serão manipulados pelo sistema. Dentro desse diretório raiz existe uma pasta "Users" e dentro dela, uma pasta com o id de cada usuario cadastrado no banco de dados. Para cada experimento criado por um usuário, em seu respectivo diretório será criado um novo diretório cujo nome será o identificador do experimento, e dentro desse diretório serão mantidos os arquivos de entrada e saída do experimento.
 \subsection{\emph{views.py}}
 Esse arquivo contém as funções que definem telas a serem exibidas para os utilizadores do sistema. Como padrão toda função nesse arquivo recebe com um \emph{request} e retorna alguma resposta html, essa resposta na maioria dos casos utiliza arquivos presentes no diretório "Templates".
-\section{Modelos de dados}
-adicionar imagem de algum software mostrando as relações entre os tipos de dados?
-explicar o que cada classe / atributo tem como objetivo
-\section{Funcionalidades}
-As funcionalidades do sistema podem ser divididas até agora em 3 grupos distintos.
-\subsection{Usuário Anonimo}
-Um usuário anônimo possui a permissão de acessar áreas de informação a respeito do sistema, de contato com o administrador do sistema, e da área de registro, onde pode solicitar o registro e, seguindo as orientações apresentadas, fazer login como um usuário registrado.
-\subsection{Usuário registrado}
-O usuário registrado tem permissão de criar experimentos no portal, para isso ele faz o \emph{upload} de um arquivo que será utilizado como entrada no algoritmo selecionado. Além disso o usuário também pode monitorar o estado dos experimentos que ele requisitou e fazer o \emph{download} dos arquivos de cada experimento, tanto o arquivo de entrada, como a saída(se houver) do algoritmo.
-\subsection{Administrador}
-O administrador tem as mesmas capacidades do que um usuário registrado e detem previlégios de acesso ao painel de administração do django. Isso permite a ele cadastro de novos algoritmos no sistema, de novos experimentos padrão e a editar qualquer informação que o sistema detenha no banco de dados.
 
-\iffalse
+
 
 \begin{figure}
 	\centering
