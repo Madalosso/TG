@@ -2,30 +2,28 @@
 \contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{6}{chapter.1}
 \contentsline {section}{\numberline {1.1}Objetivos}{6}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Objetivo Geral}{6}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Objetivos Espec\IeC {\'\i }ficos}{6}{subsection.1.1.2}
-\contentsline {section}{\numberline {1.2}Justificativa}{7}{section.1.2}
+\contentsline {section}{\numberline {1.2}Justificativa}{6}{section.1.2}
 \contentsline {chapter}{\numberline {2}Fundamentos e Revis\IeC {\~a}o de Literatura}{8}{chapter.2}
-\contentsline {section}{\numberline {2.1}New Zeland eScience Infrastructure - NeSI}{8}{section.2.1}
-\contentsline {section}{\numberline {2.2}MediGRID}{8}{section.2.2}
-\contentsline {section}{\numberline {2.3}Framework Django}{9}{section.2.3}
-\contentsline {section}{\numberline {2.4}Friends of Friends}{9}{section.2.4}
-\contentsline {chapter}{\numberline {3}Desenvolvimento}{11}{chapter.3}
-\contentsline {section}{\numberline {3.1}Ambiente de Desenvolvimento}{11}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Sistema Operacional}{11}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Ferramentas de Programa\IeC {\c c}\IeC {\~a}o}{11}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Third Party Apps}{11}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Controle de Vers\IeC {\~a}o - Reposit\IeC {\'o}rio}{12}{subsection.3.1.4}
-\contentsline {section}{\numberline {3.2}Organiza\IeC {\c c}\IeC {\~a}o do Projeto}{12}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}\emph {manage.py}}{12}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}\emph {Static Files}}{12}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}\emph {Media url}}{12}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}\emph {views.py}}{13}{subsection.3.2.4}
-\contentsline {section}{\numberline {3.3}Modelos de dados}{13}{section.3.3}
-\contentsline {section}{\numberline {3.4}Funcionalidades}{13}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Usu\IeC {\'a}rio Anonimo}{13}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Usu\IeC {\'a}rio registrado}{13}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Administrador}{14}{subsection.3.4.3}
-\contentsline {section}{\numberline {3.5}Tasks}{14}{section.3.5}
-\contentsline {section}{\numberline {3.6}Design}{14}{section.3.6}
-\contentsline {chapter}{\numberline {4}Pr\IeC {\'o}ximas Etapas}{15}{chapter.4}
-\contentsline {chapter}{Refer{\^e}ncias}{16}{chapter*.3}
+\contentsline {section}{\numberline {2.1}Framework Django}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}Friends of Friends}{8}{section.2.2}
+\contentsline {chapter}{\numberline {3}Desenvolvimento}{10}{chapter.3}
+\contentsline {section}{\numberline {3.1}Formul\IeC {\'a}rio de Contato}{10}{section.3.1}
+\contentsline {section}{\numberline {3.2}Registro de Usu\IeC {\'a}rio}{10}{section.3.2}
+\contentsline {section}{\numberline {3.3}Execu\IeC {\c c}\IeC {\~a}o de tarefas}{11}{section.3.3}
+\contentsline {section}{\numberline {3.4}Sistema de Arquivos}{12}{section.3.4}
+\contentsline {section}{\numberline {3.5}Ambiente de Desenvolvimento}{13}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Sistema Operacional}{13}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Ferramentas de Programa\IeC {\c c}\IeC {\~a}o}{13}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Controle de Vers\IeC {\~a}o - Reposit\IeC {\'o}rio}{13}{subsection.3.5.3}
+\contentsline {section}{\numberline {3.6}Organiza\IeC {\c c}\IeC {\~a}o do Projeto}{13}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}\emph {manage.py}}{13}{subsection.3.6.1}
+\contentsline {subsection}{\numberline {3.6.2}\emph {Static Files}}{14}{subsection.3.6.2}
+\contentsline {subsection}{\numberline {3.6.3}\emph {Media url}}{14}{subsection.3.6.3}
+\contentsline {subsection}{\numberline {3.6.4}\emph {views.py}}{14}{subsection.3.6.4}
+\contentsline {section}{\numberline {3.7}Modelos de dados}{14}{section.3.7}
+\contentsline {section}{\numberline {3.8}Funcionalidades}{14}{section.3.8}
+\contentsline {subsection}{\numberline {3.8.1}Usu\IeC {\'a}rio Anonimo}{14}{subsection.3.8.1}
+\contentsline {subsection}{\numberline {3.8.2}Usu\IeC {\'a}rio registrado}{15}{subsection.3.8.2}
+\contentsline {subsection}{\numberline {3.8.3}Administrador}{15}{subsection.3.8.3}
+\contentsline {chapter}{\numberline {4}Pr\IeC {\'o}ximas Etapas}{16}{chapter.4}
+\contentsline {chapter}{Refer{\^e}ncias}{17}{chapter*.3}

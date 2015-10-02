@@ -137,15 +137,7 @@ Para este portal, será utilizado um algoritmo desenvolvido para a área de astr
 
 \subsection{Objetivo Geral}
 
-O objetivo deste trabalho é criar um portal web que possibilite aos usuários cadastrados no sistema  executar algoritmos presentes no sistema segundo suas configurações e disponibilizar o resultado da execução após o término da mesma.
-
-\subsection{Objetivos Específicos}
-\begin{itemize}
-	\item Estudo de frameworks web para ser utilizado no desenvolvimento.
-	\item Desenvolvimento front-end do servidor.
-	\item Administração das execuções requisitadas.
-	\item Atualização dos estados das requisições no sistema.
-\end{itemize}
+O objetivo deste trabalho é criar um portal web que possibilite aos usuários cadastrados no sistema  executar algoritmos utilizando diferentes dados e disponibilizar o resultado da execução após sua conclusão.
 
 \section{Justificativa}
 
@@ -154,26 +146,7 @@ O projeto é capaz de gerar benefícios significativos para a comunidade de pesq
 Além de servir como modelo, o projeto disponibilizará um algoritmo que se enquadra na categoria alvo do projeto: a versão de complexidade n*log(n) e paralela do friends-of-friends.
 
 \chapter{Fundamentos e Revisão de Literatura}
-Os trabalhos citados a seguir se relacionam com a proposta deste trabalho pois compartilham características como:
-\begin{itemize}
-	\item Garantir ao usuário a capacidade de fazer seus experimentos em um ambiente que está além da capacidade normal de processamento de um equipamento pessoal.
-	\item Disponibilizar softwares já configurado para o ambiente aonde será executado.
-	\item Disponibilizar soluções para problemas que não são oferecidas ao público geral.
-\end{itemize}
 
-\section{New Zeland eScience Infrastructure - NeSI}
-
-O NeSI\cite{nesi} provê plataformas de grande capacidade computacional para auxiliar pesquisadores na Nova Zelândia. Atualmente eles possuem 5 ambientes disponíveis em diferentes instalações. Cada um desses ambientes possui  hardware e software capazes de resolver problemas relacionados a áreas de pesquisa, especialmente  relacionados a quimica e bioinformática. 
-
-Um desses ambientes por exemplo é o FitzRoy, que dispõe de várias ferramentas para o ambiente de programação como compiladores para as linguagens C/C++, Fortran e Python, além de \textit{debuggers}, ferramentas de \textit{profilling}. Além disso também conta com bibliotecas úteis que auxiliam em questões como entrada e saída de dados e problemas matemáticos. Fora da área de programação, o ambiente oferece também aplicações de simulações que requerem alto desempenho do hardware.
-
-Cada um dos ambientes disponíveis possui seu próprio site institucional com sua respectiva documentação e formas de contato, além disso o próprio NeSI oferece suporte a usuários através da sua equipe.
-
-\section{MediGRID}
-
-O MediGRID \cite{medigrid} é um portal focado em pesquisa na área da biomedicina, ele oferece aplicações e infraestrutura para os pesquisadores cadastrados no portal realizarem experimentos conforme a sua necessidade e a disponiblidade do sistema. 
-
-O objetivo principal do MediGRID quando foi desenvolvido era ser uma plataforma de integração middleware ligando serviços eScience com as pesquisas de biomedicina. Porém hoje ele executa tarefas em 3 áreas majoritárias: Biomedicina, processamento de imagens e pesquisa clinica.
 
 \section{Framework Django}
 Django\cite{django} é um framework para criação de aplicações web que encoraja o desenvolvimento ágil, em alto nível e com design pragmático. Foi criado inicialmente para manter o portal de notícias online do Lawrence
@@ -212,8 +185,49 @@ Na 15ª edição da Escola Regional de Alto Desempenho do Rio Grande do Sul (XV 
 %\end{figure}
 
 \chapter{Desenvolvimento}
+A metodologia do projeto concentrou-se em dar prioridade aos requisitos que apresentavam maior risco, priorizando a funcionalidade de executar remotamente tarefas. Por causa disso foi feita uma "Sprint"  para agilizar o desenvolvimento de funcionalidades mais básicas do projeto, que dariam base ao sistema no qual iria ser desenvolvida a funcionalidade de requisição de execuções remotas pelos usuários, parte crítica do projeto.
 
-Aqui serão descritas as atividades realizadas para atingir os objetivos propostos. Essas atividades serão distribuídas em sessões de acordo com o segmento do projeto que mais se relacionam, sendo eles:
+Para isso, o projeto iniciou através do estudo e familiarização do framework Django, através de uma série de video aulas disponíveis no youtube e da documentação do framework, foram desenvolvidas as páginas de 'contato' e 'informações' da aplicação.
+
+Através desse estudo de video aulas foram selecionados também algumas aplicações extensíveis que, conforme observou-se, poderiam trazer ganhos ao projeto em questão de agilidade de desenvolvimento. As aplicações estudadas foram o django-registration-redux, para registro de usuário, e o django-crispy-forms, que efetua alterações de formulários conforme o resultado da validação do mesmo.
+
+
+\section{Formulário de Contato}
+A página de contato do sistema foi desenvolvida utilizando um formulário que exige informações necessárias para identificação e endereço de resposta de quem efetuou o contato. Para isso foi utilizada a aplicação django-crispy-forms, ela trata de casos como o de quando um usuário tenta efetuar um contato e não preenche um dos campos necessários, dependendo do resultado da validação, efetuada no backend do sistema, é retornado um novo formulário semelhante ao original, porém, com mensagens deixando explícito ao usuário quais foram os erros cometidos na tentativa de efetuar contato.
+
+\section{Registro de Usuário}
+Depois disso houve o estudo da logística de registro de usuários, como a aplicação deve ser aberta a qualquer pessoa, é imprescindível que haja uma forma autônoma de registro de novos usuários. No primeiro momento tentou-se implementar a funcionalidade utilizando formulários e verificações desenvolvidas no proprio projeto, mas durante o desenvolvimento foi encontrada uma solução mais rápida e mais adequada, o uso do app Django-Registration-Redux.
+
+O django-registration-redux é uma aplicação extensível que provê as funcionalidades de registro de usuários para sites que utilizam Django. Essa aplicação já dispõe de templates e formulários para fazer a sua função. Por padrão ela mantém apenas os dados de email, nome e senha do usuário que solicitou o registro, o que satisfaz os requisitos mínimos para executar sua funcionalidade, porém para o sistema em desenvolvimento, pareceu interessante ter a possibilidade de obter mais dados do usuário em seu cadastro, tais como instituição a qual o usuário pertence (Universidade, empresa, etc.), grau de escolaridade, e outras informações que podem ser úteis posteriormente ao administrador do sistema.
+Além disso, o django-registration-redux não tem por padrão, nenhuma forma de filtro de domínios de endereços de email, o que também pode ser útil ao sistema, caso o administrador queira limitar o acesso do portal aos usuários que detenham um email de um domínio específico.
+
+Para contornar essas questões, foi criado um novo modelo de dados que extende a aplicação registration-redux, tornando possível extender as funções de registro para esse modelo novo, de modo que no processo de registro novos dados podem ser requisitados, verificados e validados pelo sistema antes de proceder com a criação do usuário.
+
+\section{Execução de tarefas}
+A execução remota de tarefas foi um requisito que exigiu outro estudo em busca de ferramentas e tecnicas para sua realização. É necessário esclarecer que não é viável que o próprio processo que mantém a aplicação no ar e trata de todos os requests realizados por usuários também lide com as execuções dos experimentos solicitados pelos usuários, pois isso causaria uma lentidão muito grande no sistema.
+
+Para contronar esse problema foram verificadas duas técnicas: a criação de um novo processo que faria a execução do experimento, ou então o uso de alguma aplicação que gerencia-se filas de tarefas e distribuição das mesmas para demais processos e/ou máquinas.
+
+Compreendida a dimensão e complexidade de criar um sistema para execução de tarefas a partir do zero, optou-se por buscar por aplicações compatíveis com as tecnologias utilizadas do projeto e que pudessem satisfazer a necessidade identificada.
+
+---PORQUE CELERY---
+
+BROKER lidar mensagens
+
+Worker
+
+\section{Sistema de Arquivos}
+Como as tarefas realizadas pelo portal exigem dados para serem processados pelo algoritmo, e esse algoritmo gera novos dados, foi necessário criar um sistema de arquivos para manter uma ordem na qual seja possível recuperar esses arquivos após o seu processamento.
+O sistema foi implementado conforme a imagem ilustra. Nele, é escolhido um diretório como sendo a raíz de todos os arquivos que o portal irá manter referente a dados de entrada e saída dos algoritmos, e esses dados serão mantidos em diretórios nomeados de acordo com o id do experimento ao qual pertencem, e esse diretório, por sua vez, será mantido em um outro diretório nomeado de acordo com o id do usuário que requisitou o experimento.
+
+Após a implementação desse sistema de arquivose e combinando as funcionalidades implementadas com o que já havia sido implementado referente a execução de tarefas, foi possível desenvolver uma página no portal na que o usuário pudesse obter os arquivos de dados referentes a cada experimento solicitado por ele e verificar o estado de cada experimento. Esses estados são definidos de acordo com o andamento do processo de execução, sendo que até o momento, são possíveis 3 estados: 
+
+
+\begin{itemize}
+	\item "Aguardando": Experimento aguarda sua execução por um worker.
+	\item "Executando": Experimento está sendo executado, mas ainda não concluíu.
+	\item "Finalizado": Experimento já foi executado e já possui os dados disponíveis para o usuário.
+\end{itemize}
 
 \begin{itemize}
 	\item Ambiente de Desenvolvimento
@@ -232,14 +246,6 @@ Para o desenvolvimento do projeto está sendo utilizado o sistema operacional Ub
 
 \subsection{Ferramentas de Programação}
 Para auxiliar na tarefa de programação do sistema, foi utilizado o editor de texto Sublime Text 2 (REF!), um blabla.... utilizando também o plugin Anaconda... Django algo...
-
-\subsection{Third Party Apps}
-Durante o decorrer do desenvolvimento observou-se que o projeto poderia se beneficiar de outras aplicações django. 
-Django-registration-redux 1.2 foi a ferramenta utilizada para lidar com a tarefa de registro de usuários novos.
-Django Crispy foi utilizada para criar e fazer a verificação de formulários que o usuário deve preencher para executar algum algoritmo ou alterar algum dado de seu perfil.
-Celery é o
-
-Falar dos pacotes que foram utilizados até agora, (Redux registration, Crispy, celery json-django)
 
 \subsection{Controle de Versão - Repositório}
 
@@ -268,12 +274,6 @@ Um usuário anônimo possui a permissão de acessar áreas de informação a res
 O usuário registrado tem permissão de criar experimentos no portal, para isso ele faz o \emph{upload} de um arquivo que será utilizado como entrada no algoritmo selecionado. Além disso o usuário também pode monitorar o estado dos experimentos que ele requisitou e fazer o \emph{download} dos arquivos de cada experimento, tanto o arquivo de entrada, como a saída(se houver) do algoritmo.
 \subsection{Administrador}
 O administrador tem as mesmas capacidades do que um usuário registrado e detem previlégios de acesso ao painel de administração do django. Isso permite a ele cadastro de novos algoritmos no sistema, de novos experimentos padrão e a editar qualquer informação que o sistema detenha no banco de dados.
-\section{Tasks}
-Escrever como foi feito a manipulação e controle de tarefas (Celery).
-\section{Design}
-Explicar uso do Bootstrap,
-jQuery,
-tentativa de usar ajax e o porque não funcionou(por hora)
 
 \iffalse
 
