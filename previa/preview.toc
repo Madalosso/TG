@@ -10,11 +10,15 @@
 \contentsline {section}{\numberline {3.1}Formul\IeC {\'a}rio de Contato}{10}{section.3.1}
 \contentsline {section}{\numberline {3.2}Registro de Usu\IeC {\'a}rio}{10}{section.3.2}
 \contentsline {section}{\numberline {3.3}Modelos de dados}{11}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Algorithm}{11}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.1}Algorithm}{12}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}ExecModel}{12}{subsection.3.3.2}
 \contentsline {subsection}{\numberline {3.3.3}Execution}{12}{subsection.3.3.3}
 \contentsline {subsection}{\numberline {3.3.4}PortalUser}{12}{subsection.3.3.4}
-\contentsline {section}{\numberline {3.4}Execu\IeC {\c c}\IeC {\~a}o Remota de tarefas}{14}{section.3.4}
-\contentsline {section}{\numberline {3.5}Sistema de Arquivos}{14}{section.3.5}
-\contentsline {chapter}{\numberline {4}Pr\IeC {\'o}ximas Etapas}{16}{chapter.4}
-\contentsline {chapter}{Refer{\^e}ncias}{17}{chapter*.3}
+\contentsline {section}{\numberline {3.4}Execu\IeC {\c c}\IeC {\~a}o Remota de tarefas}{13}{section.3.4}
+\contentsline {section}{\numberline {3.5}Funcionalidades}{14}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Usu\IeC {\'a}rio Anonimo}{14}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Usu\IeC {\'a}rio registrado}{14}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Administrador}{15}{subsection.3.5.3}
+\contentsline {section}{\numberline {3.6}Sistema de Arquivos}{15}{section.3.6}
+\contentsline {chapter}{\numberline {4}Pr\IeC {\'o}ximas Etapas}{17}{chapter.4}
+\contentsline {chapter}{Refer{\^e}ncias}{18}{chapter*.3}

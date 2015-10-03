@@ -198,10 +198,15 @@ A página de contato do sistema foi desenvolvida utilizando um formulário que e
 \section{Registro de Usuário}
 Depois disso houve o estudo da logística de registro de usuários, como a aplicação deve ser aberta a qualquer pessoa, é imprescindível que haja uma forma autônoma de registro de novos usuários. No primeiro momento tentou-se implementar a funcionalidade utilizando formulários e verificações desenvolvidas no proprio projeto, mas durante o desenvolvimento foi encontrada uma solução mais rápida e mais adequada, o uso do app Django-Registration-Redux.
 
-O django-registration-redux é uma aplicação extensível que provê as funcionalidades de registro de usuários para sites que utilizam Django. Essa aplicação já dispõe de templates e formulários para fazer a sua função. Por padrão ela mantém apenas os dados de email, nome e senha do usuário que solicitou o registro, o que satisfaz os requisitos mínimos para executar sua funcionalidade, porém para o sistema em desenvolvimento, pareceu interessante ter a possibilidade de obter mais dados do usuário em seu cadastro, tais como instituição a qual o usuário pertence (Universidade, empresa, etc.), grau de escolaridade, e outras informações que podem ser úteis posteriormente ao administrador do sistema.
-Além disso, o django-registration-redux não tem por padrão, nenhuma forma de filtro de domínios de endereços de email, o que também pode ser útil ao sistema, caso o administrador queira limitar o acesso do portal aos usuários que detenham um email de um domínio específico.
+O django-registration-redux é uma aplicação extensível que provê as funcionalidades de registro de usuários para sites que utilizam Django. Essa aplicação já dispõe de templates e formulários para fazer a sua função, também contém um sistema de ativação de contas no qual o usuário que solicitou registro recebe um e-mail no endereço usado no cadastro que contém um link para ativar sua conta, forçando uma verificação de que o e-mail utilizado existe e pertence mesmo ao usuário.
+
+ Por padrão ela mantém apenas os dados de e-mail, nome e senha do usuário que solicitou o registro, o que satisfaz os requisitos mínimos para executar sua funcionalidade, porém para o sistema em desenvolvimento, pareceu interessante ter a possibilidade de obter mais dados do usuário em seu cadastro, tais como instituição a qual o usuário pertence (Universidade, empresa, etc.), grau de escolaridade, e outras informações que podem ser úteis posteriormente ao administrador do sistema.
+
+Além disso, o django-registration-redux não tem por padrão, nenhuma forma de filtro de domínios de endereços de e-mail, o que também pode ser útil ao sistema, caso o administrador queira limitar o acesso do portal aos usuários que detenham um e-mail de um domínio específico.
 
 Para contornar essas questões, foi criado um novo modelo de dados que extende a aplicação registration-redux, tornando possível extender as funções de registro para esse modelo novo, de modo que no processo de registro novos dados podem ser requisitados, verificados e validados pelo sistema antes de proceder com a criação do usuário.
+
+
 
 \section{Modelos de dados}
 Quando a etapa de registro de usuários foi completa, foram criados modelos de dados para representar os algoritmos disponíveis pelo sistema, execuções que seriam requisitadas pelos usuários, e modelos de execuções.
@@ -247,14 +252,14 @@ Para contronar esse problema foram verificadas duas técnicas: a criação de um
 
 Compreendida a dimensão e complexidade de criar um sistema para execução de tarefas a partir do zero, optou-se por buscar por aplicações compatíveis com as tecnologias utilizadas do projeto e que pudessem satisfazer a necessidade identificada.
 
----PORQUE CELERY---
+A aplicação escolhida foi o Celery, uma aplicação que gera filas de execução de tarefas por meio de troca de mensagens. A grande vantagem dessa escolha é a integração nativa que o Celery tem com Django, e a vasta documentação existente para configuração de suas funcionalidades.
 
-BROKER lidar mensagens
+Essa aplicação permite ao sistema django criar tarefas que serão executadas pelos chamados workers. Os workers são processos independentes que devem ser iniciados nas máquinas que irão executar o processamento dos algoritmos e que trocam mensagens com o sistema que solicitou a execução.
 
-Worker
+No momento, a execução das terefas criadas pelo sistema estão todas sendo realizadas por um worker executado na mesma máquina que mantém o portal, posteriormente espera-se fazer com que isso seja alterado para que a máquina que realiza o processamento seja exclusivamente dedicada à essa tarefa.
 
 \section{Funcionalidades}
-As funcionalidades do sistema podem ser divididas até agora em 3 grupos distintos.
+As funcionalidades do sistema podem ser divididas até agora em 3 grupos distintos(figura 3.2).
 \subsection{Usuário Anonimo}
 Um usuário anônimo possui a permissão de acessar áreas de informação a respeito do sistema, de contato com o administrador do sistema, e da área de registro, onde pode solicitar o registro e, seguindo as orientações apresentadas, fazer login como um usuário registrado.
 \subsection{Usuário registrado}
@@ -262,6 +267,15 @@ O usuário registrado tem permissão de criar experimentos no portal, para isso 
 \subsection{Administrador}
 O administrador tem as mesmas capacidades do que um usuário registrado e detem previlégios de acesso ao painel de administração do django. Isso permite a ele cadastro de novos algoritmos no sistema, de novos experimentos padrão e a editar qualquer informação que o sistema detenha no banco de dados.
 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{UseCase_tg}
+	\caption{
+		Diagrama de casos de uso do projeto.
+	}
+	\label{fig:path_tracing}
+\end{figure}
 
 \section{Sistema de Arquivos}
 Como as tarefas realizadas pelo portal exigem dados para serem processados pelo algoritmo, e esse algoritmo gera novos dados, foi necessário criar um sistema de arquivos para manter uma ordem na qual seja possível recuperar esses arquivos após o seu processamento.
@@ -276,211 +290,6 @@ Após a implementação desse sistema de arquivose e combinando as funcionalidad
 	\item "Finalizado": Experimento já foi executado e já possui os dados disponíveis para o usuário.
 \end{itemize}
 
-\iffalse
-\begin{itemize}
-	\item Ambiente de Desenvolvimento
-	\item Organização do Projeto
-	\item Modelos de dados
-	\item Funcionalidades
-	\item Design
-	\item Administração
-\end{itemize}
-
-\section{Ambiente de Desenvolvimento}
-
-\subsection{Sistema Operacional}
-
-Para o desenvolvimento do projeto está sendo utilizado o sistema operacional Ubuntu 14.04(REF?), que contém um interpretador da linguagem Python(REF)?, sendo necessário apenas fazer a instalação do framework Django 1.8(REF?) para ter um ambiente pronto para começar o desenvolvimento do projeto. Além disso, também foi instalado o sistema de gerenciamento de pacotes pip(REF), que foi utilizado para instalação de outras ferramentas (descritas abaixo) que auxiliaram no desenvolvimento.
-
-\subsection{Ferramentas de Programação}
-Para auxiliar na tarefa de programação do sistema, foi utilizado o editor de texto Sublime Text 2 (REF!), um blabla.... utilizando também o plugin Anaconda... Django algo...
-
-\subsection{Controle de Versão - Repositório}
-
-Para realizar o controle de versões foi utilizado o \emph{Git}\footnote{O repositório com o código pode ser encontrado em \url{https://github.com/Madalosso/TG}}, também utilizado pelo projeto original.
-
-\section{Organização do Projeto}
-
-O framework Django tem uma proposta de criar aplicações fáceis de serem reutilizadas por outros projetos, e por conta disso tem uma abordagem bastante metódica e pouco flexível em relação a distribuição dos arquivos que pertencem ao projeto. Consequentemente, a organização utilizada é a mesma proposta pela documentação do framework, que pode ser observada na figura abaix (incluir figura)
-
-\subsection{\emph{manage.py}}
-explicar a funcionalidade do manage e sua importancia para todo o projeto
-\subsection{\emph{Static Files}}
-Os arquivos estáticos que o projeto mantém são todos organizados dentro do diretório "static in pro", lá são mantidos arquivos que precisam estar disponíveis por qualquer documento html, em grande maioria são arquivos .css, .js e imagens comuns às páginas do projeto.
-\subsection{\emph{Media url}}
-Media URL é a variável responsável por indicar ao sistema qual diretório será a raiz dos arquivos que serão manipulados pelo sistema. Dentro desse diretório raiz existe uma pasta "Users" e dentro dela, uma pasta com o id de cada usuario cadastrado no banco de dados. Para cada experimento criado por um usuário, em seu respectivo diretório será criado um novo diretório cujo nome será o identificador do experimento, e dentro desse diretório serão mantidos os arquivos de entrada e saída do experimento.
-\subsection{\emph{views.py}}
-Esse arquivo contém as funções que definem telas a serem exibidas para os utilizadores do sistema. Como padrão toda função nesse arquivo recebe com um \emph{request} e retorna alguma resposta html, essa resposta na maioria dos casos utiliza arquivos presentes no diretório "Templates".
-
-
-
-\begin{figure}
-	\centering
-	\begin{minipage}[t]{0.48\textwidth}
-\begin{lstlisting}
-enum Algorithm {
-	kEyeLight,
-	kPathTracing,
-	kLightTracing,
-	kProgressivePhotonMapping,
-	kBidirectionalPhotonMapping,
-	kBidirectionalPathTracing,
-	kVertexConnectionMerging,
-	kAlgorithmMax
-};
-
-static const char* GetName(Algorithm aAlgorithm) {
-	static const char* algorithmNames[7] = {
-		"eye light",
-		"path tracing",
-		"light tracing",
-		"progressive photon mapping",
-		"bidirectional photon mapping",
-		"bidirectional path tracing",
-		"vertex connection and merging"
-	};
-
-	if(aAlgorithm < 0 || aAlgorithm > 7)
-		return "unknown algorithm";
-
-	return algorithmNames[aAlgorithm];
-}
-
-static const char* GetAcronym(Algorithm aAlgorithm) {
-	static const char* algorithmNames[7] = {
-		"el", "pt", "lt", "ppm", "bpm", "bpt", "vcm" };
-
-	if(aAlgorithm < 0 || aAlgorithm > 7)
-		return "unknown";
-	return algorithmNames[aAlgorithm];
-}
-\end{lstlisting}
-	\end{minipage}
-	~
-	\begin{minipage}[t]{0.48\textwidth}
-\begin{lstlisting}
-enum Algorithm {
-	EyeLight,
-	PathTracing,
-	LightTracing,
-	ProgressivePhotonMapping,
-	BidirectionalPhotonMapping,
-	BidirectionalPathTracing,
-	VertexConnectionMerging,
-}
-
-impl Algorithm {
-	fn get_name(self) -> &'static str {
-		match self {
-			EyeLight => "eye light",
-			PathTracing => "path tracing",
-			LightTracing => "light tracing",
-			ProgressivePhotonMapping => "progressive photon mapping",
-			BidirectionalPhotonMapping => "bidirectional photon mapping",
-			BidirectionalPathTracing => "bidirectional path tracing",
-			VertexConnectionMerging => "vertex connection and merging",
-		}
-	}
-
-	fn get_acronym(self) -> &'static str {
-		match self {
-			EyeLight => "el",
-			PathTracing => "pt",
-			LightTracing => "lt",
-			ProgressivePhotonMapping => "ppm",
-			BidirectionalPhotonMapping => "bpm",
-			BidirectionalPathTracing => "bpt",
-			VertexConnectionMerging => "vcm",
-		}
-	}
-}
-\end{lstlisting}
-	\end{minipage}
-	\caption{Comparação entre \emph{enums} em C++ e \emph{Rust}}
-	\label{code:enums}
-\end{figure}
-
-Para a leitura de parâmetros passado via linha de comando, é utilizada o módulo \texttt{getopts} presente na biblioteca padrão. Na versão \Cpp\ a leitura é feita de forma manual.
-
-
-
-\begin{figure}
-\begin{lstlisting}
-// Definição da macro
-macro_rules! impl_Vector_traits(
-	($Self:ident { $($field:ident),+ }) => (
-		impl<T: Num> Add<$Self<T>, $Self<T>> for $Self<T> {
-			#[inline]
-			fn add(&self, o: &$Self<T>) -> $Self<T> {
-				$Self {
-					$($field: self.$field + o.$field),+
-				}
-			}
-		}
-		// ...
-		impl<T: Num> Neg<$Self<T>> for $Self<T> {
-			#[inline]
-			fn neg(&self) -> $Self<T> {
-				$Self {
-					$($field: -self.$field),+
-				}
-			}
-		}		
-		// ...
-		impl<T: Num> Index<uint, T> for $Self<T> {
-			#[inline]
-			fn index(&self, index: &uint) -> &T {
-				[$(&self.$field),+][*index]
-			}
-		}
-	)
-)
-
-// Definição dos tipos
-#[deriving(Copy, Clone)]
-pub struct Vector2<T> { pub x: T, pub y: T }
-#[deriving(Copy, Clone)]
-struct Vector3<T> { pub x: T, pub y: T, pub z: T }
-
-// Instanciação da macro
-impl_Vector_traits!(Vector2 { x, y })
-impl_Vector_traits!(Vector3 { x, y, z })
-\end{lstlisting}
-\begin{lstlisting}
-// Expansão de impl_Vector_traits!(Vector2 { x, y })
-impl<T: Num> Add<Vector2<T>, Vector2<T>> for Vector2<T> {
-	#[inline]
-	fn add(&self, o: &Vector2<T>) -> Vector2<T> {
-		Vector2 {
-			x: self.x + o.x,
-			y: self.y + o.y
-		}
-	}
-}
-// ...
-impl<T: Num> Neg<Vector2<T>> for Vector2<T> {
-	#[inline]
-	fn neg(&self) -> Vector2<T> {
-		Vector2 {
-			x: -self.x,
-			y: -self.y
-		}
-	}
-}
-// ...
-impl<T: Num> Index<uint, T> for Vector2<T> {
-	#[inline]
-	fn index(&self, index: &uint) -> &T {
-		[self.x, self.y][*index]
-	}
-}
-\end{lstlisting}
-	\caption{Definição e uso de uma macro e sua expansão}
-	\label{code:mathmacro}
-\end{figure}
-
-I don't want this to happen
-\fi
 \chapter{Próximas Etapas}
 
 Como continuação do trabalho realizado até o momento, são planejadas as seguintes atividades:
@@ -488,7 +297,7 @@ Como continuação do trabalho realizado até o momento, são planejadas as segu
 \begin{enumerate}
 	\item fazer a execução das tarefas em uma máquina diferente da que mantém o portal.
 	\item Avaliar novas idéias de funcionalidades e implementar as que forem validadas.
-	\item tornar site responsivo via bootstrap.
+	\item Tornar site responsivo utilizando o framework Bootstrap.
 \end{enumerate}
 
 \setlength{\baselineskip}{\baselineskip}
