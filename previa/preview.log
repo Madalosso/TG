@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.27)  3 OCT 2015 17:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.27)  3 OCT 2015 23:39
 entering extended mode
 **preview.tex
 (preview.tex
@@ -866,15 +866,11 @@ Package babel Info: Redefining portuges shorthand "|
  [3
 
 ]
-Overfull \hbox (27.20004pt too wide) in paragraph at lines 114--115
-\T1/ptm/b/n/12 Palavras-chave: \T1/ptm/m/n/12 Com-pu-ta-ção de alto de-sem-pe-n
-ho. Pro-gra-ma-ção Web. !!!!!!!!!!!!!!!1. !!!!!!!!!!!!!!!3.
- []
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 116.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 116.
 
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 116.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 116.
 [4
 
 ] (preview.toc
@@ -888,17 +884,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--6
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--9
- []  
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--23
+Underfull \hbox (badness 10000) in paragraph at lines 10--10
  []  
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 24--24
+ []  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--25
  []  
  []
 
@@ -936,9 +932,11 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 151.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 158.
+(babel)             in language  on input line 156.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 160.
 
-Overfull \hbox (3.11565pt too wide) in paragraph at lines 159--160
+Overfull \hbox (3.11565pt too wide) in paragraph at lines 161--162
 \T1/ptm/m/n/12 de es-tru-tu-ras do Uni-verso. Este tipo de si-mu-la-ção tem um 
 pa-pel fun-da-men-tal([][]BERTSCHINGER[][],
  []
@@ -951,70 +949,62 @@ Package babel Info: Redefining portuges shorthand "|
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 187.
+(babel)             in language  on input line 189.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 187.
+(babel)             in language  on input line 189.
  [9]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 187.
+(babel)             in language  on input line 189.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 195.
+(babel)             in language  on input line 197.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 198.
+(babel)             in language  on input line 200.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 202.
+(babel)             in language  on input line 204.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 202.
+(babel)             in language  on input line 204.
  [10
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 211.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 216.
+(babel)             in language  on input line 213.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 218.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 218.
+(babel)             in language  on input line 220.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 220.
  [11]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 219.
+(babel)             in language  on input line 221.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 222.
+(babel)             in language  on input line 224.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 225.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 229.
+(babel)             in language  on input line 227.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 231.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 229.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 231.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 235.
+(babel)             in language  on input line 237.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 235.
- [12] <class_diagran_tg.png, id=165, 510.40688pt x 430.60875pt>
+(babel)             in language  on input line 237.
+ [12] <class_diagran_tg.png, id=170, 510.40688pt x 430.60875pt>
 File: class_diagran_tg.png Graphic file (type png)
 
 <use class_diagran_tg.png>
-Package pdftex.def Info: class_diagran_tg.png used on input line 240.
+Package pdftex.def Info: class_diagran_tg.png used on input line 242.
 (pdftex.def)             Requested size: 455.24411pt x 384.08817pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 248.
+(babel)             in language  on input line 250.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 252.
+(babel)             in language  on input line 254.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 252.
+(babel)             in language  on input line 254.
  [13 <./class_diagran_tg.png>]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 261.
-
-Overfull \hbox (1.9976pt too wide) in paragraph at lines 262--263
-[]\T1/ptm/m/n/12 As fun-ci-o-na-li-da-des do sis-tema po-dem ser di-vi-di-das a
-té agora em 3 gru-pos dis-tin-tos(figura
- []
-
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 263.
 Package babel Info: Redefining portuges shorthand "|
@@ -1022,30 +1012,33 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 267.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 267.
-[14]
+(babel)             in language  on input line 269.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 267.
- <UseCase_tg.png, id=179, 666.23906pt x 846.16125pt>
+(babel)             in language  on input line 269.
+ [14]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 269.
+
+<UseCase_tg.png, id=183, 666.23906pt x 846.16125pt>
 File: UseCase_tg.png Graphic file (type png)
  <use UseCase_tg.png>
-Package pdftex.def Info: UseCase_tg.png used on input line 273.
+Package pdftex.def Info: UseCase_tg.png used on input line 275.
 (pdftex.def)             Requested size: 455.24411pt x 578.19673pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 280.
+(babel)             in language  on input line 282.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 293.
+(babel)             in language  on input line 295.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 293.
+(babel)             in language  on input line 295.
 
 [15]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 293.
+(babel)             in language  on input line 295.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 293.
+(babel)             in language  on input line 295.
  [16 <./UseCase_tg.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 293.
+(babel)             in language  on input line 295.
  (preview.bbl
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
@@ -1064,32 +1057,32 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 
 AED: lastpage setting LastPage
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 309.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 309.
 [18
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 307.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 307.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 307.
+(babel)             in language  on input line 309.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 309.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 309.
  (preview.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 307.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 307.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 309.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 309.
 Package rerunfilecheck Info: File `preview.out' has not changed.
-(rerunfilecheck)             Checksum: 0ED4FEB7AD728481197D0E527E510D00;3132.
+(rerunfilecheck)             Checksum: 5BD8B9E0C0ACBC9837AB91CCD0A554E4;3295.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 307.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 309.
  ) 
 Here is how much of TeX's memory you used:
  13504 strings out of 493673
- 187781 string characters out of 3141524
- 275251 words of memory out of 3000000
- 16582 multiletter control sequences out of 15000+200000
+ 187773 string characters out of 3141524
+ 275258 words of memory out of 3000000
+ 16581 multiletter control sequences out of 15000+200000
  53408 words of font info for 84 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  37i,7n,39p,629b,416s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1099,9 +1092,9 @@ Files (x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2
 .9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on preview.pdf (18 pages, 224077 bytes).
+Output written on preview.pdf (18 pages, 226375 bytes).
 PDF statistics:
- 241 PDF objects out of 1000 (max. 8388607)
- 56 named destinations out of 1000 (max. 500000)
- 195 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 245 PDF objects out of 1000 (max. 8388607)
+ 57 named destinations out of 1000 (max. 500000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
 

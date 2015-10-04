@@ -92,16 +92,16 @@
 \advisor[Profª.]{Drª.}{Charão}{Andrea Schwertner}
 \orientadoratrue
 
-\committee[Profª. Drª.]{non se sabe}{silva}{UFSM}
-\committee[Prof. Dr.]{anon}{incognito}{UFSM}
+\committee[Profª. Drª.]{Manzoni Fontoura}{Lizandra}{UFSM}
+\committee[Prof. Dr.]{Piveta}{Eduardo}{UFSM}
 
 \date{08}{Outubro}{2015}
 
 \keyword{Computação de alto desempenho}
 \keyword{Programação Web}
-\keyword{!!!!!!!!!!!!!!!1}
-\keyword{!!!!!!!!!!!!!!!3}
-\keyword{!!!!!!!!!!!!!!!2}
+\keyword{Framework Django}
+\keyword{Execução Remota}
+\keyword{Respon}
 
 %\date{} % Activate to display a given date or no date (if empty), otherwise the current date is printed
 
@@ -125,19 +125,19 @@ Algumas áreas de pesquisa utilizam constantemente algoritmos que demandam alto 
 
 \chapter{Introdução}
 
-Algoritmos com grande custo computacional são facilmente encontrados em áreas como meteorologia, biologia e astronomia. Esses algoritmos possuem a característica de utilizar um nível elevado de processamento para concluir sua execução, e consequentemente, seus tempos de execução podem variar dependendo da máquina aonde estão sendo executados.
+Algoritmos com grande custo computacional são facilmente encontrados em áreas como meteorologia, biologia e astronomia. Esses algoritmos possuem a característica de utilizar um nível elevado de processamento para concluir sua execução, e consequentemente, seus tempos de execução tendem a ser longos e variam dependendo da máquina aonde estão sendo executados.
 
-É comum pesquisadores destas e de outras áreas desenvolverem novas implementações de algoritmos utilizados por seus colegas. Implementações essas que podem trazer muitos benefícios para outros pesquisadores que necessitam deste tipo de solução. Infelizmente, é comum essas implementações ficarem restritas a ambientes privados, não por questões de licença, mas simplesmente pela ausência de um método prático para disponibilizar a nova ferramenta ao público.
+É comum pesquisadores destas áreas desenvolverem novas implementações de algoritmos utilizados por seus colegas. Implementações essas que podem trazer muitos benefícios para outros pesquisadores que necessitam deste tipo de solução. Infelizmente, é comum essas implementações ficarem restritas a ambientes privados, não por questões de licença, mas simplesmente pela ausência de um método prático para disponibiliza-la ao público.
 
-Com isso, surge a ideia de desenvolver um portal web que permita ao usuário o cadastro de um experimento, no qual ele poderá ditar os dados de entrada desse experimento, e qual algoritmo (disponível no sistema) ele deseja utilizar para processar os dados. Depois de requisitar o experimento, o sistema deve providenciar sua execução e quando finalizar, retornar o resultado do experimento ao usuário que o requisitou.
+Baseado nessa situação, surge a ideia de desenvolver um portal web que permita a execução de algoritmos remotamente, de acordo com as configurações feitas pelo administrador do portal. Nesse portal, o usuário seria capaz de fazer execuções pré definidas pelo administrador, ou então utilizar dados próprios para que sejam processados pelos algoritmos, e consiga obter os resultados da execução quando concluída.
 
-Para este portal, será utilizado um algoritmo desenvolvido para a área de astronomia, uma versão do algoritmo Friends-of-Friends de complexidade n*log(n) paralelizada através do framework OpenMP.
+Um algoritmo que se enquadra no propósito do portal e que será utilizado durante o desenvolvimento do mesmo, é a uma versão do algoritmo Friends-of-Friends de complexidade n*log(n) paralelizado através do \emph{framework} OpenMP.
 
 \section{Objetivos}
 
 \subsection{Objetivo Geral}
 
-O objetivo deste trabalho é criar um portal web que possibilite aos usuários cadastrados no sistema  executar algoritmos utilizando diferentes dados e disponibilizar o resultado da execução após sua conclusão.
+O objetivo deste trabalho é criar um modelo de portal web que possibilite aos usuários cadastrados no sistema executar algoritmos utilizando diferentes dados e disponibilizar o resultado da execução após sua conclusão.
 
 \section{Justificativa}
 
@@ -146,13 +146,15 @@ O projeto é capaz de gerar benefícios significativos para a comunidade de pesq
 Além de servir como modelo, o projeto disponibilizará um algoritmo que se enquadra na categoria alvo do projeto: a versão de complexidade n*log(n) e paralela do friends-of-friends.
 
 \chapter{Fundamentos e Revisão de Literatura}
-
+Nesse capítulo será dado justificativa a respeito das tecnologias selecionadas para o desenvolvimento do projeto e introdução ao algoritmo selecionado para teste do sistema durante seu desenvolvimento
 
 \section{Framework Django}
-Django\cite{django} é um framework para criação de aplicações web que encoraja o desenvolvimento ágil, em alto nível e com design pragmático. Foi criado inicialmente para manter o portal de notícias online do Lawrence
-Journal World pelos programadores Adrian Holovaty, Simon Willison e Jacob Kaplan-Moss.
+Django\cite{django} é um \emph{framework} para criação de aplicações web que encoraja o desenvolvimento ágil, em alto nível e com design pragmático. Foi criado inicialmente para manter o portal de notícias online do Lawrence Journal World pelos programadores Adrian Holovaty, Simon Willison e Jacob Kaplan-Moss.
 
-Por se tratar de um portal inicialmente desenvolvido para administrar notícias, o framework lida muito  bem com gerenciamento de conteúdo e agilidade quando é necessário fazer alterações no sistema.
+Por se tratar de um portal inicialmente desenvolvido para administrar notícias, o \emph{framework} lida muito  bem com gerenciamento de conteúdo e agilidade quando é necessário fazer alterações no sistema.
+
+\section{Trabalho Relacionados}
+
 
 
 \section{Friends of Friends}
@@ -185,9 +187,9 @@ Na 15ª edição da Escola Regional de Alto Desempenho do Rio Grande do Sul (XV 
 %\end{figure}
 
 \chapter{Desenvolvimento}
-A metodologia do projeto concentrou-se em dar prioridade aos requisitos que apresentavam maior risco, priorizando a funcionalidade de executar remotamente tarefas. Por causa disso foi feita uma "Sprint"  para agilizar o desenvolvimento de funcionalidades mais básicas do projeto, que dariam base ao sistema no qual iria ser desenvolvida a funcionalidade de requisição de execuções remotas pelos usuários, parte crítica do projeto.
+A metodologia do projeto concentrou-se em dar prioridade aos requisitos que apresentavam maior risco, priorizando a funcionalidade de executar tarefas remotamente. Por causa disso foi feita uma \emph{Sprint} para agilizar o desenvolvimento de funcionalidades mais básicas do projeto, focando especialmente na questão de execuções remotas solicitadas pelos usuários cadastrados no sistema.
 
-Para isso, o projeto iniciou através do estudo e familiarização do framework Django, através de uma série de video aulas disponíveis no youtube e da documentação do framework, foram desenvolvidas as páginas de 'contato' e 'informações' da aplicação.
+Para isso, o projeto iniciou através do estudo e familiarização do \emph{framework} Django. Através de uma série de video aulas disponíveis no youtube e da documentação do \emph{framework}, foram desenvolvidas as páginas de 'contato' e 'informações' da aplicação.
 
 Através desse estudo de video aulas foram selecionados também algumas aplicações extensíveis que, conforme observou-se, poderiam trazer ganhos ao projeto em questão de agilidade de desenvolvimento. As aplicações estudadas foram o django-registration-redux, para registro de usuário, e o django-crispy-forms, que efetua alterações de formulários conforme o resultado da validação do mesmo.
 
@@ -259,7 +261,7 @@ Essa aplicação permite ao sistema django criar tarefas que serão executadas p
 No momento, a execução das terefas criadas pelo sistema estão todas sendo realizadas por um worker executado na mesma máquina que mantém o portal, posteriormente espera-se fazer com que isso seja alterado para que a máquina que realiza o processamento seja exclusivamente dedicada à essa tarefa.
 
 \section{Funcionalidades}
-As funcionalidades do sistema podem ser divididas até agora em 3 grupos distintos(figura 3.2).
+As funcionalidades do sistema podem ser divididas até agora em 3 grupos distintos. (Figura 3.2).
 \subsection{Usuário Anonimo}
 Um usuário anônimo possui a permissão de acessar áreas de informação a respeito do sistema, de contato com o administrador do sistema, e da área de registro, onde pode solicitar o registro e, seguindo as orientações apresentadas, fazer login como um usuário registrado.
 \subsection{Usuário registrado}
@@ -297,7 +299,7 @@ Como continuação do trabalho realizado até o momento, são planejadas as segu
 \begin{enumerate}
 	\item fazer a execução das tarefas em uma máquina diferente da que mantém o portal.
 	\item Avaliar novas idéias de funcionalidades e implementar as que forem validadas.
-	\item Tornar site responsivo utilizando o framework Bootstrap.
+	\item Tornar site responsivo utilizando o \emph{framework} Bootstrap.
 \end{enumerate}
 
 \setlength{\baselineskip}{\baselineskip}
