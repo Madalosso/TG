@@ -12,11 +12,6 @@
   cosmological N-body simulations. \textbf{Astrophysical Journal Supplement
   Series (ISSN 0067-0049), vol. 57}, [S.l.], 1985.
 
-\bibitem[HUCHRA J.~P.(1982)HUCHRA J.~P.]{uchra} HUCHRA J.~P., G. M.~J\@. Groups
-  of galaxies. I - Nearby groups. \textbf{Astrophysical Journal, Part 1, vol.
-  257, June 15, 1982, p. 423-437. Research supported by Cambridge University},
-  [S.l.], 1982.
-
 \bibitem[MEDIGRID(????)MEDIGRID]{medigrid} MEDIGRID. Accessed: 2015-08-14,
   \url{http://www.medigrid.de/index_en.html}.
 
@@ -24,8 +19,8 @@
   INFRASTRUCTURE]{nesi} NEW Zeland eScience Infrastructure. Accessed:
   2015-08-14, \url{https://www.nesi.org.nz/}.
 
-\bibitem[OTáVIO MIGLIAVACCA~MADALOSSO(2015)OTáVIO
-  MIGLIAVACCA~MADALOSSO]{friends} OTáVIO MIGLIAVACCA~MADALOSSO, A. S.~C\@.
+\bibitem[OTAVIO MIGLIAVACCA~MADALOSSO(2015)OTAVIO
+  MIGLIAVACCA~MADALOSSO]{friends} OTAVIO MIGLIAVACCA~MADALOSSO, A. S.~C\@.
   Implementação do algoritmo Friends of Friends de complexidade n*logn(n)
   para classificação de objetos astronômicos. \textbf{ERAD-RS XV}, [S.l.],
   2015.

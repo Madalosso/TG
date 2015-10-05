@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.27)  3 OCT 2015 23:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.27)  5 OCT 2015 02:54
 entering extended mode
 **preview.tex
 (preview.tex
@@ -884,17 +884,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--6
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--10
+Underfull \hbox (badness 10000) in paragraph at lines 14--14
  []  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 24--24
+Underfull \hbox (badness 10000) in paragraph at lines 28--28
  []  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--25
+Underfull \hbox (badness 10000) in paragraph at lines 29--29
  []  
  []
 
@@ -916,135 +916,150 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 142.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 146.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 146.
+(babel)             in language  on input line 150.
  [6
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 148.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 148.
+(babel)             in language  on input line 150.
  [7]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 148.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 151.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 156.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 160.
-
-Overfull \hbox (3.11565pt too wide) in paragraph at lines 161--162
-\T1/ptm/m/n/12 de es-tru-tu-ras do Uni-verso. Este tipo de si-mu-la-ção tem um 
-pa-pel fun-da-men-tal([][]BERTSCHINGER[][],
- []
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 174.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 174.
-[8
-
-]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 189.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 189.
- [9]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 189.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 197.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 200.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 204.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 204.
- [10
-
-]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 213.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 218.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 220.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 220.
- [11]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 221.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 224.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 227.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 231.
+(babel)             in language  on input line 153.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 158.
 
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 231.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 158.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 237.
+(babel)             in language  on input line 165.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 237.
- [12] <class_diagran_tg.png, id=170, 510.40688pt x 430.60875pt>
-File: class_diagran_tg.png Graphic file (type png)
+(babel)             in language  on input line 169.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 169.
 
-<use class_diagran_tg.png>
-Package pdftex.def Info: class_diagran_tg.png used on input line 242.
-(pdftex.def)             Requested size: 455.24411pt x 384.08817pt.
+[8
+
+]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 171.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 177.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 180.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 183.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 187.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 187.
+ [9]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 205.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 229.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 229.
+ [10]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 229.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 237.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 240.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 245.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 245.
+ [11
+
+]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 254.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 254.
- [13 <./class_diagran_tg.png>]
+(babel)             in language  on input line 259.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 263.
+(babel)             in language  on input line 262.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 264.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 264.
+ [12]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 265.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 267.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 269.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 269.
- [14]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 269.
+(babel)             in language  on input line 268.
 
-<UseCase_tg.png, id=183, 666.23906pt x 846.16125pt>
+<class_diagran_tg.png, id=190, 510.40688pt x 430.60875pt>
+File: class_diagran_tg.png Graphic file (type png)
+
+<use class_diagran_tg.png>
+Package pdftex.def Info: class_diagran_tg.png used on input line 283.
+(pdftex.def)             Requested size: 455.24411pt x 384.08817pt.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 291.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 293.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 293.
+ [13]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 293.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 293.
+ [14 <./class_diagran_tg.png>]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 304.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 306.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 308.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 308.
+ [15]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 308.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 310.
+
+<UseCase_tg.png, id=207, 666.23906pt x 846.16125pt>
 File: UseCase_tg.png Graphic file (type png)
  <use UseCase_tg.png>
-Package pdftex.def Info: UseCase_tg.png used on input line 275.
+Package pdftex.def Info: UseCase_tg.png used on input line 316.
 (pdftex.def)             Requested size: 455.24411pt x 578.19673pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 282.
+(babel)             in language  on input line 323.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 295.
+(babel)             in language  on input line 328.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 295.
+(babel)             in language  on input line 328.
 
-[15]
+[16]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 295.
+(babel)             in language  on input line 328.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 295.
- [16 <./UseCase_tg.png>]
+(babel)             in language  on input line 328.
+ [17 <./UseCase_tg.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 295.
+(babel)             in language  on input line 336.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 336.
+ [18]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 336.
  (preview.bbl
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
- [17
+ [19
 
 ]
 Package babel Info: Redefining portuges shorthand "|
@@ -1057,44 +1072,50 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 
 AED: lastpage setting LastPage
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 309.
+(babel)             in language  on input line 350.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 309.
-[18
+(babel)             in language  on input line 350.
+[20
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 309.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 309.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 309.
+(babel)             in language  on input line 350.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 350.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 350.
  (preview.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 309.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 309.
-Package rerunfilecheck Info: File `preview.out' has not changed.
-(rerunfilecheck)             Checksum: 5BD8B9E0C0ACBC9837AB91CCD0A554E4;3295.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 350.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 350.
 
+
+Package rerunfilecheck Warning: File `preview.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `preview.out':
+(rerunfilecheck)             Before: 30C877359DEF03340DE0313999914813;3893
+(rerunfilecheck)             After:  DF0471C5A3A0DCDA7F613A0B071F4877;3931.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 309.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 350.
  ) 
 Here is how much of TeX's memory you used:
- 13504 strings out of 493673
- 187773 string characters out of 3141524
- 275258 words of memory out of 3000000
- 16581 multiletter control sequences out of 15000+200000
+ 13510 strings out of 493673
+ 187883 string characters out of 3141524
+ 276213 words of memory out of 3000000
+ 16582 multiletter control sequences out of 15000+200000
  53408 words of font info for 84 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 37i,7n,39p,629b,416s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,6n,39p,624b,373s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files (x86)/MiKTeX 2
 .9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on preview.pdf (18 pages, 226375 bytes).
+Output written on preview.pdf (20 pages, 233584 bytes).
 PDF statistics:
- 245 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
- 203 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 273 PDF objects out of 1000 (max. 8388607)
+ 62 named destinations out of 1000 (max. 500000)
+ 235 words of extra memory for PDF output out of 10000 (max. 10000000)
 

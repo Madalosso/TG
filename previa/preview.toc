@@ -1,25 +1,29 @@
 \select@language {brazilian}
 \contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{6}{chapter.1}
-\contentsline {section}{\numberline {1.1}Objetivos}{6}{section.1.1}
+\contentsline {section}{\numberline {1.1}Objetivos e Justificativa}{6}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Objetivo Geral}{6}{subsection.1.1.1}
-\contentsline {section}{\numberline {1.2}Justificativa}{6}{section.1.2}
+\contentsline {subsection}{\numberline {1.1.2}Justificativa}{6}{subsection.1.1.2}
 \contentsline {chapter}{\numberline {2}Fundamentos e Revis\IeC {\~a}o de Literatura}{8}{chapter.2}
 \contentsline {section}{\numberline {2.1}Framework Django}{8}{section.2.1}
-\contentsline {section}{\numberline {2.2}Trabalho Relacionados}{8}{section.2.2}
-\contentsline {section}{\numberline {2.3}Friends of Friends}{8}{section.2.3}
-\contentsline {chapter}{\numberline {3}Desenvolvimento}{10}{chapter.3}
-\contentsline {section}{\numberline {3.1}Formul\IeC {\'a}rio de Contato}{10}{section.3.1}
-\contentsline {section}{\numberline {3.2}Registro de Usu\IeC {\'a}rio}{10}{section.3.2}
-\contentsline {section}{\numberline {3.3}Modelos de dados}{11}{section.3.3}
+\contentsline {subsection}{\numberline {2.1.1}Django Registration Redux}{8}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Django Crispy Forms}{9}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Celery}{9}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}RabbitMQ}{9}{subsection.2.2.1}
+\contentsline {section}{\numberline {2.3}Friends of Friends}{9}{section.2.3}
+\contentsline {section}{\numberline {2.4}Trabalho Relacionados}{10}{section.2.4}
+\contentsline {chapter}{\numberline {3}Desenvolvimento}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Formul\IeC {\'a}rio de Contato}{11}{section.3.1}
+\contentsline {section}{\numberline {3.2}Registro de Usu\IeC {\'a}rio}{11}{section.3.2}
+\contentsline {section}{\numberline {3.3}Modelos de dados}{12}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Algorithm}{12}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}ExecModel}{12}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Execution}{12}{subsection.3.3.3}
-\contentsline {subsection}{\numberline {3.3.4}PortalUser}{12}{subsection.3.3.4}
-\contentsline {section}{\numberline {3.4}Execu\IeC {\c c}\IeC {\~a}o Remota de tarefas}{13}{section.3.4}
-\contentsline {section}{\numberline {3.5}Funcionalidades}{14}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Usu\IeC {\'a}rio Anonimo}{14}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Usu\IeC {\'a}rio registrado}{14}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}Administrador}{15}{subsection.3.5.3}
-\contentsline {section}{\numberline {3.6}Sistema de Arquivos}{15}{section.3.6}
-\contentsline {chapter}{\numberline {4}Pr\IeC {\'o}ximas Etapas}{17}{chapter.4}
-\contentsline {chapter}{Refer{\^e}ncias}{18}{chapter*.3}
+\contentsline {subsection}{\numberline {3.3.2}ExecModel}{13}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Execution}{13}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}PortalUser}{13}{subsection.3.3.4}
+\contentsline {section}{\numberline {3.4}Execu\IeC {\c c}\IeC {\~a}o Remota de tarefas}{15}{section.3.4}
+\contentsline {section}{\numberline {3.5}Funcionalidades}{15}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Usu\IeC {\'a}rio Anonimo}{16}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Usu\IeC {\'a}rio registrado}{16}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Administrador}{16}{subsection.3.5.3}
+\contentsline {section}{\numberline {3.6}Sistema de Arquivos}{16}{section.3.6}
+\contentsline {chapter}{\numberline {4}Pr\IeC {\'o}ximas Etapas}{19}{chapter.4}
+\contentsline {chapter}{Refer{\^e}ncias}{20}{chapter*.3}

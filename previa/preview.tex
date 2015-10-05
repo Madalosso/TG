@@ -125,39 +125,67 @@ Algumas áreas de pesquisa utilizam constantemente algoritmos que demandam alto 
 
 \chapter{Introdução}
 
-Algoritmos com grande custo computacional são facilmente encontrados em áreas como meteorologia, biologia e astronomia. Esses algoritmos possuem a característica de utilizar um nível elevado de processamento para concluir sua execução, e consequentemente, seus tempos de execução tendem a ser longos e variam dependendo da máquina aonde estão sendo executados.
+Algoritmos com grande custo computacional são facilmente encontrados em áreas como meteorologia, biologia e astronomia. Esses algoritmos possuem a característica de consumir um nível elevado de processamento, e consequentemente, os tempos necessários para suas conclusões tendem a ser longos e variam dependendo do ambiente aonde são executados.
 
 É comum pesquisadores destas áreas desenvolverem novas implementações de algoritmos utilizados por seus colegas. Implementações essas que podem trazer muitos benefícios para outros pesquisadores que necessitam deste tipo de solução. Infelizmente, é comum essas implementações ficarem restritas a ambientes privados, não por questões de licença, mas simplesmente pela ausência de um método prático para disponibiliza-la ao público.
 
-Baseado nessa situação, surge a ideia de desenvolver um portal web que permita a execução de algoritmos remotamente, de acordo com as configurações feitas pelo administrador do portal. Nesse portal, o usuário seria capaz de fazer execuções pré definidas pelo administrador, ou então utilizar dados próprios para que sejam processados pelos algoritmos, e consiga obter os resultados da execução quando concluída.
+Baseado nessa situação, surge a ideia de desenvolver um portal web que permita a execução de algoritmos remotamente, de acordo com as configurações feitas pelo administrador. Desta forma, o usuário seria capaz de utilizar dados próprios para que sejam processados pelos algoritmos, e consiga obter os resultados quando a tarefa for concluída.
 
 Um algoritmo que se enquadra no propósito do portal e que será utilizado durante o desenvolvimento do mesmo, é a uma versão do algoritmo Friends-of-Friends de complexidade n*log(n) paralelizado através do \emph{framework} OpenMP.
 
-\section{Objetivos}
+\section{Objetivos e Justificativa}
 
 \subsection{Objetivo Geral}
 
 O objetivo deste trabalho é criar um modelo de portal web que possibilite aos usuários cadastrados no sistema executar algoritmos utilizando diferentes dados e disponibilizar o resultado da execução após sua conclusão.
 
-\section{Justificativa}
+\subsection{Justificativa}
 
 O projeto é capaz de gerar benefícios significativos para a comunidade de pesquisa de diversas áreas, criando um modelo de ambiente que facilite a divulgação e teste de resultados de algoritmos alternativos para resolução de problemas comuns.
 
 Além de servir como modelo, o projeto disponibilizará um algoritmo que se enquadra na categoria alvo do projeto: a versão de complexidade n*log(n) e paralela do friends-of-friends.
 
+
+
 \chapter{Fundamentos e Revisão de Literatura}
-Nesse capítulo será dado justificativa a respeito das tecnologias selecionadas para o desenvolvimento do projeto e introdução ao algoritmo selecionado para teste do sistema durante seu desenvolvimento
+As ferramentas e recursos utilizadas nesse trabalho são: framework Django, Celery, algoritmo Friends-of-Friends e trabalhos relacionados. Eles serão apresentados mais profundamente a seguir.
 
 \section{Framework Django}
-Django\cite{django} é um \emph{framework} para criação de aplicações web que encoraja o desenvolvimento ágil, em alto nível e com design pragmático. Foi criado inicialmente para manter o portal de notícias online do Lawrence Journal World pelos programadores Adrian Holovaty, Simon Willison e Jacob Kaplan-Moss.
+Django\cite{django} é um \emph{framework} escrito na linguagem \emph{Python} para criação de aplicações web que encoraja o desenvolvimento ágil, em alto nível e com design pragmático. Foi criado em 2003 para gerenciar um site jornalístico da cidade de Lawrence, no Kansas e tornou-se um projeto de código aberto publicado sob a licença BSD em Julho de 2005. 
 
-Por se tratar de um portal inicialmente desenvolvido para administrar notícias, o \emph{framework} lida muito  bem com gerenciamento de conteúdo e agilidade quando é necessário fazer alterações no sistema.
+O principal objetivo do framework é facilitar a criação de \emph{websites} dirigidos a banco de dados e se relaciona muito com a política de DRY (Dont Repeat Yourself) e \emph{pluggability}. Dentre as características desejadas para realização do projeto, o Django apresentou-se suficiente por apresentar suporte a tecnologias como:
+\begin{itemize}
+	\item Suporte Ajax (asynchronous JavaScript and XML)
+	\item Template Model–view–controller
+	\item Object-relational mapping
+	\item Suporte a frameworks de validação
+	\item Suporte a frameworks de migração de banco de dados
+\end{itemize}
 
-\section{Trabalho Relacionados}
+\subsection{Django Registration Redux}
+O django-registration-redux é uma aplicação extensível que provê as funcionalidades de registro de usuários para sites que utilizam Django. Essa aplicação já dispõe de templates e formulários para fazer a sua função, também contém um sistema de ativação de contas no qual o usuário que solicitou registro recebe um e-mail no endereço usado no cadastro que contém um link para ativar sua conta, forçando uma verificação de que o e-mail utilizado existe e pertence mesmo ao usuário.
 
+Por padrão ela mantém apenas os dados de e-mail, nome e senha do usuário que solicitou o registro, o que satisfaz os requisitos mínimos para executar sua funcionalidade, porém para o sistema em desenvolvimento, pareceu interessante ter a possibilidade de obter mais dados do usuário em seu cadastro, tais como instituição a qual o usuário pertence (Universidade, empresa, etc.), grau de escolaridade, e outras informações que podem ser úteis posteriormente ao administrador do sistema.
+
+Além disso, o django-registration-redux não tem por padrão, nenhuma forma de filtro de domínios de endereços de e-mail, o que também pode ser útil ao sistema, caso o administrador queira limitar o acesso do portal aos usuários que detenham um e-mail de um domínio específico.
+\subsection{Django Crispy Forms}
+Django-crispy-forms é uma aplicação Django que trata do processo de validação e renderização de formulários...
+\iffalse
+de casos como o de quando um usuário tenta efetuar um contato e não preenche um dos campos necessários, dependendo do resultado da validação, efetuada no backend do sistema, é retornado um novo formulário semelhante ao original, porém, com mensagens deixando explícito ao usuário quais foram os erros cometidos na tentativa de efetuar contato.
+\fi
+
+\section{Celery}
+Celery Task Queue é um gerenciador de tarefas assíncronas baseado em trocas de mensagens. Ele permite a execução e o agendamento de tarefas em um ou mais \emph{"Workers"}. \emph{"Workers"} são os outros processos que se comunicam com o gerenciador, que detém a função de realizar as tarefas solicitadas. Celery é escrito em Python e admite vários programas para transmissão de mensagens (\emph{Brokers}) entre o gerenciador e seus \emph{"Workers"}, sendo o mais recomendado deles o RabbitMQ.
+
+\subsection{RabbitMQ}
 
 
 \section{Friends of Friends}
+O Friends-of-Friends (FoF) é um algoritmo utilizado para manipular e analisar grandes quantidades de dados produzidos por simulações da área da astronomia, mais especificamente em tópicos como a distribuição de matéria escura em grande escala, a formação de halos de matéria escura, e a formação e evolução de galáxias e aglomerados. Essas simulações tem um papel fundamental\cite{Bertschinger,Efstathiou} no estudo desses assuntos.
+
+Na 15ª edição da Escola Regional de Alto Desempenho do Rio Grande do Sul (XV ERAD-RS)(referenciar), foram publicados resultados de execuções de uma nova implementação do Friends-of-Friends\cite{friends} originados de um projeto de pesquisa cujo objetivo era reduzir a complexidade do algoritmo e paraleliza-lo para que obtivesse uma diminuição de seu tempo de execução.
+
+\iffalse
 Simulações de N-corpos têm sido utilizadas para promover vários avanços na compreensão de questões relevantes em astrofísica, como por exemplo o processo de formação e evolução de estruturas do Universo. Este tipo de simulação tem um papel fundamental\cite{Bertschinger,Efstathiou} no estudo da evolução cósmica em tópicos como a distribuição de matéria escura em grande escala, a formação de halos de matéria escura, e a formação e evolução de galáxias e aglomerados.
 
 A manipulação e análise da grande quantidade de dados produzidos em tais simulações também é algo desafiador.
@@ -172,19 +200,31 @@ serão consideradas pertencentes ao mesmo grupo e serão chamadas de amigas. Em 
 redor de cada amiga e continua-se o procedimento usando a regra "qualquer amigo de meu amigo é meu amigo". O
 procedimento para quando nenhuma amiga nova puder ser adicionada ao grupo.
 
-Na 15ª edição da Escola Regional de Alto Desempenho do Rio Grande do Sul (XV ERAD-RS)(referenciar), foram publicados resultados de execuções de uma nova implementação do Friends-of-Friends\cite{friends} cuja complexidade computacional era reduzida em relação as versões anteriores, resultando em redução do tempo de processamento.
+\fi
 
+\section{Trabalho Relacionados}
+A seguir será apresentada uma lista com alguns trabalhos que se relacionam ao projeto em questões como a disponibilização de recursos para pesquisadores remotamente.
+\begin{itemize}
+	\item O New Zeland eScience Infrastructure - NeSI\cite{nesi}é um portal web que  provê plataformas de grande capacidade computacional para auxiliar pesquisadores na Nova Zelândia. Atualmente eles possuem 5 ambientes disponíveis em diferentes instalações. Cada um desses possui  hardware e software capazes de resolver problemas relacionados a áreas de pesquisa, especialmente ligados à química e bioinformática. 
+	
+	\item  o MediGRID \cite{medigrid} também é um portal web idealizado para auxiliar pesquisadores, porém esse é focado em pesquisa na área da biomedicina, ele oferece aplicações e infraestrutura para os pesquisadores cadastrados no portal realizarem experimentos conforme a sua vontade e a disponibilidade do sistema. 
+	O objetivo principal do MediGRID quando foi desenvolvido era ser uma plataforma de integração middleware ligando serviços eScience com as pesquisas de biomedicina. Porém hoje ele executa tarefas em 3 áreas majoritárias: Biomedicina, processamento de imagens e pesquisa clinica. 
+\end{itemize}
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.5\textwidth]{exemplo_imagem}
-%	\caption{
-%		Um exemplo de uma imagem gerada utilizando \emph{path tracing}. Note como a luz que atinge o
-%		plano xadrez é refletida de volta para iluminar a esfera, um fenômeno conhecido como
-%		\emph{iluminação indireta} e que é corretamente simulado pelo algoritmo.
-%	}
-%	\label{fig:path_tracing}
-%\end{figure}
+\iffalse
+\subsection{New Zeland eScience Infrastructure - NeSI}
+O NeSI\cite{nesi}é um portal web que  provê plataformas de grande capacidade computacional para auxiliar pesquisadores na Nova Zelândia. Atualmente eles possuem 5 ambientes disponíveis em diferentes instalações. Cada um desses possui  hardware e software capazes de resolver problemas relacionados a áreas de pesquisa, especialmente ligados à química e bioinformática. 
+
+Um desses ambientes por exemplo é o \emph{FitzRoy}, que dispõe de várias ferramentas para o ambiente de programação como compiladores para as linguagens C/C++, Fortran e Python, além de \textit{debuggers}, ferramentas de \textit{profilling}. Além disso também conta com bibliotecas úteis que auxiliam em questões como entrada e saída de dados e problemas matemáticos. Fora da área de programação, o ambiente oferece também aplicações de simulações que requerem alto desempenho do hardware.
+
+Cada um dos ambientes disponíveis possui seu próprio site institucional com sua respectiva documentação e formas de contato, além disso o próprio NeSI oferece suporte a usuários através da sua equipe.
+
+\subsection{MediGRID}
+Assim como o NeSI, o MediGRID \cite{medigrid} também é um portal web idealizado para auxiliar pesquisadores, porém esse é focado em pesquisa na área da biomedicina, ele oferece aplicações e infraestrutura para os pesquisadores cadastrados no portal realizarem experimentos conforme a sua vontade e a disponibilidade do sistema. 
+
+O objetivo principal do MediGRID quando foi desenvolvido era ser uma plataforma de integração middleware ligando serviços eScience com as pesquisas de biomedicina. Porém hoje ele executa tarefas em 3 áreas majoritárias: Biomedicina, processamento de imagens e pesquisa clinica.
+\fi
+
 
 \chapter{Desenvolvimento}
 A metodologia do projeto concentrou-se em dar prioridade aos requisitos que apresentavam maior risco, priorizando a funcionalidade de executar tarefas remotamente. Por causa disso foi feita uma \emph{Sprint} para agilizar o desenvolvimento de funcionalidades mais básicas do projeto, focando especialmente na questão de execuções remotas solicitadas pelos usuários cadastrados no sistema.
@@ -195,17 +235,18 @@ Através desse estudo de video aulas foram selecionados também algumas aplicaç
 
 
 \section{Formulário de Contato}
-A página de contato do sistema foi desenvolvida utilizando um formulário que exige informações necessárias para identificação e endereço de resposta de quem efetuou o contato. Para isso foi utilizada a aplicação django-crispy-forms, ela trata de casos como o de quando um usuário tenta efetuar um contato e não preenche um dos campos necessários, dependendo do resultado da validação, efetuada no backend do sistema, é retornado um novo formulário semelhante ao original, porém, com mensagens deixando explícito ao usuário quais foram os erros cometidos na tentativa de efetuar contato.
+A página de contato do sistema foi desenvolvida utilizando um formulário que exige informações necessárias para identificação e endereço de resposta de quem efetuou o contato. Para isso foi utilizada a aplicação Crispy que tratou da validação de formulário e seguiu-se o método padrão disponível pelo Django para envio de email.
 
 \section{Registro de Usuário}
 Depois disso houve o estudo da logística de registro de usuários, como a aplicação deve ser aberta a qualquer pessoa, é imprescindível que haja uma forma autônoma de registro de novos usuários. No primeiro momento tentou-se implementar a funcionalidade utilizando formulários e verificações desenvolvidas no proprio projeto, mas durante o desenvolvimento foi encontrada uma solução mais rápida e mais adequada, o uso do app Django-Registration-Redux.
 
+% TALVES ISSO DEVA ESTAR NA REVISAO DE LITERATURA
 O django-registration-redux é uma aplicação extensível que provê as funcionalidades de registro de usuários para sites que utilizam Django. Essa aplicação já dispõe de templates e formulários para fazer a sua função, também contém um sistema de ativação de contas no qual o usuário que solicitou registro recebe um e-mail no endereço usado no cadastro que contém um link para ativar sua conta, forçando uma verificação de que o e-mail utilizado existe e pertence mesmo ao usuário.
 
  Por padrão ela mantém apenas os dados de e-mail, nome e senha do usuário que solicitou o registro, o que satisfaz os requisitos mínimos para executar sua funcionalidade, porém para o sistema em desenvolvimento, pareceu interessante ter a possibilidade de obter mais dados do usuário em seu cadastro, tais como instituição a qual o usuário pertence (Universidade, empresa, etc.), grau de escolaridade, e outras informações que podem ser úteis posteriormente ao administrador do sistema.
 
 Além disso, o django-registration-redux não tem por padrão, nenhuma forma de filtro de domínios de endereços de e-mail, o que também pode ser útil ao sistema, caso o administrador queira limitar o acesso do portal aos usuários que detenham um e-mail de um domínio específico.
-
+%ATE AQUI.
 Para contornar essas questões, foi criado um novo modelo de dados que extende a aplicação registration-redux, tornando possível extender as funções de registro para esse modelo novo, de modo que no processo de registro novos dados podem ser requisitados, verificados e validados pelo sistema antes de proceder com a criação do usuário.
 
 
