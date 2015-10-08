@@ -101,7 +101,7 @@
 \keyword{Programação Web}
 \keyword{Framework Django}
 \keyword{Execução Remota}
-\keyword{Respon}
+\keyword{Python}
 
 %\date{} % Activate to display a given date or no date (if empty), otherwise the current date is printed
 
@@ -131,7 +131,7 @@ Algoritmos com grande custo computacional são facilmente encontrados em áreas 
 
 Baseado nessa situação, surge a ideia de desenvolver um portal web que permita a execução de algoritmos remotamente, de acordo com as configurações feitas pelo administrador. Desta forma, o usuário seria capaz de utilizar dados próprios para que sejam processados pelos algoritmos, e consiga obter os resultados quando a tarefa for concluída.
 
-Um algoritmo que se enquadra no propósito do portal e que será utilizado durante o desenvolvimento do mesmo, é a uma versão do algoritmo Friends-of-Friends de complexidade n*log(n) paralelizado através do \emph{framework} OpenMP.
+Um algoritmo que se enquadra no propósito do portal e que será utilizado durante o desenvolvimento do mesmo, é a uma versão do algoritmo Friends-of-Friends de complexidade n*log(n) paralelizado através do \emph{framework} OpenMP. Esse algoritmo foi desenvolvido em um projeto de pesquisa vinculado ao INPE (Instituto Nacional de Pesquisas Espaciais) pelo autor desse trabalho.
 
 \section{Objetivos e Justificativa}
 
@@ -148,36 +148,17 @@ Além de servir como modelo, o projeto disponibilizará um algoritmo que se enqu
 
 
 \chapter{Fundamentos e Revisão de Literatura}
-As ferramentas e recursos utilizadas nesse trabalho são: framework Django, Celery, algoritmo Friends-of-Friends e trabalhos relacionados. Eles serão apresentados mais profundamente a seguir.
+Para a produção desse projeto foi necessário fazer um estudo de ferramentas que iriam ser utilizadas para auxiliar na execução do trabalho. A natureza de um portal web, por exemplo, já apresenta um grande número possibilidades de frameworks web com o proposito de ser a base deste portal. Priorizando a velocidade de desenvolvimento e afinidade do autor com a linguagem, foi escolhido o framework Django, para ser utilizado na implementação.
+
+Também é necessário o uso de um gerenciador de tarefas para lidar com as execuções que serão requisitadas através do portal. Como o algoritmo que será utilizado nesse projeto trabalha sob uma grande quantidade de dados, o tempo de processamento gasto para sua conclusão não pode impactar no comportamento do portal. Seria inadmissível o portal aguardar a conclusão de uma execução requisitada ser concluída para só então retornar uma resposta ao usuário que a solicitou, para resolver isso, foi escolhido o gerenciador Celery para realizar o controle dessas execuções.
 
 \section{Framework Django}
 Django\cite{django} é um \emph{framework} escrito na linguagem \emph{Python} para criação de aplicações web que encoraja o desenvolvimento ágil, em alto nível e com design pragmático. Foi criado em 2003 para gerenciar um site jornalístico da cidade de Lawrence, no Kansas e tornou-se um projeto de código aberto publicado sob a licença BSD em Julho de 2005. 
 
-O principal objetivo do framework é facilitar a criação de \emph{websites} dirigidos a banco de dados e se relaciona muito com a política de DRY (Dont Repeat Yourself) e \emph{pluggability}. Dentre as características desejadas para realização do projeto, o Django apresentou-se suficiente por apresentar suporte a tecnologias como:
-\begin{itemize}
-	\item Suporte Ajax (asynchronous JavaScript and XML)
-	\item Template Model–view–controller
-	\item Object-relational mapping
-	\item Suporte a frameworks de validação
-	\item Suporte a frameworks de migração de banco de dados
-\end{itemize}
+O principal objetivo do framework é facilitar a criação de \emph{websites} dirigidos a banco de dados e se relaciona muito com a política de DRY (Dont Repeat Yourself) e \emph{pluggability}. Dentre as características desejadas para realização do projeto, o Django pareceu adequado por apresentar suporte a tecnologias que favorecem o desenvolvimento ágil do projeto, como mapeamento objeto-relacional e o padrão Model-View-Controller.
 
-\subsection{Django Registration Redux}
-O django-registration-redux é uma aplicação extensível que provê as funcionalidades de registro de usuários para sites que utilizam Django. Essa aplicação já dispõe de templates e formulários para fazer a sua função, também contém um sistema de ativação de contas no qual o usuário que solicitou registro recebe um e-mail no endereço usado no cadastro que contém um link para ativar sua conta, forçando uma verificação de que o e-mail utilizado existe e pertence mesmo ao usuário.
-
-Por padrão ela mantém apenas os dados de e-mail, nome e senha do usuário que solicitou o registro, o que satisfaz os requisitos mínimos para executar sua funcionalidade, porém para o sistema em desenvolvimento, pareceu interessante ter a possibilidade de obter mais dados do usuário em seu cadastro, tais como instituição a qual o usuário pertence (Universidade, empresa, etc.), grau de escolaridade, e outras informações que podem ser úteis posteriormente ao administrador do sistema.
-
-Além disso, o django-registration-redux não tem por padrão, nenhuma forma de filtro de domínios de endereços de e-mail, o que também pode ser útil ao sistema, caso o administrador queira limitar o acesso do portal aos usuários que detenham um e-mail de um domínio específico.
-\subsection{Django Crispy Forms}
-Django-crispy-forms é uma aplicação Django que trata do processo de validação e renderização de formulários...
-\iffalse
-de casos como o de quando um usuário tenta efetuar um contato e não preenche um dos campos necessários, dependendo do resultado da validação, efetuada no backend do sistema, é retornado um novo formulário semelhante ao original, porém, com mensagens deixando explícito ao usuário quais foram os erros cometidos na tentativa de efetuar contato.
-\fi
-
-\section{Celery}
-Celery Task Queue é um gerenciador de tarefas assíncronas baseado em trocas de mensagens. Ele permite a execução e o agendamento de tarefas em um ou mais \emph{"Workers"}. \emph{"Workers"} são os outros processos que se comunicam com o gerenciador, que detém a função de realizar as tarefas solicitadas. Celery é escrito em Python e admite vários programas para transmissão de mensagens (\emph{Brokers}) entre o gerenciador e seus \emph{"Workers"}, sendo o mais recomendado deles o RabbitMQ.
-
-\subsection{RabbitMQ}
+\section{Celery Task Queue}
+Celery é um gerenciador de tarefas assíncronas 
 
 
 \section{Friends of Friends}
@@ -185,82 +166,45 @@ O Friends-of-Friends (FoF) é um algoritmo utilizado para manipular e analisar g
 
 Na 15ª edição da Escola Regional de Alto Desempenho do Rio Grande do Sul (XV ERAD-RS)(referenciar), foram publicados resultados de execuções de uma nova implementação do Friends-of-Friends\cite{friends} originados de um projeto de pesquisa cujo objetivo era reduzir a complexidade do algoritmo e paraleliza-lo para que obtivesse uma diminuição de seu tempo de execução.
 
-\iffalse
-Simulações de N-corpos têm sido utilizadas para promover vários avanços na compreensão de questões relevantes em astrofísica, como por exemplo o processo de formação e evolução de estruturas do Universo. Este tipo de simulação tem um papel fundamental\cite{Bertschinger,Efstathiou} no estudo da evolução cósmica em tópicos como a distribuição de matéria escura em grande escala, a formação de halos de matéria escura, e a formação e evolução de galáxias e aglomerados.
+O algoritmo funciona utilizando uma entrada de dados composta por posições de n corpos celestes que devem ser agrupados de acordo com um dado raio. Quando dois corpos estão posicionados a uma distância menor do que a do raio informado, eles pertencem a um mesmo grupo e qualquer outro corpo que estiver a uma distancia menor ou igual ao raio de qualquer integrante de um grupo, também pertence ao grupo. O resultado esperado do algoritmo é informar quais corpos estão relacionados entre sí seguindo essa regra.
 
-A manipulação e análise da grande quantidade de dados produzidos em tais simulações também é algo desafiador.
-Neste contexto, é essencial o desenvolvimento de técnicas computacionais eficientes para extrair informação
-significativa a partir dessas fontes de dados, em um período apropriado de tempo.
-
-Etapas importantes neste tipo de análise são a identificação de halos de matéria escura e o estudo do espectro da
-energia potencial gravitacional de tais objetos. Uma abordagem para este tipo de análise consiste em usar o
-algoritmo de percolação Friends-of-Friends (FoF) \cite{uchra} . A ideia básica deste algoritmo é a seguinte: considere uma
-esfera de raio R ao redor de cada partícula do conjunto total; se dentro desta esfera existirem outras partículas, elas
-serão consideradas pertencentes ao mesmo grupo e serão chamadas de amigas. Em seguida, toma-se uma espfera ao
-redor de cada amiga e continua-se o procedimento usando a regra "qualquer amigo de meu amigo é meu amigo". O
-procedimento para quando nenhuma amiga nova puder ser adicionada ao grupo.
-
-\fi
-
-\section{Trabalho Relacionados}
-A seguir será apresentada uma lista com alguns trabalhos que se relacionam ao projeto em questões como a disponibilização de recursos para pesquisadores remotamente.
-\begin{itemize}
-	\item O New Zeland eScience Infrastructure - NeSI\cite{nesi}é um portal web que  provê plataformas de grande capacidade computacional para auxiliar pesquisadores na Nova Zelândia. Atualmente eles possuem 5 ambientes disponíveis em diferentes instalações. Cada um desses possui  hardware e software capazes de resolver problemas relacionados a áreas de pesquisa, especialmente ligados à química e bioinformática. 
-	
-	\item  o MediGRID \cite{medigrid} também é um portal web idealizado para auxiliar pesquisadores, porém esse é focado em pesquisa na área da biomedicina, ele oferece aplicações e infraestrutura para os pesquisadores cadastrados no portal realizarem experimentos conforme a sua vontade e a disponibilidade do sistema. 
-	O objetivo principal do MediGRID quando foi desenvolvido era ser uma plataforma de integração middleware ligando serviços eScience com as pesquisas de biomedicina. Porém hoje ele executa tarefas em 3 áreas majoritárias: Biomedicina, processamento de imagens e pesquisa clinica. 
-\end{itemize}
-
-\iffalse
-\subsection{New Zeland eScience Infrastructure - NeSI}
-O NeSI\cite{nesi}é um portal web que  provê plataformas de grande capacidade computacional para auxiliar pesquisadores na Nova Zelândia. Atualmente eles possuem 5 ambientes disponíveis em diferentes instalações. Cada um desses possui  hardware e software capazes de resolver problemas relacionados a áreas de pesquisa, especialmente ligados à química e bioinformática. 
-
-Um desses ambientes por exemplo é o \emph{FitzRoy}, que dispõe de várias ferramentas para o ambiente de programação como compiladores para as linguagens C/C++, Fortran e Python, além de \textit{debuggers}, ferramentas de \textit{profilling}. Além disso também conta com bibliotecas úteis que auxiliam em questões como entrada e saída de dados e problemas matemáticos. Fora da área de programação, o ambiente oferece também aplicações de simulações que requerem alto desempenho do hardware.
-
-Cada um dos ambientes disponíveis possui seu próprio site institucional com sua respectiva documentação e formas de contato, além disso o próprio NeSI oferece suporte a usuários através da sua equipe.
-
-\subsection{MediGRID}
-Assim como o NeSI, o MediGRID \cite{medigrid} também é um portal web idealizado para auxiliar pesquisadores, porém esse é focado em pesquisa na área da biomedicina, ele oferece aplicações e infraestrutura para os pesquisadores cadastrados no portal realizarem experimentos conforme a sua vontade e a disponibilidade do sistema. 
-
-O objetivo principal do MediGRID quando foi desenvolvido era ser uma plataforma de integração middleware ligando serviços eScience com as pesquisas de biomedicina. Porém hoje ele executa tarefas em 3 áreas majoritárias: Biomedicina, processamento de imagens e pesquisa clinica.
-\fi
+Uma característica significativa desse algoritmo é o grande volume de dados que compõem o arquivo de entrada, durante o desenvolvimento do algoritmo, foi utilizado um arquivo de entrada com informação de 317 mil corpos celestes. Como esse arquivo precisa ser enviado a partir do usuário para o sistema, é necessário que seja determinado um limite do tamanho do arquivo e um prazo de validade para o qual esse arquivo continuará disponível no sistema após sua utilização. Caso contrário é inevitável que, conforme o portal seja utilizado, os recursos de memória do ambiente destinados a manter os arquivos sejam comprometidos.
 
 
 \chapter{Desenvolvimento}
-A metodologia do projeto concentrou-se em dar prioridade aos requisitos que apresentavam maior risco, priorizando a funcionalidade de executar tarefas remotamente. Por causa disso foi feita uma \emph{Sprint} para agilizar o desenvolvimento de funcionalidades mais básicas do projeto, focando especialmente na questão de execuções remotas solicitadas pelos usuários cadastrados no sistema.
+A metodologia do projeto concentrou-se em dar prioridade aos requisitos que apresentavam maior risco, priorizando a funcionalidade de executar tarefas remotamente. Por causa disso foi feita uma \emph{Sprint} para agilizar o desenvolvimento de funcionalidades mais básicas do projeto, focando especialmente na questão de registro de usuários e as execuções remotas solicitadas por eles.
 
-Para isso, o projeto iniciou através do estudo e familiarização do \emph{framework} Django. Através de uma série de video aulas disponíveis no youtube e da documentação do \emph{framework}, foram desenvolvidas as páginas de 'contato' e 'informações' da aplicação.
+Foram utilizadas algumas aplicações extensíveis ao Django que poderiam trazer ganhos ao projeto em questão de agilidade de desenvolvimento.Foram elas a django-registration-redux, para registro de usuário, e a django-crispy-forms, que efetua validação e renderização de formulários.
 
-Através desse estudo de video aulas foram selecionados também algumas aplicações extensíveis que, conforme observou-se, poderiam trazer ganhos ao projeto em questão de agilidade de desenvolvimento. As aplicações estudadas foram o django-registration-redux, para registro de usuário, e o django-crispy-forms, que efetua alterações de formulários conforme o resultado da validação do mesmo.
-
-
-\section{Formulário de Contato}
-A página de contato do sistema foi desenvolvida utilizando um formulário que exige informações necessárias para identificação e endereço de resposta de quem efetuou o contato. Para isso foi utilizada a aplicação Crispy que tratou da validação de formulário e seguiu-se o método padrão disponível pelo Django para envio de email.
-
-\section{Registro de Usuário}
-Depois disso houve o estudo da logística de registro de usuários, como a aplicação deve ser aberta a qualquer pessoa, é imprescindível que haja uma forma autônoma de registro de novos usuários. No primeiro momento tentou-se implementar a funcionalidade utilizando formulários e verificações desenvolvidas no proprio projeto, mas durante o desenvolvimento foi encontrada uma solução mais rápida e mais adequada, o uso do app Django-Registration-Redux.
-
-% TALVES ISSO DEVA ESTAR NA REVISAO DE LITERATURA
-O django-registration-redux é uma aplicação extensível que provê as funcionalidades de registro de usuários para sites que utilizam Django. Essa aplicação já dispõe de templates e formulários para fazer a sua função, também contém um sistema de ativação de contas no qual o usuário que solicitou registro recebe um e-mail no endereço usado no cadastro que contém um link para ativar sua conta, forçando uma verificação de que o e-mail utilizado existe e pertence mesmo ao usuário.
-
- Por padrão ela mantém apenas os dados de e-mail, nome e senha do usuário que solicitou o registro, o que satisfaz os requisitos mínimos para executar sua funcionalidade, porém para o sistema em desenvolvimento, pareceu interessante ter a possibilidade de obter mais dados do usuário em seu cadastro, tais como instituição a qual o usuário pertence (Universidade, empresa, etc.), grau de escolaridade, e outras informações que podem ser úteis posteriormente ao administrador do sistema.
-
-Além disso, o django-registration-redux não tem por padrão, nenhuma forma de filtro de domínios de endereços de e-mail, o que também pode ser útil ao sistema, caso o administrador queira limitar o acesso do portal aos usuários que detenham um e-mail de um domínio específico.
-%ATE AQUI.
-Para contornar essas questões, foi criado um novo modelo de dados que extende a aplicação registration-redux, tornando possível extender as funções de registro para esse modelo novo, de modo que no processo de registro novos dados podem ser requisitados, verificados e validados pelo sistema antes de proceder com a criação do usuário.
+\section{Funcionalidades}
 
 
 
+As funcionalidades do sistema podem ser divididas até agora em 3 grupos distintos (ver Figura \ref{fig:usecase}).
+\subsection{Usuário Anonimo}
+Um usuário anônimo possui a permissão de acessar áreas de informação a respeito do sistema, de contato com o administrador do sistema, e da área de registro, onde pode solicitar o registro e, seguindo as orientações apresentadas, fazer login como um usuário registrado.
+\subsection{Usuário registrado}
+O usuário registrado tem permissão de criar experimentos no portal, para isso ele faz o \emph{upload} de um arquivo que será utilizado como entrada no algoritmo selecionado. Além disso o usuário também pode monitorar o estado dos experimentos que ele requisitou e fazer o \emph{download} dos arquivos de cada experimento, tanto o arquivo de entrada, como a saída(se houver) do algoritmo.
+\subsection{Administrador}
+O administrador tem as mesmas capacidades do que um usuário registrado e detem previlégios de acesso ao painel de administração do django. Isso permite a ele cadastro de novos algoritmos no sistema, de novos experimentos padrão e a editar qualquer informação que o sistema detenha no banco de dados.
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{UseCase_tg}
+	\caption{
+		Diagrama de casos de uso do projeto.
+	}
+	\label{fig:usecase}
+\end{figure}
 \section{Modelos de dados}
-Quando a etapa de registro de usuários foi completa, foram criados modelos de dados para representar os algoritmos disponíveis pelo sistema, execuções que seriam requisitadas pelos usuários, e modelos de execuções.
+Definidas as funcionalidades a serem desenvolvidas, foram criados modelos de dados para manter as informações dos usuários, de algoritmos disponíveis pelo sistema, execuções que seriam requisitadas pelos usuários, e execuções pré-definidas.
 
-Essas três classes, combinados com a classe de usuário, que mantém os dados do registro, compõem o modelo de dados(Figura 3.1) que integram todas as funcionalidades do sistema até o presente estado de desenvolvimento.
+Essas 4 classes compõem o modelo de dados (Figura \ref{fig:classdiagram}) que integram todas as funcionalidades do sistema até o presente estado de desenvolvimento.
 
 \subsection{Algorithm}
-Essa classe é responsável por manter os dados referentes ao(s) algoritmo(s) que o sistema disponibiliza, é composto por 3 atributos que representem o nome do algoritmo, a descrição de seu propósito, e o comando (shell) que deverá ser utilizado para executá-lo.
+Essa classe é responsável por manter os dados referentes ao(s) algoritmo(s) que o sistema disponibiliza, é composto por 3 atributos que representem o nome do algoritmo, a descrição de seu propósito, e o comando que deverá ser utilizado para executá-lo.
 
 \subsection{ExecModel}
-Essa classe foi criada para permitir ao usuário testar os serviços do sistema sem precisar de um conjunto de dados. Assim, essa classe guarda dados referentes a execução pré-definida de um algoritmo, utilizando os dados de entrada já configurados pelo administrador do sistema. Além disso, ele mantém um campo descrição criado com o intúito de explicar ao usuário como funciona o conjunto de dados utilizados como entrada e o que se espera do resultado após o processamento.
+Essa classe foi criada para permitir ao usuário testar os serviços do sistema sem precisar de um conjunto de dados. Assim, essa classe guarda dados referentes a execução pré-definida de um algoritmo, utilizando os dados de entrada já configurados pelo administrador do sistema. Além disso, ele mantém um campo descrição criado com o intuito de explicar ao usuário como funciona o conjunto de dados utilizados como entrada e o que se espera do resultado após o processamento.
 
 \subsection{Execution}
 A classe Execution mantém todas as informações referentes a um pedido de execução. Ela inclui uma chave estrangeira que referencia o usuário que requisitou-a, a data na qual a requisição foi feita, o status da execução, outra chave estrageira que referencia qual algoritmo será utilizado, e dois campos para os endereços nos quais devem ser mantidos os dados de entrada e saída à serem usados nesta execução.
@@ -284,8 +228,28 @@ Representa o usuário no protal, mantém os dados de cadastro e mais alguns refe
 	\caption{
 		Diagrama de classes do projeto.
 	}
-	\label{fig:path_tracing}
+	\label{fig:classdiagram}
 \end{figure}
+
+
+\section{Formulário de Contato}
+A página de contato do sistema foi desenvolvida utilizando um formulário que exige informações necessárias para identificação e endereço de resposta de quem efetuou o contato. Para isso foi utilizada a aplicação django-crispy-forms para obtenção de dados e o envio de e-mail a partir do servidor Django para concluir a função.
+
+\subsection{Django Crispy Forms}
+Durante a implementação dessa tela foi instalada a aplicação Crispy. Ela trata da criação de formulários e executa a validação e renderização desses formulários. Quando um usuário preenche incorretamente um formulário, ela trata de renderizar um novo fazendo alterações nos campos preenchidos incorretamente, tornando evidente aonde se encontram os erros de preenchimento.
+
+\section{Registro de Usuário}
+Depois disso houve o estudo da logística de registro de usuários, como a aplicação deve ser aberta a qualquer pessoa, é imprescindível que haja uma forma autônoma de registro de novos usuários. No primeiro momento tentou-se implementar a funcionalidade utilizando formulários e verificações desenvolvidas no próprio projeto, mas durante o desenvolvimento foi encontrada uma solução mais rápida e mais adequada, o uso do app Django-Registration-Redux.
+
+O django-registration-redux é uma aplicação extensível que provê as funcionalidades de registro de usuários para sites que utilizam Django. Essa aplicação já dispõe de templates e formulários para fazer a sua função, também contém um sistema de ativação de contas no qual o usuário que solicitou registro recebe um e-mail no endereço usado no cadastro que contém um link para ativar sua conta, forçando uma verificação de que o e-mail utilizado existe e pertence mesmo ao usuário.
+
+ Por padrão ela mantém apenas os dados de e-mail, nome e senha do usuário que solicitou o registro, o que satisfaz os requisitos mínimos para executar sua funcionalidade, porém para o sistema em desenvolvimento, pareceu interessante ter a possibilidade de obter mais dados do usuário em seu cadastro, tais como instituição a qual o usuário pertence (Universidade, empresa, etc.), grau de escolaridade, e outras informações que podem ser úteis posteriormente ao administrador do sistema.
+
+Além disso, o django-registration-redux não tem por padrão, nenhuma forma de filtro de domínios de endereços de e-mail, o que também pode ser útil ao sistema, caso o administrador queira limitar o acesso do portal aos usuários que detenham um e-mail de um domínio específico.
+
+Para contornar essas questões, foi criado um novo modelo de dados que extende a aplicação registration-redux, tornando possível extender as funções de registro para esse modelo novo, de modo que no processo de registro novos dados podem ser requisitados, verificados e validados pelo sistema antes de proceder com a criação do usuário.
+
+
 
 
 \section{Execução Remota de tarefas}
@@ -301,24 +265,6 @@ Essa aplicação permite ao sistema django criar tarefas que serão executadas p
 
 No momento, a execução das terefas criadas pelo sistema estão todas sendo realizadas por um worker executado na mesma máquina que mantém o portal, posteriormente espera-se fazer com que isso seja alterado para que a máquina que realiza o processamento seja exclusivamente dedicada à essa tarefa.
 
-\section{Funcionalidades}
-As funcionalidades do sistema podem ser divididas até agora em 3 grupos distintos. (Figura 3.2).
-\subsection{Usuário Anonimo}
-Um usuário anônimo possui a permissão de acessar áreas de informação a respeito do sistema, de contato com o administrador do sistema, e da área de registro, onde pode solicitar o registro e, seguindo as orientações apresentadas, fazer login como um usuário registrado.
-\subsection{Usuário registrado}
-O usuário registrado tem permissão de criar experimentos no portal, para isso ele faz o \emph{upload} de um arquivo que será utilizado como entrada no algoritmo selecionado. Além disso o usuário também pode monitorar o estado dos experimentos que ele requisitou e fazer o \emph{download} dos arquivos de cada experimento, tanto o arquivo de entrada, como a saída(se houver) do algoritmo.
-\subsection{Administrador}
-O administrador tem as mesmas capacidades do que um usuário registrado e detem previlégios de acesso ao painel de administração do django. Isso permite a ele cadastro de novos algoritmos no sistema, de novos experimentos padrão e a editar qualquer informação que o sistema detenha no banco de dados.
-
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1\textwidth]{UseCase_tg}
-	\caption{
-		Diagrama de casos de uso do projeto.
-	}
-	\label{fig:path_tracing}
-\end{figure}
 
 \section{Sistema de Arquivos}
 Como as tarefas realizadas pelo portal exigem dados para serem processados pelo algoritmo, e esse algoritmo gera novos dados, foi necessário criar um sistema de arquivos para manter uma ordem na qual seja possível recuperar esses arquivos após o seu processamento.
