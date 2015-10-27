@@ -14,7 +14,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.core.files import File
 
 # tasks
-from .tasks import RunExperiment
+#from .tasks import RunExperiment
 
 
 # jsonview - Crispy validation
