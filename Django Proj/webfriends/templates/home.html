@@ -25,7 +25,19 @@
         <tr>
           <td>{{exp.id}}</td>
           <td>{{exp.date_requisition}}</td>
-          <td>{{exp.status}}</td>
+          <td>
+          {%if exp.status == 1%}
+            Aguardando
+          {%else%}
+            {%if exp.status == 2%}
+              Executando
+            {%else%}
+              {%if exp.status == 3%}
+                Finalizado        
+              {%endif%}
+            {%endif%}
+          {%endif%}
+          </td>
           <td>{{exp.algorithm}}</td>
           <td>
           {% if exp.inputFile%}
