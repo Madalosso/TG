@@ -2,7 +2,6 @@ from celery.decorators import task
 # from models import Execution
 import os
 
-
 @task()
 def RunExperiment(query, execution, queryOutputFile):
     print("\n Executando a query: %s" % (query))
@@ -17,3 +16,13 @@ def RunExperiment(query, execution, queryOutputFile):
 @task()
 def teste():
     os.system("sleep 15")
+
+@task
+def add(x,y):
+	return x + y
+
+@task
+def sleeptask(i):
+	from time import sleep
+	sleep(i)
+	return i
