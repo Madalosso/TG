@@ -8,18 +8,18 @@ import regbackend
 urlpatterns = [
     # urls experiment
     url(r'^$', 'experiment.views.home', name='home'),
+    url(r'^about/$', 'experiment.views.about', name='about'),
     url(r'^contact/$', 'experiment.views.contact', name='contact'),
     url(r'^experiments/checkForm$',
         'experiment.views.checkForm', name='checkForm'),
     url(r'^experiments/$', 'experiment.views.experiments', name='exp'),
+    url(r'^experiments/remove$', 'experiment.views.experimentsRemove', name='expRemove'),
     url(r'^experiments/downloadInputFile', 'experiment.views.downloadInputFile',
         name='downloadInputFile'),
     url(r'^experiments/downloadOutputFile', 'experiment.views.downloadOutputFile',
         name='downloadOutputFile'),
 
-
-    # urls webfriends
-    url(r'^about/$', 'webfriends.views.about', name='about'),
+    #django admin
     url(r'^admin/', include(admin.site.urls)),
 
     # urls register

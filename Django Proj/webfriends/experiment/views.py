@@ -14,7 +14,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.core.files import File
 
 # tasks
-from .tasks import RunExperiment
+from .tasks import RunExperiment, teste
 
 
 # jsonview - Crispy validation
@@ -26,6 +26,15 @@ from crispy_forms.helper import FormHelper
 from paginator import paginate
 
 
+def notificationCheck(request, context):
+    if request.user.is_authenticated():
+        UserProf = UsuarioFriends.objects.get(usuario__id=request.user.id)
+        notes = UserProf.notes.all()
+        context['notes'] = notes
+    # print context
+    return context
+
+
 def home(request):
     if not request.user.is_authenticated():
         title = "Welcome"
@@ -34,11 +43,20 @@ def home(request):
         }
         return render(request, "welcome.html", context)
     else:
+        # res = teste.delay()
+        # print res
         title = "Welcome %s" % request.user
         # print(request.user.id)
         executionList = Execution.objects.filter(
             request_by__usuario__id=request.user.id).order_by('-id')
-        UserProf = UsuarioFriends.objects.get(usuario__id=request.user.id)
+        try:
+            UserProf = UsuarioFriends.objects.get(usuario__id=request.user.id)
+        except:
+            print "Erro. Criando novo userProf"
+            user = User.objects.get(id=request.user.id)
+            UserProf = UsuarioFriends(usuario=user)
+            UserProf.save()
+            print "Criado novo UserProf"
         paginator = Paginator(executionList, UserProf.resultsPerPage)
         page = request.GET.get('page')
         if page is None:
@@ -59,7 +77,14 @@ def home(request):
             "data": data,
             "pagesIndex": pageI,
         }
+        context = notificationCheck(request, context)
         return render(request, "home.html", context)
+
+
+def about(request):
+    context = {}
+    context = notificationCheck(request, context)
+    return render(request, "about.html", context)
 
 
 def downloadInputFile(request):
@@ -107,6 +132,7 @@ def contact(request):
     context = {
         "form": form,
     }
+    context = notificationCheck(request, context)
     return render(request, "contact.html", context)
 
 
@@ -157,7 +183,7 @@ def experiments(request):
         )
         execution.save()
         if (request.FILES):
-            print request.FILES
+            # print request.FILES
             fileIn = request.FILES["FileIn"]
             execution.inputFile = fileIn
             execution.save()
@@ -167,17 +193,17 @@ def experiments(request):
             ).replace(' ', '\ ')
             queryOutputFile = queryInputFile
             queryOutputFile = queryOutputFile.replace('input', 'output')
-            print "QUERY OUT : " + queryOutputFile
+            # print "QUERY OUT : " + queryOutputFile
             query = alg.command + ' ' + queryInputFile + '>' + queryOutputFile
-            print query
+            # print query
         else:
             query = execution.algorithm.command
         outputFilePath = './users/user_' + \
             str(execution.request_by.usuario.id) + \
             '/' + str(execution.id) + '/output'
-        print(outputFilePath)
+        # print(outputFilePath)
         teste = RunExperiment.delay(query, execution, outputFilePath)
-        print teste.status
+        # print teste.status
         # RunExperiment.apply_async(
         #     args=[query, execution, outputFilePath], kwargs={}, countdown=60)
         # RunExperiment.delay(query, execution, outputFilePath)
@@ -194,4 +220,16 @@ def experiments(request):
         "title": title,
         "form": form
     }
+    context = notificationCheck(request, context)
     return render(request, "experiments.html", context)
+
+
+def experimentsRemove(request):
+    if request.method == 'POST':
+        data = request.POST.get('data')
+        if data:
+            ids = data.split(",")
+            print ids
+            Execution.objects.filter(id__in=ids).delete()
+        # objects = Model.objects.filter(id__in=object_ids)
+    return HttpResponseRedirect(reverse('home'))

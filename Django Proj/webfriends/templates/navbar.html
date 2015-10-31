@@ -16,13 +16,31 @@
             <li><a href="{% url 'contact' %}">Contato</a></li>
             {% if request.user.is_authenticated %}
               <li><a href="{% url 'exp' %}">Experimentos</a></li>
-              <li><a href="{% url 'exp' %}">Configurações de Usuario</a></li>
             {%endif%}
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
           {% if request.user.is_authenticated %}
             <li><a>{{user}}</a></li>
+            <li>
+              {%if notes%}
+              <div class="dropdown">
+                <button class="btn btn-danger btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  {{notes|length}}
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  {% for note in notes %}
+                    <tr class="{% cycle 'row1' 'row2' %}">
+                      <li><a href="#">{{note}}   X</a></li>
+                    </tr>
+                  {% endfor %}
+                </ul>
+              </div>
+              {%endif%}
+
+            </li>
+
             <li><a href="{% url 'auth_logout' %}">Sair</a></li>
           {%else%}
             <li class="active"><a href="{% url 'registration_register' %}">Registrar</a></li>

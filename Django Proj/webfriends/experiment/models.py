@@ -13,12 +13,13 @@ class Algorithms(models.Model):
 
 
 class UsuarioFriends(models.Model):
-    nickname = models.CharField(max_length=30, blank=False, null=True)
+    nickname = models.CharField(default='default',max_length=30, blank=False, null=True)
+    company = models.CharField(default='default',max_length=50, blank=False, null=True)
     usuario = models.OneToOneField(User)
-    date_register = models.DateTimeField('date_register', auto_now_add=True)
-    last_acess = models.DateTimeField('last_acess', auto_now=True)
+    register_date = models.DateTimeField('register_date', auto_now_add=True)
+    last_access = models.DateTimeField('last_acess', auto_now=True)
     resultsPerPage = models.IntegerField(default=10)
-    # notifications = models.ManyToManyField(Notification)
+    notes = models.ManyToManyField('Note')
 
     def __unicode__(self):
         return self.nickname
@@ -54,3 +55,14 @@ class Execution(models.Model):
 
     def __unicode__(self):
         return self.request_by.nickname  # arrumar
+
+
+class Note(models.Model):
+    visualized = models.BooleanField(default=False)
+    execution = models.ForeignKey(Execution)
+    date = models.DateTimeField('date', auto_now_add=True)
+    user = models.ForeignKey(UsuarioFriends)
+    noteType = models.IntegerField()
+
+    def __unicode__(self):
+        return str(self.date)

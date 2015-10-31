@@ -4,7 +4,8 @@ from .models import Algorithms, ExecModel
 
 
 class UsuarioFriendsForm(RegistrationFormUniqueEmail):
-    nickname = forms.CharField()
+    nickname = forms.CharField(required=False)
+    company = forms.CharField(required=False)
 
 
 class ExecutionForm(forms.Form):

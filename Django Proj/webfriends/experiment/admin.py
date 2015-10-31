@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import UsuarioFriends, Execution, Algorithms, ExecModel # Notification
+from .models import UsuarioFriends, Execution, Algorithms, ExecModel, Note
 
 class UsuarioFriendsAdmin(admin.ModelAdmin):
-	fields = ['nickname', 'usuario', 'resultsPerPage']
-	list_display = ('nickname', 'date_register', 'last_acess', 'resultsPerPage')
+	fields = ['nickname', 'usuario', 'resultsPerPage', 'notes']
+	list_display = ('nickname', 'register_date', 'last_access', 'resultsPerPage')
 
 class ExecutionAdmin(admin.ModelAdmin):
 	fields = ['status','request_by', 'algorithm', 'opt']
@@ -17,13 +17,13 @@ class PresetsAdmin(admin.ModelAdmin):
 	fields = ['algorithm', 'opt', 'inputFile', 'desc']
 	list_display = ['algorithm', 'opt', 'inputFile', 'desc']
 
+class NoteAdmin(admin.ModelAdmin):
+	fields = ['visualized', 'execution', 'user', 'noteType']
+	list_display = ['visualized', 'date', 'execution', 'user', 'noteType']
 
-# class NotesAdmin(admin.ModelAdmin):
-# 	fields = ['user', 'execution']
-# 	list_display = ['id','user',' executions']
 
 admin.site.register(UsuarioFriends, UsuarioFriendsAdmin)
 admin.site.register(Execution, ExecutionAdmin)
 admin.site.register(Algorithms, AlgAdmin)
 admin.site.register(ExecModel, PresetsAdmin)
-# admin.site.register(Notification, NotesAdmin)
+admin.site.register(Note, NoteAdmin)

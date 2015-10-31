@@ -12,6 +12,7 @@
     <table class="table table-striped table-bordered">
         <thead>
           <tr>
+            <th><input id="checkHeader" type="checkbox" value=""></th>
             <th>ID</th>
             <th data-align="center">Data Requisição</th>
             <th data-align="center">Status</th>
@@ -20,9 +21,10 @@
             <th>Arquivo Saída</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="tableExp">
         {%for exp in data%}
         <tr>
+          <td><input type="checkbox" value="{{exp.id}}"></td>
           <td>{{exp.id}}</td>
           <td>{{exp.date_requisition}}</td>
           <td>
@@ -59,42 +61,52 @@
     </table>
 
     <nav>
-      <ul class="pagination">
-      {# CASO SEJA A PRIMEIRA PAGINA #}
-        {% if data.has_previous %}
-        <li>
-          <a href="?page={{ data.previous_page_number }}" aria-label="Previous">
+      <ul class="nav navbar-nav navbar-left">
+        <ul class="pagination">
+        {# CASO SEJA A PRIMEIRA PAGINA #}
+          {% if data.has_previous %}
+          <li>
+            <a href="?page={{ data.previous_page_number }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li> 
+          {% else %}
+          <li class="disabled">
             <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li> 
-        {% else %}
-        <li class="disabled">
-          <span aria-hidden="true">&laquo;</span>
-        </li>
-        {% endif %}
+          </li>
+          {% endif %}
 
-        {% for page, value in pagesIndex.items %}
-            {% if value > 0 %}
-              {% if page = 2 %}
-              <li class='active'><a href="#">{{value}}</a></li>
-              {%else%}
-              <li><a href="?page={{value}}">{{value}}</a></li>
-              {% endif %}
-            {%endif%}
-        {% endfor %}
+          {% for page, value in pagesIndex.items %}
+              {% if value > 0 %}
+                {% if page = 2 %}
+                <li class='active'><a href="#">{{value}}</a></li>
+                {%else%}
+                <li><a href="?page={{value}}">{{value}}</a></li>
+                {% endif %}
+              {%endif%}
+          {% endfor %}
 
-        
-        {% if data.has_next %}
-        <li>
-          <a href="?page={{ data.next_page_number }}" aria-label="Next">
+          
+          {% if data.has_next %}
+          <li>
+            <a href="?page={{ data.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          {% else %}
+          <li class="disabled">
             <span aria-hidden="true">&raquo;</span>
-          </a>
-        {% else %}
-        <li class="disabled">
-          <span aria-hidden="true">&raquo;</span>
-        {% endif %}
-        </li>
-        
+          {% endif %}
+          </li>
+          
+        </ul>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <ul class="pagination">
+        <form id="formRemove" method='POST' action='{% url 'expRemove' %}' enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type="submit" id="btExcluir" class="btn btn-default btn-sm" value="Excluir">
+          </form>
+        </ul>
       </ul>
     </nav>
 

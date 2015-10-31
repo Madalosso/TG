@@ -12,5 +12,6 @@ class MyRegistrationView(RegistrationView):
 		user_profile = UsuarioFriends()
 		user_profile.usuario = new_user
 		user_profile.nickname = form_class.cleaned_data['nickname']
+		user_profile.company = form_class.cleaned_data['company']
 		user_profile.save()
 		return user_profile
