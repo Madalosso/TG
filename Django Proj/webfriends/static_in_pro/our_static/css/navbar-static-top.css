@@ -5,3 +5,13 @@
 .navbar-static-top {
   margin-bottom: 19px;
 }
+
+/*contact text area*/
+textarea{
+	resize:none;
+	width:100%;
+}
+
+th{
+	text-align:center;
+}
