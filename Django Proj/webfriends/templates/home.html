@@ -15,6 +15,7 @@
             <th data-align="center">Data Requisição</th>
             <th data-align="center">Status</th>
             <th>Algoritmo</th>
+            <th>Tempo(s)</th>
             <th>Arquivo Entrada</th>
             <th>Arquivo Saída</th>
           </tr>
@@ -39,6 +40,13 @@
           {%endif%}
           </td>
           <td>{{exp.algorithm}}</td>
+          <td>
+          {%if exp.time == -1 %}
+            -
+          {%else%}
+            {{exp.time|floatformat:-4}}
+          {%endif%}
+          </td>
           <td>
           {% if exp.inputFile%}
           <a  href="{% url 'downloadInputFile'%}?id={{exp.id}}"><button type="button" class="btn btn-success">Download Input</button></a>

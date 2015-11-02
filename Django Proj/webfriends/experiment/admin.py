@@ -7,7 +7,7 @@ class UsuarioFriendsAdmin(admin.ModelAdmin):
 
 class ExecutionAdmin(admin.ModelAdmin):
 	fields = ['status','request_by', 'algorithm', 'opt']
-	list_display = ['request_by', 'algorithm', 'opt', 'date_requisition', 'status', 'inputFile', 'outputFile']
+	list_display = ['request_by', 'algorithm', 'time', 'date_requisition', 'status', 'inputFile', 'outputFile']
 
 class AlgAdmin(admin.ModelAdmin):
 	fields = ['nameAlg', 'desc', 'command']
@@ -20,7 +20,6 @@ class PresetsAdmin(admin.ModelAdmin):
 class NoteAdmin(admin.ModelAdmin):
 	fields = ['visualized', 'execution', 'user', 'noteType']
 	list_display = ['visualized', 'date', 'execution', 'user', 'noteType']
-
 
 admin.site.register(UsuarioFriends, UsuarioFriendsAdmin)
 admin.site.register(Execution, ExecutionAdmin)

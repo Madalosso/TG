@@ -52,9 +52,10 @@ class Execution(models.Model):
     algorithm = models.ForeignKey(Algorithms, null=True, blank=False)
     inputFile = models.FileField(upload_to=user_directory_path_in, null=True)
     outputFile = models.FileField(upload_to=user_directory_path_out, null=True)
+    time = models.FloatField(default = -1)
 
     def __unicode__(self):
-        return self.request_by.nickname  # arrumar
+        return self.request_by.id  # arrumar
 
 
 class Note(models.Model):
