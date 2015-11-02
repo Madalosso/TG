@@ -26,15 +26,6 @@ from crispy_forms.helper import FormHelper
 from paginator import paginate
 
 
-def notificationCheck(request, context):
-    if request.user.is_authenticated():
-        UserProf = UsuarioFriends.objects.get(usuario__id=request.user.id)
-        notes = UserProf.notes.all()
-        context['notes'] = notes
-    # print context
-    return context
-
-
 def home(request):
     if not request.user.is_authenticated():
         title = "Welcome"
@@ -77,14 +68,11 @@ def home(request):
             "data": data,
             "pagesIndex": pageI,
         }
-        context = notificationCheck(request, context)
         return render(request, "home.html", context)
 
 
 def about(request):
-    context = {}
-    context = notificationCheck(request, context)
-    return render(request, "about.html", context)
+    return render(request, "about.html", {})
 
 
 def downloadInputFile(request):
@@ -132,7 +120,6 @@ def contact(request):
     context = {
         "form": form,
     }
-    context = notificationCheck(request, context)
     return render(request, "contact.html", context)
 
 
@@ -220,7 +207,6 @@ def experiments(request):
         "title": title,
         "form": form
     }
-    context = notificationCheck(request, context)
     return render(request, "experiments.html", context)
 
 

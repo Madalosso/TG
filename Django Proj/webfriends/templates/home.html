@@ -49,14 +49,14 @@
           </td>
           <td>
           {% if exp.inputFile%}
-          <a  href="{% url 'downloadInputFile'%}?id={{exp.id}}"><button type="button" class="btn btn-success">Download Input</button></a>
+          <a  href="{% url 'downloadInputFile'%}?id={{exp.id}}"><button type="button" class="btn btn-success">Download</button></a>
           {% else %}
           <button type="button" class="btn btn-warning disabled">Sem Entrada</button>
           {% endif %}
           </td>
           <td>
           {% if exp.outputFile%}
-          <a  href="{% url 'downloadOutputFile'%}?id={{exp.id}}"><button type="button" class="btn btn-success">Download Output</button></a>
+          <a  href="{% url 'downloadOutputFile'%}?id={{exp.id}}"><button type="button" class="btn btn-success">Download</button></a>
           {% else %}
           <button type="button" class="btn btn-warning disabled">Sem Resultado</button>
           {% endif %}

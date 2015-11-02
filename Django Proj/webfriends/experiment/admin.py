@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UsuarioFriends, Execution, Algorithms, ExecModel, Note
+from .models import UsuarioFriends, Execution, Algorithms, ExecModel
 
 class UsuarioFriendsAdmin(admin.ModelAdmin):
 	fields = ['nickname', 'usuario', 'resultsPerPage', 'notes']
@@ -17,12 +17,7 @@ class PresetsAdmin(admin.ModelAdmin):
 	fields = ['algorithm', 'opt', 'inputFile', 'desc']
 	list_display = ['algorithm', 'opt', 'inputFile', 'desc']
 
-class NoteAdmin(admin.ModelAdmin):
-	fields = ['visualized', 'execution', 'user', 'noteType']
-	list_display = ['visualized', 'date', 'execution', 'user', 'noteType']
-
 admin.site.register(UsuarioFriends, UsuarioFriendsAdmin)
 admin.site.register(Execution, ExecutionAdmin)
 admin.site.register(Algorithms, AlgAdmin)
 admin.site.register(ExecModel, PresetsAdmin)
-admin.site.register(Note, NoteAdmin)

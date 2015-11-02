@@ -1,5 +1,5 @@
 from celery.decorators import task
-from models import Note, UsuarioFriends, Execution
+from models import UsuarioFriends, Execution
 import os
 import time
 
@@ -14,9 +14,7 @@ def RunExperiment(query, execution, queryOutputFile):
     dur = time.time() - start
     print dur
     execution.status = 3
-    nota = Note(execution=execution, user=execution.request_by, noteType=1)
     user = execution.request_by
-    nota.save()
     user.notes.add(nota)
     user.save()
     execution.time = dur

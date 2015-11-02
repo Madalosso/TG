@@ -13,13 +13,14 @@ class Algorithms(models.Model):
 
 
 class UsuarioFriends(models.Model):
-    nickname = models.CharField(default='default',max_length=30, blank=False, null=True)
-    company = models.CharField(default='default',max_length=50, blank=False, null=True)
+    nickname = models.CharField(
+        default='default', max_length=30, blank=False, null=True)
+    company = models.CharField(
+        default='default', max_length=50, blank=False, null=True)
     usuario = models.OneToOneField(User)
     register_date = models.DateTimeField('register_date', auto_now_add=True)
     last_access = models.DateTimeField('last_acess', auto_now=True)
     resultsPerPage = models.IntegerField(default=10)
-    notes = models.ManyToManyField('Note')
 
     def __unicode__(self):
         return self.nickname
@@ -52,18 +53,7 @@ class Execution(models.Model):
     algorithm = models.ForeignKey(Algorithms, null=True, blank=False)
     inputFile = models.FileField(upload_to=user_directory_path_in, null=True)
     outputFile = models.FileField(upload_to=user_directory_path_out, null=True)
-    time = models.FloatField(default = -1)
+    time = models.FloatField(default=-1)
 
     def __unicode__(self):
         return self.request_by.id  # arrumar
-
-
-class Note(models.Model):
-    visualized = models.BooleanField(default=False)
-    execution = models.ForeignKey(Execution)
-    date = models.DateTimeField('date', auto_now_add=True)
-    user = models.ForeignKey(UsuarioFriends)
-    noteType = models.IntegerField()
-
-    def __unicode__(self):
-        return str(self.date)
