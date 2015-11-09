@@ -2,12 +2,44 @@ from __future__ import absolute_import
 
 import os
 
-from celery import Celery
+from celery import Celery, shared_task
 from django.conf import settings
+import os
+import time
+#from experiment.models import UsuarioFriends, Execution
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'webfriends.settings')
-app = Celery('experiment')
+app = Celery('webfriends')
+'''
+@experiment.task
+def RunExperiment(query, execution, queryOutputFile):
+    # print("\n Executando a query: %s" % (query))
+    execution.status = 2
+    execution.save()
+    start = time.time()
+    os.system(query)
+    dur = time.time() - start
+    print dur
+    execution.status = 3
+    user = execution.request_by
+    # user.notes.add(nota)
+    user.save()
+    execution.time = dur
+    execution.outputFile = queryOutputFile
+    execution.save()
 
+@experiment.task(time_limit=17)
+def teste():
+    start = time.time()
+    print start
+    os.system("sleep 15")
+    dur = time.time() - start
+    print dur
+
+@experiment.task
+def add(n1,n2):
+	return n1+n2
+'''
 
 app.config_from_object('django.conf:settings')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)

@@ -140,6 +140,6 @@ LOGIN_REDIRECT_URL = '/'
 # Celery
 
 # djcelery.setup_loader()
-# BROKER_URL = "amqp://guest:guest@localhost:5672//"	#does not support remote control commands =/
-# CELERY_RESULT_BACKEND = 'rpc://'
-# CELERY_RESULT_PERSISTENT = True
+BROKER_URL = "amqp://otavio:123@10.1.4.27/host1"	#does not support remote control commands =/
+CELERY_RESULT_BACKEND = 'rpc://'
+CELERY_RESULT_PERSISTENT = True
