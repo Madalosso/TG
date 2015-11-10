@@ -17,7 +17,6 @@ class ExecutionForm(forms.Form):
                                        required=True,
                                        to_field_name="nameAlg",
                                        )
-    opt = forms.CharField(required=False)
     FileIn = forms.FileField(required=False)
 
 

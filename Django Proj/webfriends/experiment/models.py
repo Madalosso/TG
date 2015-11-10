@@ -27,7 +27,6 @@ class UsuarioFriends(models.Model):
 
 
 class ExecModel(models.Model):
-    opt = models.CharField(null=True, max_length=100)
     algorithm = models.ForeignKey(Algorithms, null=True, blank=False)
     inputFile = models.FileField(upload_to='presetsInputs/', null=True)
     desc = models.CharField(null=True, blank=False, max_length=500)

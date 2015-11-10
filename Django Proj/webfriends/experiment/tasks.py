@@ -4,7 +4,7 @@ import os
 import time
 
 
-@task()
+@task(time_limit=900)
 def RunExperiment(query, execution, queryOutputFile):
     # print("\n Executando a query: %s" % (query))
     execution.status = 2
@@ -15,7 +15,7 @@ def RunExperiment(query, execution, queryOutputFile):
     print dur
     execution.status = 3
     user = execution.request_by
-    user.notes.add(nota)
+    #user.notes.add(nota)
     user.save()
     execution.time = dur
     execution.outputFile = queryOutputFile

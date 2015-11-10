@@ -15,7 +15,7 @@
             <th data-align="center">Data Requisição</th>
             <th data-align="center">Status</th>
             <th>Algoritmo</th>
-            <th>Tempo(s)</th>
+            <th>Tempo</th>
             <th>Arquivo Entrada</th>
             <th>Arquivo Saída</th>
           </tr>
@@ -44,7 +44,7 @@
           {%if exp.time == -1 %}
             -
           {%else%}
-            {{exp.time|floatformat:-4}}
+            {{exp.time|floatformat:-2}} s
           {%endif%}
           </td>
           <td>

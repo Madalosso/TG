@@ -6,7 +6,7 @@ class UsuarioFriendsAdmin(admin.ModelAdmin):
 	list_display = ('nickname', 'register_date', 'last_access', 'resultsPerPage')
 
 class ExecutionAdmin(admin.ModelAdmin):
-	fields = ['status','request_by', 'algorithm', 'opt']
+	fields = ['status','request_by', 'algorithm']
 	list_display = ['request_by', 'algorithm', 'time', 'date_requisition', 'status', 'inputFile', 'outputFile']
 
 class AlgAdmin(admin.ModelAdmin):
@@ -14,8 +14,8 @@ class AlgAdmin(admin.ModelAdmin):
 	list_display = ['idAlg', 'nameAlg', 'desc']
 
 class PresetsAdmin(admin.ModelAdmin):
-	fields = ['algorithm', 'opt', 'inputFile', 'desc']
-	list_display = ['algorithm', 'opt', 'inputFile', 'desc']
+	fields = ['algorithm', 'inputFile', 'desc']
+	list_display = ['algorithm', 'inputFile', 'desc']
 
 admin.site.register(UsuarioFriends, UsuarioFriendsAdmin)
 admin.site.register(Execution, ExecutionAdmin)
