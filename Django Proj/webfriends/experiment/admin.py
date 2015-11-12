@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import UsuarioFriends, Execution, Algorithms, ExecModel
 
 class UsuarioFriendsAdmin(admin.ModelAdmin):
-	fields = ['nickname', 'usuario', 'resultsPerPage', 'notes']
+	fields = ['nickname', 'usuario', 'resultsPerPage']
 	list_display = ('nickname', 'register_date', 'last_access', 'resultsPerPage')
 
 class ExecutionAdmin(admin.ModelAdmin):
