@@ -20,9 +20,11 @@ from crispy_forms.helper import FormHelper
 # paginator
 from paginator import paginate
 
+from experiment.tasks import RunExperiment
 
 
 def about(request):
+    debug_task.delay()
     return HttpResponse(1)
 
 
@@ -65,14 +67,19 @@ def home(request):
 def downloadInputFile(request):
     expId = request.GET.get('id')
     execution = Execution.objects.get(pk=expId)
-    if (execution.request_by.usuario.id == request.user.id):
-        response = HttpResponse(
-            execution.inputFile, content_type='application/force-download')
-        response[
-            'Content-Disposition'] = 'attachment; filename="entrada-Experimento-' + str(expId) + '"'
-        return response
+    # if (execution.request_by.usuario.id == request.user.id):
+    #     response = HttpResponse(
+    #         execution.inputFile, content_type='application/force-download')
+    #     response[
+    #         'Content-Disposition'] = 'attachment; filename="entrada-Experimento-' + str(expId) + '"'
+    #     return response
     # criar alerta
-    return HttpResponseRedirect(reverse('home'))
+    response = HttpResponse(
+        execution.inputFile, content_type='application/force-download')
+    response[
+        'Content-Disposition'] = 'attachment; filename="entrada-Experimento-' + str(expId) + '"'
+    return response
+    # return HttpResponseRedirect(reverse('home'))
 
 
 def downloadOutputFile(request):
@@ -165,16 +172,19 @@ def experiments(request):
             ).replace(' ', '\ ')
             queryOutputFile = queryInputFile
             queryOutputFile = queryOutputFile.replace('input', 'output')
-            print "QUERY OUT : " + queryOutputFile
+            # print "QUERY OUT : " + queryOutputFile
             query = alg.command + ' ' + queryInputFile + '>' + queryOutputFile
-            print query
+            # print query
         else:
             query = execution.algorithm.command
         outputFilePath = './users/user_' + \
             str(execution.request_by.usuario.id) + \
             '/' + str(execution.id) + '/output'
-        print(outputFilePath)
-        RunExperiment.delay(query, execution, outputFilePath)
+        # print(outputFilePath)
+
+        # teste = RunExperiment.delay(execution.algorithm.command)
+        teste = RunExperiment.delay(alg.command, execution.id)
+        # teste = RunExperiment.delay(query, execution, outputFilePath)
         #print teste.status
         # RunExperiment.apply_async(
         #     args=[query, execution, outputFilePath], kwargs={}, countdown=60)
@@ -193,3 +203,12 @@ def experiments(request):
         "form": form
     }
     return render(request, "experiments.html", context)
+
+
+def result(request):
+    if request.method == 'POST':
+        print "POST"
+        if (request.FILES):
+            print "Files"
+            fileIn = request.FILES["file"]
+    return HttpResponseRedirect(reverse('home'))

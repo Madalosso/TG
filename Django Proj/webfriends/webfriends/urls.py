@@ -16,7 +16,7 @@ urlpatterns = [
         name='downloadInputFile'),
     url(r'^experiments/downloadOutputFile', 'experiment.views.downloadOutputFile',
         name='downloadOutputFile'),
-
+    url(r'^experiments/result', 'experiment.views.result', name='result'),
 
     # urls webfriends
     url(r'^about/$', 'experiment.views.about', name='about'),
