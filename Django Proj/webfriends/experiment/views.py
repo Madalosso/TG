@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
-# from django.http import HttpResponse
 from django.template import RequestContext
 from django.conf import settings
 from django.core.mail import send_mail
@@ -13,10 +12,6 @@ from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.core.files import File
 
-# tasks
-#from .tasks import RunExperiment
-
-
 # jsonview - Crispy validation
 from jsonview.decorators import json_view
 from crispy_forms.utils import render_crispy_form
@@ -24,6 +19,11 @@ from crispy_forms.helper import FormHelper
 
 # paginator
 from paginator import paginate
+
+
+
+def about(request):
+    return HttpResponse(1)
 
 
 def home(request):
@@ -35,7 +35,7 @@ def home(request):
         return render(request, "welcome.html", context)
     else:
         title = "Welcome %s" % request.user
-        # print(request.user.id)
+        print(request.user.id)
         executionList = Execution.objects.filter(
             request_by__usuario__id=request.user.id).order_by('-id')
         UserProf = UsuarioFriends.objects.get(usuario__id=request.user.id)
@@ -146,14 +146,12 @@ def experiments(request):
                 'title': title
             }
             return render(request, "experiments.html", context)
-        opt = request.POST.get('opt')
         algorithm = request.POST.get('Algorithm')
         d_User = User.objects.get(username=request.user)
         alg = Algorithms.objects.get(nameAlg=algorithm)
         execution = Execution(
             request_by=d_User.usuariofriends,
             algorithm=alg,
-            opt=opt,  # very tenso
         )
         execution.save()
         if (request.FILES):
@@ -176,8 +174,8 @@ def experiments(request):
             str(execution.request_by.usuario.id) + \
             '/' + str(execution.id) + '/output'
         print(outputFilePath)
-        teste = RunExperiment.delay(query, execution, outputFilePath)
-        print teste.status
+        RunExperiment.delay(query, execution, outputFilePath)
+        #print teste.status
         # RunExperiment.apply_async(
         #     args=[query, execution, outputFilePath], kwargs={}, countdown=60)
         # RunExperiment.delay(query, execution, outputFilePath)

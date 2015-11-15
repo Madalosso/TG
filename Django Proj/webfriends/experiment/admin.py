@@ -1,21 +1,21 @@
 from django.contrib import admin
-from .models import UsuarioFriends, Execution, Algorithms, ExecModel # Notification
+from .models import UsuarioFriends, Execution, Algorithms, ExecModel
 
 class UsuarioFriendsAdmin(admin.ModelAdmin):
 	fields = ['nickname', 'usuario', 'resultsPerPage']
-	list_display = ('nickname', 'date_register', 'last_acess', 'resultsPerPage')
+	list_display = ('nickname', 'usuario', 'date_register', 'last_access', 'resultsPerPage')
 
 class ExecutionAdmin(admin.ModelAdmin):
-	fields = ['status','request_by', 'algorithm', 'opt']
-	list_display = ['request_by', 'algorithm', 'opt', 'date_requisition', 'status', 'inputFile', 'outputFile']
+	fields = ['status','request_by', 'algorithm']
+	list_display = ['request_by', 'algorithm', 'date_requisition', 'status', 'inputFile', 'outputFile']
 
 class AlgAdmin(admin.ModelAdmin):
 	fields = ['nameAlg', 'desc', 'command']
 	list_display = ['idAlg', 'nameAlg', 'desc']
 
 class PresetsAdmin(admin.ModelAdmin):
-	fields = ['algorithm', 'opt', 'inputFile', 'desc']
-	list_display = ['algorithm', 'opt', 'inputFile', 'desc']
+	fields = ['algorithm', 'inputFile', 'desc']
+	list_display = ['algorithm', 'inputFile', 'desc']
 
 
 # class NotesAdmin(admin.ModelAdmin):

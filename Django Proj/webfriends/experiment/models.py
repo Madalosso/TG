@@ -16,16 +16,14 @@ class UsuarioFriends(models.Model):
     nickname = models.CharField(max_length=30, blank=False, null=True)
     usuario = models.OneToOneField(User)
     date_register = models.DateTimeField('date_register', auto_now_add=True)
-    last_acess = models.DateTimeField('last_acess', auto_now=True)
+    last_access = models.DateTimeField('last_access', auto_now=True)
     resultsPerPage = models.IntegerField(default=10)
-    # notifications = models.ManyToManyField(Notification)
 
     def __unicode__(self):
         return self.nickname
 
 
 class ExecModel(models.Model):
-    opt = models.CharField(null=True, max_length=100)
     algorithm = models.ForeignKey(Algorithms, null=True, blank=False)
     inputFile = models.FileField(upload_to='presetsInputs/', null=True)
     desc = models.CharField(null=True, blank=False, max_length=500)
@@ -47,7 +45,6 @@ class Execution(models.Model):
     date_requisition = models.DateTimeField(
         'date_requisition', auto_now_add=True)
     status = models.IntegerField(default=1)
-    opt = models.CharField(null=True, max_length=100)
     algorithm = models.ForeignKey(Algorithms, null=True, blank=False)
     inputFile = models.FileField(upload_to=user_directory_path_in, null=True)
     outputFile = models.FileField(upload_to=user_directory_path_out, null=True)

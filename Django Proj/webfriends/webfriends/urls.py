@@ -19,7 +19,7 @@ urlpatterns = [
 
 
     # urls webfriends
-    url(r'^about/$', 'webfriends.views.about', name='about'),
+    url(r'^about/$', 'experiment.views.about', name='about'),
     url(r'^admin/', include(admin.site.urls)),
 
     # urls register
