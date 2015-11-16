@@ -230,10 +230,13 @@ def result(request):
         print "POST"
         if (request.FILES):
 	    idExec = request.POST.get("id")
+	    tempo  = request.POST.get("time")
 	    print idExec
+	    print tempo
 	    execution = Execution.objects.get(id=idExec)
 	    fileIn = request.FILES["file"]
 	    execution.outputFile=fileIn
 	    execution.status=3
+	    execution.time = tempo
             execution.save()
     return HttpResponse(1)
