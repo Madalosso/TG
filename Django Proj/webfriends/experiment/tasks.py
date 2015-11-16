@@ -17,7 +17,12 @@ def RunExperiment(execution, ide):
     os.system(execution + " " + str(ide) + "/input >" + str(ide) + "/output")
     print (str("/"+str(ide) + "/output"))
     files={'file': str("/"+str(ide) + "/output")}
-    r = requests.post('http://10.1.4.28:8000/experiments/result', files=files)
+    path = str(str(ide)+"/output")
+    print path
+    files = {'file': open(path, 'rb')}
+    data = {'id':str(ide)}
+    #   r = requests.post('http://10.1.4.28:8000/about/')
+    r = requests.post('http://10.1.4.28:8000/experiments/result', files=files,data=data)
     print (r.status_code, r.reason)
            # execution.status = 2
            # execution.save()
