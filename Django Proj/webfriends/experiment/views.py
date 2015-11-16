@@ -191,16 +191,10 @@ def experiments(request):
             str(execution.request_by.usuario.id) + \
             '/' + str(execution.id) + '/output'
         # print(outputFilePath)
-<<<<<<< HEAD
-        teste = RunExperiment.delay(query, execution, outputFilePath)
-        # print teste.status
-=======
-
         # teste = RunExperiment.delay(execution.algorithm.command)
         teste = RunExperiment.delay(alg.command, execution.id)
         # teste = RunExperiment.delay(query, execution, outputFilePath)
         #print teste.status
->>>>>>> rabbit
         # RunExperiment.apply_async(
         #     args=[query, execution, outputFilePath], kwargs={}, countdown=60)
         # RunExperiment.delay(query, execution, outputFilePath)
@@ -219,8 +213,6 @@ def experiments(request):
     }
     return render(request, "experiments.html", context)
 
-<<<<<<< HEAD
-
 def experimentsRemove(request):
     if request.method == 'POST':
         data = request.POST.get('data')
@@ -230,7 +222,7 @@ def experimentsRemove(request):
             Execution.objects.filter(id__in=ids).delete()
         # objects = Model.objects.filter(id__in=object_ids)
     return HttpResponseRedirect(reverse('home'))
-=======
+
 @csrf_exempt
 def result(request):
     print "testePRINT"
@@ -245,5 +237,3 @@ def result(request):
 	    execution.status=3
             execution.save()
     return HttpResponse(1)
-
->>>>>>> rabbit
