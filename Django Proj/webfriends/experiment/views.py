@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.template import RequestContext
 from django.conf import settings
 from django.core.mail import send_mail
@@ -22,9 +22,7 @@ from paginator import paginate
 
 from experiment.tasks import RunExperiment
 
-
 def about(request):
-    debug_task.delay()
     return HttpResponse(1)
 
 
@@ -204,12 +202,18 @@ def experiments(request):
     }
     return render(request, "experiments.html", context)
 
-
+@csrf_exempt
 def result(request):
     print "testePRINT"
     if request.method == 'POST':
         print "POST"
         if (request.FILES):
-            print "Files"
-            fileIn = request.FILES["file"]
-    return HttpResponseRedirect(reverse('home'))
+	    idExec = request.POST.get("id")
+	    print idExec
+	    execution = Execution.objects.get(id=idExec)
+	    fileIn = request.FILES["file"]
+	    execution.outputFile=fileIn
+	    execution.status=3
+            execution.save()
+    return HttpResponse(1)
+
