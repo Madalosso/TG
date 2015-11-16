@@ -206,6 +206,7 @@ def experiments(request):
 
 
 def result(request):
+    print "testePRINT"
     if request.method == 'POST':
         print "POST"
         if (request.FILES):

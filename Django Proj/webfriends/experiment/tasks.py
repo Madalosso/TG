@@ -12,12 +12,13 @@ logger = get_task_logger(__name__)
 def RunExperiment(execution, ide):
     print("\n Executando o exp %s, algoritmo: %s" % (ide, execution))
     os.system("mkdir " + str(ide))
-    os.system("wget http://127.0.0.1:8000/experiments/downloadInputFile?id=" +
+    os.system("wget http://10.1.4.28:8000/experiments/downloadInputFile?id=" +
               str(ide) + " -O ./" + str(ide) + "/input")
     os.system(execution + " " + str(ide) + "/input >" + str(ide) + "/output")
     print (str("/"+str(ide) + "/output"))
     files={'file': str("/"+str(ide) + "/output")}
-    requests.post('http://127.0.0.1:8000/experiments/result', files=files)
+    r = requests.post('http://10.1.4.28:8000/experiments/result', files=files)
+    print (r.status_code, r.reason)
            # execution.status = 2
            # execution.save()
            # start = time.time()
