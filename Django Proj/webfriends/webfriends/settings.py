@@ -49,8 +49,6 @@ INSTALLED_APPS = (
     'registration',
     'crispy_forms',
     'experiment',
-    'djcelery',
-    'kombu.transport.django',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -137,9 +135,16 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 
-# Celery
+# Celery stuff
 
-djcelery.setup_loader()
-BROKER_URL = "django://"	#does not support remote control commands =/
-CELERY_RESULT_BACKEND = 'rpc://'
-CELERY_RESULT_PERSISTENT = True
+BROKER_URL = 'redis://10.1.4.28:6379'
+CELERY_RESULT_BACKEND = 'redis://10.1.4.28:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'America/Sao_Paulo'
+
+# djcelery.setup_loader()
+# BROKER_URL = "amqp://guest:guest@localhost:5672//"	#does not support remote control commands =/
+# CELERY_RESULT_BACKEND = 'rpc://'
+# CELERY_RESULT_PERSISTENT = True

@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.views.decorators.csrf import csrf_protect
-# from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.template import RequestContext
 from django.conf import settings
 from django.core.mail import send_mail
@@ -12,11 +11,6 @@ from django.http import HttpResponse
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.core.files import File
-
-# tasks
-from .tasks import RunExperiment, teste
-
-
 # jsonview - Crispy validation
 from jsonview.decorators import json_view
 from crispy_forms.utils import render_crispy_form
@@ -24,6 +18,11 @@ from crispy_forms.helper import FormHelper
 
 # paginator
 from paginator import paginate
+
+from experiment.tasks import RunExperiment
+
+def about(request):
+    return HttpResponse(1)
 
 
 def home(request):
@@ -37,7 +36,7 @@ def home(request):
         # res = teste.delay()
         # print res
         title = "Welcome %s" % request.user
-        # print(request.user.id)
+        print(request.user.id)
         executionList = Execution.objects.filter(
             request_by__usuario__id=request.user.id).order_by('-id')
         try:
@@ -78,14 +77,19 @@ def about(request):
 def downloadInputFile(request):
     expId = request.GET.get('id')
     execution = Execution.objects.get(pk=expId)
-    if (execution.request_by.usuario.id == request.user.id):
-        response = HttpResponse(
-            execution.inputFile, content_type='application/force-download')
-        response[
-            'Content-Disposition'] = 'attachment; filename="entrada-Experimento-' + str(expId) + '"'
-        return response
+    # if (execution.request_by.usuario.id == request.user.id):
+    #     response = HttpResponse(
+    #         execution.inputFile, content_type='application/force-download')
+    #     response[
+    #         'Content-Disposition'] = 'attachment; filename="entrada-Experimento-' + str(expId) + '"'
+    #     return response
     # criar alerta
-    return HttpResponseRedirect(reverse('home'))
+    response = HttpResponse(
+        execution.inputFile, content_type='application/force-download')
+    response[
+        'Content-Disposition'] = 'attachment; filename="entrada-Experimento-' + str(expId) + '"'
+    return response
+    # return HttpResponseRedirect(reverse('home'))
 
 
 def downloadOutputFile(request):
@@ -159,14 +163,12 @@ def experiments(request):
                 'title': title
             }
             return render(request, "experiments.html", context)
-        opt = request.POST.get('opt')
         algorithm = request.POST.get('Algorithm')
         d_User = User.objects.get(username=request.user)
         alg = Algorithms.objects.get(nameAlg=algorithm)
         execution = Execution(
             request_by=d_User.usuariofriends,
             algorithm=alg,
-            opt=opt,  # very tenso
         )
         execution.save()
         if (request.FILES):
@@ -189,8 +191,16 @@ def experiments(request):
             str(execution.request_by.usuario.id) + \
             '/' + str(execution.id) + '/output'
         # print(outputFilePath)
+<<<<<<< HEAD
         teste = RunExperiment.delay(query, execution, outputFilePath)
         # print teste.status
+=======
+
+        # teste = RunExperiment.delay(execution.algorithm.command)
+        teste = RunExperiment.delay(alg.command, execution.id)
+        # teste = RunExperiment.delay(query, execution, outputFilePath)
+        #print teste.status
+>>>>>>> rabbit
         # RunExperiment.apply_async(
         #     args=[query, execution, outputFilePath], kwargs={}, countdown=60)
         # RunExperiment.delay(query, execution, outputFilePath)
@@ -209,6 +219,7 @@ def experiments(request):
     }
     return render(request, "experiments.html", context)
 
+<<<<<<< HEAD
 
 def experimentsRemove(request):
     if request.method == 'POST':
@@ -219,3 +230,20 @@ def experimentsRemove(request):
             Execution.objects.filter(id__in=ids).delete()
         # objects = Model.objects.filter(id__in=object_ids)
     return HttpResponseRedirect(reverse('home'))
+=======
+@csrf_exempt
+def result(request):
+    print "testePRINT"
+    if request.method == 'POST':
+        print "POST"
+        if (request.FILES):
+	    idExec = request.POST.get("id")
+	    print idExec
+	    execution = Execution.objects.get(id=idExec)
+	    fileIn = request.FILES["file"]
+	    execution.outputFile=fileIn
+	    execution.status=3
+            execution.save()
+    return HttpResponse(1)
+
+>>>>>>> rabbit

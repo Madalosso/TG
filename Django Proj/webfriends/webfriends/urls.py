@@ -20,6 +20,7 @@ urlpatterns = [
         name='downloadOutputFile'),
 
     #django admin
+    url(r'^experiments/result$', 'experiment.views.result', name='result'),
     url(r'^admin/', include(admin.site.urls)),
 
     # urls register

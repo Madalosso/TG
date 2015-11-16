@@ -18,8 +18,8 @@ class UsuarioFriends(models.Model):
     company = models.CharField(
         default='default', max_length=50, blank=False, null=True)
     usuario = models.OneToOneField(User)
-    register_date = models.DateTimeField('register_date', auto_now_add=True)
-    last_access = models.DateTimeField('last_acess', auto_now=True)
+    date_register = models.DateTimeField('date_register', auto_now_add=True)
+    last_access = models.DateTimeField('last_access', auto_now=True)
     resultsPerPage = models.IntegerField(default=10)
 
     def __unicode__(self):
@@ -48,7 +48,6 @@ class Execution(models.Model):
     date_requisition = models.DateTimeField(
         'date_requisition', auto_now_add=True)
     status = models.IntegerField(default=1)
-    opt = models.CharField(null=True, max_length=100)
     algorithm = models.ForeignKey(Algorithms, null=True, blank=False)
     inputFile = models.FileField(upload_to=user_directory_path_in, null=True)
     outputFile = models.FileField(upload_to=user_directory_path_out, null=True)
