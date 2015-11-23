@@ -173,7 +173,7 @@ def experiments(request):
         execution.save()
         if (request.FILES):
             # print request.FILES
-            fileIn = request.FILES["FileIn"]
+            fileIn = request.FILES["Input"]
             execution.inputFile = fileIn
             execution.save()
             queryInputFile = (

@@ -26,15 +26,6 @@ class UsuarioFriends(models.Model):
         return self.nickname
 
 
-class ExecModel(models.Model):
-    algorithm = models.ForeignKey(Algorithms, null=True, blank=False)
-    inputFile = models.FileField(upload_to='presetsInputs/', null=True)
-    desc = models.CharField(null=True, blank=False, max_length=500)
-
-    def __unicode__(self):
-        return self.algorithm.nameAlg
-
-
 def user_directory_path_in(instance, filename):
     return './users/user_{0}/{1}/input'.format(instance.request_by.usuario.id, instance.id)
 
