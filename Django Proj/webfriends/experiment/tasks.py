@@ -13,13 +13,16 @@ def RunExperiment(execution, ide):
     os.system("mkdir " + str(ide))
     os.system("wget http://10.1.4.28:8000/experiments/downloadInputFile?id=" +
               str(ide) + " -O ./" + str(ide) + "/input")
+    start = time.time()
     os.system(execution + " " + str(ide) + "/input >" + str(ide) + "/output")
-    print (str("/"+str(ide) + "/output"))
+    dur = time.time() - start
+    
+    print dur
     files={'file': str("/"+str(ide) + "/output")}
     path = str(str(ide)+"/output")
     print path
     files = {'file': open(path, 'rb')}
-    data = {'id':str(ide)}
+    data = {'id':str(ide),'time':dur}
     #   r = requests.post('http://10.1.4.28:8000/about/')
     r = requests.post('http://10.1.4.28:8000/experiments/result', files=files,data=data)
     print (r.status_code, r.reason)

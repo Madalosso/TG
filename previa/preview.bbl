@@ -4,25 +4,29 @@
   Simulations of structure formation in the universe. \textbf{Annu. Rev.
   Astron. Astrophys 36}, [S.l.], 1998.
 
-\bibitem[DJANGO PROJECT(????)DJANGO PROJECT]{django} DJANGO Project. Accessed:
-  2015-08-14, \url{https://www.djangoproject.com/}.
+\bibitem[CELERY(2009)CELERY]{Celery} CELERY. \textbf{Celery}: distributed task
+  queue. \url{http://celery.readthedocs.org/en/latest/}, acessado em Outubro de
+  2015.
+
+\bibitem[DJANGO(2005)DJANGO]{Django} DJANGO. \textbf{Django Framework}.
+  \url{https://www.djangoproject.com/}, acessado em Outubro de 2015.
+
+\bibitem[FORMS(2009)FORMS]{nesi} FORMS, C\@. \textbf{Django-crispy-forms}.
+  2009.
 
 \bibitem[G.~EFSTATHIOU~M.~DAVIS(1985)G.~EFSTATHIOU~M.~DAVIS]{Efstathiou}
   G.~EFSTATHIOU~M.~DAVIS, S. D. M. W. C. S.~F\@. Numerical techniques for large
   cosmological N-body simulations. \textbf{Astrophysical Journal Supplement
   Series (ISSN 0067-0049), vol. 57}, [S.l.], 1985.
 
-\bibitem[MEDIGRID(????)MEDIGRID]{medigrid} MEDIGRID. Accessed: 2015-08-14,
-  \url{http://www.medigrid.de/index_en.html}.
+\bibitem[OTAVIO M.~MADALOSSO(2015)OTAVIO M.~MADALOSSO]{friends} OTAVIO
+  M.~MADALOSSO, A. S.~C\@. Implementação do algoritmo Friends of Friends de
+  complexidade n*logn(n) para classificação de objetos astronômicos.
+  \textbf{ERAD-RS XV}, [S.l.], 2015.
 
-\bibitem[NEW ZELAND ESCIENCE INFRASTRUCTURE(????)NEW ZELAND ESCIENCE
-  INFRASTRUCTURE]{nesi} NEW Zeland eScience Infrastructure. Accessed:
-  2015-08-14, \url{https://www.nesi.org.nz/}.
-
-\bibitem[OTAVIO MIGLIAVACCA~MADALOSSO(2015)OTAVIO
-  MIGLIAVACCA~MADALOSSO]{friends} OTAVIO MIGLIAVACCA~MADALOSSO, A. S.~C\@.
-  Implementação do algoritmo Friends of Friends de complexidade n*logn(n)
-  para classificação de objetos astronômicos. \textbf{ERAD-RS XV}, [S.l.],
-  2015.
+\bibitem[SURHUD~MORE(????)SURHUD~MORE]{FoF} SURHUD~MORE, G.~E\@.
+  \textbf{Friends-of-Friends Masses}.
+  \url{https://gclusters11.wikispaces.com/SBCS+1.1+FOF+Masses}, acessado em
+  Novembro de 2015.
 
 \end{thebibliography}

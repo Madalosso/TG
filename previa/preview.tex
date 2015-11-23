@@ -8,6 +8,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{fix-cm}
+\usepackage{url}
 \usepackage{times, color}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
@@ -16,11 +17,12 @@
 \usepackage[hidelinks,
             bookmarksopen=true,linktoc=none,colorlinks=true,
             linkcolor=black,citecolor=black,filecolor=magenta,urlcolor=blue,
-            pdftitle={Exploração da Linguagem Rust para o Desenvolvimento de um Path Tracer Paralelo},
-            pdfauthor={Yuri Kunde Schlesner},
+            pdftitle={Um sistema web para execução remota de aplicações de alto desempenho},
+            pdfauthor={Otavio Migliavacca Madalosso},
             pdfsubject={Trabalho de Graduação},
-            pdfkeywords={Computação de alto desempenho, programação web, Programação Paralela, Rust, Path Tracing, Informática, UFSM}
+            pdfkeywords={Computação de alto desempenho, programação web, Framework Django,  Execução Remota, Informática, UFSM}
             ]{hyperref}
+            
 %\usepackage[brazilian]{babel}
 
 %\usepackage{fontspec}
@@ -81,7 +83,7 @@
 
 %%% END Article customizations
 
-\title{Um sistema web para execução remota de aplicações de alto desempenho}
+\title{Um sistema \emph{ web } para execução remota de aplicações de alto desempenho}
 \author{Migliavacca Madalosso}{Otávio}
 \course{Curso de Ciência da Computação}
 \altcourse{Curso de Ciência da Computação}
@@ -92,8 +94,8 @@
 \advisor[Profª.]{Drª.}{Charão}{Andrea Schwertner}
 \orientadoratrue
 
-\committee[Profª. Drª.]{De Oliveira Stein}{Benhur}{UFSM}
-\committee[Prof. Dr.]{Pereira}{Henrique}{UFSM}
+\committee[Prof. Dr.]{De Oliveira Stein}{Benhur}{UFSM}
+\committee[MSc.]{Pereira}{Henrique}{CPD - UFSM}
 
 \date{08}{Outubro}{2015}
 
@@ -127,66 +129,102 @@ Algumas áreas de pesquisa utilizam constantemente algoritmos que demandam alto 
 
 Algoritmos com grande custo computacional são facilmente encontrados em áreas como meteorologia, biologia e astronomia. Esses algoritmos possuem a característica de consumir um nível elevado de processamento, e consequentemente, os tempos necessários para suas conclusões tendem a ser longos e variam dependendo do ambiente aonde são executados.
 
-É comum pesquisadores destas áreas desenvolverem novas implementações de algoritmos utilizados por seus colegas. Implementações essas que podem trazer muitos benefícios para outros pesquisadores que necessitam deste tipo de solução. Infelizmente, é comum essas implementações ficarem restritas a ambientes privados, não por questões de licença, mas simplesmente pela ausência de um método prático para disponibiliza-la ao público.
+Pesquisadores destas áreas podem vir a desenvolver novas implementações de algoritmos utilizados pela comunidade de pesquisa. Essas implementações podem trazer muitos benefícios para outros pesquisadores que necessitam deste tipo de solução. Infelizmente, é comum essas implementações ficarem restritas a ambientes privados, não por questões de licença, mas simplesmente pela ausência de um método prático para disponibilizá-la ao público.
 
-Baseado nessa situação, surge a ideia de desenvolver um portal web que permita a execução de algoritmos remotamente, de acordo com as configurações feitas pelo administrador. Desta forma, o usuário seria capaz de utilizar dados próprios para que sejam processados pelos algoritmos, e consiga obter os resultados quando a tarefa for concluída.
+Baseado nessa situação, surge a ideia de desenvolver um portal \emph{web} que permita a execução de algoritmos remotamente, de acordo com as configurações feitas pelo administrador. Desta forma, o usuário seria capaz de utilizar dados próprios para que sejam processados pelos algoritmos, e consiga obter os resultados quando a tarefa for concluída.
 
-Um algoritmo que se enquadra no propósito do portal e que será utilizado durante o desenvolvimento do mesmo, é a uma versão do algoritmo Friends-of-Friends de complexidade n*log(n) paralelizado através do \emph{framework} OpenMP. Esse algoritmo foi desenvolvido em um projeto de pesquisa vinculado ao INPE (Instituto Nacional de Pesquisas Espaciais) pelo autor desse trabalho.
+Portais como o descrito acima já existem(citar NeSI), porém são desenvolvidos de acordo com a estrutura aonde serão mantidos. A vantagem deste projeto é que será mais genérico, prevendo a sua utilização por diferentes públicos e em diferentes ambientes.
+
+Um algoritmo que se enquadra no propósito do portal e que será utilizado durante o desenvolvimento do mesmo, é a uma versão do algoritmo \emph{Friends-of-Friends}\cite{FoF} de complexidade n*log(n) paralelizado através do \emph{framework} OpenMP. Essa variação do algoritmo foi desenvolvida em um projeto de pesquisa vinculado ao INPE (Instituto Nacional de Pesquisas Espaciais) pelo autor deste trabalho.
 
 \section{Objetivos e Justificativa}
 
 \subsection{Objetivo Geral}
 
-O objetivo deste trabalho é criar um modelo de portal web que possibilite aos usuários cadastrados no sistema executar algoritmos utilizando diferentes dados e disponibilizar o resultado da execução após sua conclusão.
+O objetivo deste trabalho é criar um modelo de portal \emph{web} que possibilite aos usuários cadastrados no portal executar algoritmos utilizando diferentes dados e disponibilizar o resultado da execução após sua conclusão.
 
 \subsection{Justificativa}
 
 O projeto é capaz de gerar benefícios significativos para a comunidade de pesquisa de diversas áreas, criando um modelo de ambiente que facilite a divulgação e teste de resultados de algoritmos alternativos para resolução de problemas comuns.
 
-Além de servir como modelo, o projeto disponibilizará um algoritmo que se enquadra na categoria alvo do projeto: a versão de complexidade n*log(n) e paralela do friends-of-friends.
+Além de servir como modelo, o projeto disponibilizará um algoritmo que se enquadra na categoria alvo do projeto: a versão de complexidade n*log(n) e paralela do \emph{friends-of-friends}.
 
 
 
 \chapter{Fundamentos e Revisão de Literatura}
-Para a produção desse projeto foi necessário fazer um estudo de ferramentas que iriam ser utilizadas para auxiliar na execução do trabalho. A natureza de um portal web, por exemplo, já apresenta um grande número possibilidades de frameworks web com o proposito de ser a base deste portal. Priorizando a velocidade de desenvolvimento e afinidade do autor com a linguagem, foi escolhido o framework Django, para ser utilizado na implementação.
+Para a produção deste projeto foi necessário fazer um estudo de ferramentas que iriam ser utilizadas para auxiliar na execução do trabalho. A natureza de um portal web, por exemplo, já apresenta um grande número possibilidades de \emph{frameworks} \emph{web} com o propósito de auxiliarem no desenvolvimento deste portal. Priorizando a velocidade de desenvolvimento e afinidade do autor com a linguagem, foi escolhido o \emph{framework} Django\cite{Django}, para ser utilizado na implementação.
 
-Também é necessário o uso de um gerenciador de tarefas para lidar com as execuções que serão requisitadas através do portal. Como o algoritmo que será utilizado nesse projeto trabalha sob uma grande quantidade de dados, o tempo de processamento gasto para sua conclusão não pode impactar no comportamento do portal. Seria inadmissível o portal aguardar a conclusão de uma execução requisitada ser concluída para só então retornar uma resposta ao usuário que a solicitou, para resolver isso, foi escolhido o gerenciador Celery para realizar o controle dessas execuções.
+Também é necessário o uso de um gerenciador de tarefas para lidar com as tarefas que serão geradas através do portal. Como os algoritmos que serão utilizados neste portal podem demandar  alto custo computacional, é necessário que o ambiente aonde o portal será mantido não seja o mesmo aonde as tarefas serão executadas. Assim, impossibilitando a concorrência entre a execução algoritmo e do processo que mantém o portal. Seria inapropriado o portal aguardar a conclusão de uma tarefa ser concluída para só então retornar uma resposta ao usuário que a solicitou, para resolver isso, foi escolhido o gerenciador Celery para realizar o controle dessas execuções.
 
 \section{Framework Django}
-Django\cite{django} é um \emph{framework} escrito na linguagem \emph{Python} para criação de aplicações web que encoraja o desenvolvimento ágil, em alto nível e com design pragmático. Foi criado em 2003 para gerenciar um site jornalístico da cidade de Lawrence, no Kansas e tornou-se um projeto de código aberto publicado sob a licença BSD em Julho de 2005. 
+Django\cite{Django} é um \emph{framework} escrito na linguagem \emph{Python} para o desenvolvimento de aplicações\emph{ web }que encoraja o desenvolvimento ágil, em alto nível e com design pragmático. Desde julho de 2005 é um um projeto de código aberto publicado sob a licença BSD.
 
-O principal objetivo do framework é facilitar a criação de \emph{websites} dirigidos a banco de dados e se relaciona muito com a política de DRY (Dont Repeat Yourself) e \emph{pluggability}. Dentre as características desejadas para realização do projeto, o Django pareceu adequado por apresentar suporte a tecnologias que favorecem o desenvolvimento ágil do projeto, como mapeamento objeto-relacional e o padrão Model-View-Controller.
+O principal objetivo do \emph{framework} é facilitar a criação de \emph{websites} dirigidos a banco de dados e se relaciona muito com a política de \emph{DRY (Don't Repeat Yourself)} e com o conceito de aplicações modulares (ou plugáveis). Dentre as características desejadas para realização do projeto, o Django pareceu adequado por apresentar suporte a tecnologias que favorecem o desenvolvimento ágil do projeto, como mapeamento objeto-relacional e um modelo de desenvolvimento em camadas \emph{(Model-View-Template)}.
 
 \section{Celery Task Queue}
-Celery é um gerenciador de tarefas assíncronas 
+Celery\cite{Celery} é um gerenciador de tarefas assíncronas baseado em troca de mensagens entre a aplicação que irá criar tarefas, a lista de tarefas pendentes e os \emph{workers} (processos que irão executar as tarefas). O fluxo de trabalho do Celery pode ser dividido nos estágios de requisição, execução e retorno de tarefas, a requisição é feita através do portal, pelo usuário, e enfileirada na lista de tarefas pendentes. Enquanto houverem tarefas pendentes, elas serão atribuídas aos \emph{workers} que fazem parte do sistema, que irão executar e retornar ao portal o resultado da execução.
 
+Além de resolver o problema de controle de tarefas, essa aplicação também traz um outro benefício ao projeto que é a possibilidade de expandir o número de \emph{workers} que irão tratar das tarefas, ou seja, conforme a demanda de execuções aumente, é prático configurar outra máquina para fazer o papel de mais um \emph{worker}.
+
+\section{Redis}
 
 \section{Friends of Friends}
-O Friends-of-Friends (FoF) é um algoritmo utilizado para manipular e analisar grandes quantidades de dados produzidos por simulações da área da astronomia, mais especificamente em tópicos como a distribuição de matéria escura em grande escala, a formação de halos de matéria escura, e a formação e evolução de galáxias e aglomerados. Essas simulações tem um papel fundamental\cite{Bertschinger,Efstathiou} no estudo desses assuntos.
+O \emph{Friends-of-Friends} é um algoritmo utilizado para manipular e analisar grandes quantidades de dados produzidos por simulações da área da astronomia, mais especificamente em tópicos como a distribuição de matéria escura em grande escala, a formação de halos de matéria escura, e a formação e evolução de galáxias e aglomerados. Essas simulações tem um papel fundamental no estudo desses assuntos.\cite{Bertschinger,Efstathiou}
 
-Na 15ª edição da Escola Regional de Alto Desempenho do Rio Grande do Sul (XV ERAD-RS)(referenciar), foram publicados resultados de execuções de uma nova implementação do Friends-of-Friends\cite{friends} originados de um projeto de pesquisa cujo objetivo era reduzir a complexidade do algoritmo e paraleliza-lo para que obtivesse uma diminuição de seu tempo de execução.
+Na 15ª edição do ERAD-RS\footnote{Escola Regional de Alto Desempenho do Rio Grande do Sul}, foram publicados resultados de execuções de uma nova implementação do \emph{Friends-of-Friends}\cite{friends} originados de um projeto de pesquisa cujo objetivo era reduzir a complexidade do algoritmo e paralelizá-lo para que obtivesse uma diminuição de seu tempo de execução.
 
-O algoritmo funciona utilizando uma entrada de dados composta por posições de n corpos celestes que devem ser agrupados de acordo com um dado raio. Quando dois corpos estão posicionados a uma distância menor do que a do raio informado, eles pertencem a um mesmo grupo e qualquer outro corpo que estiver a uma distancia menor ou igual ao raio de qualquer integrante de um grupo, também pertence ao grupo. O resultado esperado do algoritmo é informar quais corpos estão relacionados entre sí seguindo essa regra.
+O algoritmo funciona utilizando uma entrada de dados composta por posições de \emph{n} corpos celestes que devem ser agrupados de acordo com um dado raio. Quando dois corpos estão posicionados a uma distância menor do que a do raio informado, eles pertencem a um mesmo grupo e qualquer outro corpo que estiver a uma distância menor ou igual ao raio de qualquer integrante de um grupo, também pertence ao grupo. O resultado esperado do algoritmo é informar quais corpos estão relacionados entre sí seguindo essa regra.\footnote{Algoritmo Friends of Friends \url{https://gclusters11.wikispaces.com/SBCS+1.1+FOF+Masses}}
 
 Uma característica significativa desse algoritmo é o grande volume de dados que compõem o arquivo de entrada, durante o desenvolvimento do algoritmo, foi utilizado um arquivo de entrada com informação de 317 mil corpos celestes. Como esse arquivo precisa ser enviado a partir do usuário para o sistema, é necessário que seja determinado um limite do tamanho do arquivo e um prazo de validade para o qual esse arquivo continuará disponível no sistema após sua utilização. Caso contrário é inevitável que, conforme o portal seja utilizado, os recursos de memória do ambiente destinados a manter os arquivos sejam comprometidos.
 
+\section{Trabalhos Relacionados}
+
+\subsection{New Zealand eScience - NeSI}
+o NeSI\cite{nesi} é o serviço de infraestrutura de pesquisa da Nova Zelândia, oferece vários serviços para a comunidade de pesquisa do país. Para ter acesso ao sistema é necessário estar cadastrado em algum projeto já existente, ou por meio de um formulário para aplicação de um novo projeto, que será avaliado e se aprovado, cadastrado no sistema (junto com os dados que permitem acesso ao usuário).
+
+\subsection{Algorithmia}
+Uma plataforma que serve de intermediário entre desenvolvedores e utilizadores de algoritmos, o Algorithmia\footnote{\url{https://algorithmia.com}} permite aos usuários cadastrados disponibilizar e/ou utilizar algoritmos de outros usuários. Um desenvolvedor que deseja utilizar algum dos algoritmos presentes no Algorithmia em um projeto próprio, adiciona uma chamada do algoritmo selecionado e paga de acordo com a utilização e os preços estabelecidos pelo site.
+
+\subsection{HackerRank}
+O site HackerRank\footnote{\url{https://www.hackerrank.com/}} desafia os usuários a encontrem as melhores soluções para desafios computacionais que podem ser resolvidos em várias linguagens de programação. Cada solução proposta por um usuário é avaliada de acordo com o resultado do algoritmo enviado e seu tempo de execução, essa avaliação é publica em um \emph{rank} contendo as demais avaliações da comunidade, criando uma competição associada ao desafio proposto.
 
 \chapter{Desenvolvimento}
-A metodologia do projeto concentrou-se em dar prioridade aos requisitos que apresentavam maior risco, priorizando a funcionalidade de executar tarefas remotamente. Por causa disso foi feita uma \emph{Sprint} para agilizar o desenvolvimento de funcionalidades mais básicas do projeto, focando especialmente na questão de registro de usuários e as execuções remotas solicitadas por eles.
 
-Foram utilizadas algumas aplicações extensíveis ao Django que poderiam trazer ganhos ao projeto em questão de agilidade de desenvolvimento.Foram elas a django-registration-redux, para registro de usuário, e a django-crispy-forms, que efetua validação e renderização de formulários.
+
+A metodologia do projeto concentrou-se em dar prioridade aos requisitos críticos ao projeto. Os requisitos foram determinados com base no \emph{story telling} (Figura \ref{fig:story}) criado no início do projeto e dela foram extraidos os requisitos e funcionalidades do sistema, gerando o backlog do produto que será apresentado a seguir.
+
+Através desse \emph{story telling}, foi desenvolvido o \emph{backlog} do produto, criando funcionalidades baseado na estória e atribuindo a elas diferentes pesos de acordo com sua importância para o sistema.
+
+\begin{figure}
+	\centering
+	\begin{minipage}[t]{0.7\textwidth}
+		\begin{lstlisting}		
+		"   O cliente possui um conjunto de algoritmos que deseja disponibilizar para os usuários cadastardos no seu portal. Para isso, quer um sistema que possa disponibilizar e gerenciar algoritmos, usuários e tarefas(execuções solicitadas pelos usuários).
+		
+		Os usuários cadastrados devem efetuar o login no sistema, e serem direcionados para o ambiente aonde possam visualizar as tarefas que requisitou (se houver alguma), ou seguir para a tela de solicitação de uma nova tarefa.
+		
+		A solicitação de uma nova tarefa deve permitir ao usuário selecionar o algoritmo que deseja utilizar, fazer o upload do arquivo de entrada e solocitar a execução da tarefa com as configurações selecionados."
+		\end{lstlisting}
+	\end{minipage}
+	\caption{\emph{Storytelling}}
+	\label{fig:story}
+\end{figure}
+
+
+
+Foram utilizadas algumas aplicações extensíveis ao Django que poderiam trazer ganhos ao projeto em questão de agilidade de desenvolvimento. Foram elas a \emph{django-registration-redux} \footnote{\url{http://django-registration-redux.readthedocs.org/}}, para registro de usuário, e a \emph{django-crispy-forms}\footnote{\url{http://django-crispy-forms.readthedocs.org/en/latest/}}, que efetua validação e renderização de formulários.
 
 \section{Funcionalidades}
 
 
 
 As funcionalidades do sistema podem ser divididas até agora em 3 grupos distintos (ver Figura \ref{fig:usecase}).
-\subsection{Usuário Anonimo}
+\subsection{Usuário Anônimo}
 Um usuário anônimo possui a permissão de acessar áreas de informação a respeito do sistema, de contato com o administrador do sistema, e da área de registro, onde pode solicitar o registro e, seguindo as orientações apresentadas, fazer login como um usuário registrado.
 \subsection{Usuário registrado}
 O usuário registrado tem permissão de criar experimentos no portal, para isso ele faz o \emph{upload} de um arquivo que será utilizado como entrada no algoritmo selecionado. Além disso o usuário também pode monitorar o estado dos experimentos que ele requisitou e fazer o \emph{download} dos arquivos de cada experimento, tanto o arquivo de entrada, como a saída(se houver) do algoritmo (ver Figura \ref{fig:funcional}).
 \subsection{Administrador}
-O administrador tem as mesmas capacidades do que um usuário registrado e detem previlégios de acesso ao painel de administração do django. Isso permite a ele cadastro de novos algoritmos no sistema, de novos experimentos padrão e a editar qualquer informação que o sistema detenha no banco de dados.
+O administrador tem as mesmas capacidades do que um usuário registrado e detém privilégios de acesso ao painel de administração do Django. Isso permite que ele faça o cadastro de novos algoritmos no sistema, de novos experimentos padrão e a editar qualquer informação que o sistema detenha no banco de dados.
 \begin{figure}
 	\centering
 	\includegraphics[width=1\textwidth]{userhome}
@@ -211,22 +249,19 @@ Essas 4 classes compõem o modelo de dados (Figura \ref{fig:classdiagram}) que i
 \subsection{Algorithm}
 Essa classe é responsável por manter os dados referentes ao(s) algoritmo(s) que o sistema disponibiliza, é composto por 3 atributos que representem o nome do algoritmo, a descrição de seu propósito, e o comando que deverá ser utilizado para executá-lo.
 
-\subsection{ExecModel}
-Essa classe foi criada para permitir ao usuário testar os serviços do sistema sem precisar de um conjunto de dados. Assim, essa classe guarda dados referentes a execução pré-definida de um algoritmo, utilizando os dados de entrada já configurados pelo administrador do sistema. Além disso, ele mantém um campo descrição criado com o intuito de explicar ao usuário como funciona o conjunto de dados utilizados como entrada e o que se espera do resultado após o processamento.
-
 \subsection{Execution}
-A classe Execution mantém todas as informações referentes a um pedido de execução. Ela inclui uma chave estrangeira que referencia o usuário que requisitou-a, a data na qual a requisição foi feita, o status da execução, outra chave estrageira que referencia qual algoritmo será utilizado, e dois campos para os endereços nos quais devem ser mantidos os dados de entrada e saída à serem usados nesta execução.
+A classe \emph{Execution} mantém todas as informações referentes a um pedido de execução. Ela inclui uma chave estrangeira que referencia o usuário que requisitou-a, a data na qual a requisição foi feita, o status da execução, outra chave estrangeira que referencia qual algoritmo será utilizado, e dois campos para os endereços nos quais devem ser mantidos os dados de entrada e saída à serem usados nesta execução.
 
 \subsection{PortalUser}
-Representa o usuário no protal, mantém os dados de cadastro e mais alguns referêntes a datas e preferências:
+Representa o usuário no portal, mantém os dados de cadastro e mais alguns referentes a datas e preferências:
 
 \begin{itemize}
 	\item Username (Utilizado para o login)
 	\item Password 
 	\item E-mail
 	\item Nickname (Utilizado para mensagens de contato e alertas pelo sistema)
-	\item DateRegister (Data de quando foi feito o registro do usuário)
-	\item LastAcess (Data do último acesso do usuário no sistema)
+	\item RegisterDate (Data de quando foi feito o registro do usuário)
+	\item LastAccess (Data do último acesso do usuário no sistema)
 	\item ResultsPerPage (Preferência de quantos resultados por página o usuário deseja quando for listar os experimentos que requisitou)
 \end{itemize}
 
@@ -241,21 +276,21 @@ Representa o usuário no protal, mantém os dados de cadastro e mais alguns refe
 
 
 \section{Formulário de Contato}
-A página de contato do sistema foi desenvolvida utilizando um formulário que exige informações necessárias para identificação e endereço de resposta de quem efetuou o contato. Para isso foi utilizada a aplicação django-crispy-forms para obtenção de dados e o envio de e-mail a partir do servidor Django para concluir a função.
+A página de contato do sistema foi desenvolvida utilizando um formulário que exige informações necessárias para identificação e endereço de resposta de quem efetuou o contato. Para isso foi utilizada a aplicação \emph{django-crispy-forms} para obtenção de dados e o envio de e-mail a partir do servidor Django para concluir a função.
 
 \subsection{Django Crispy Forms}
 Durante a implementação dessa tela foi instalada a aplicação Crispy. Ela trata da criação de formulários e executa a validação e renderização desses formulários. Quando um usuário preenche incorretamente um formulário, ela trata de renderizar um novo fazendo alterações nos campos preenchidos incorretamente, tornando evidente aonde se encontram os erros de preenchimento.
 
 \section{Registro de Usuário}
-Depois disso houve o estudo da logística de registro de usuários, como a aplicação deve ser aberta a qualquer pessoa, é imprescindível que haja uma forma autônoma de registro de novos usuários. No primeiro momento tentou-se implementar a funcionalidade utilizando formulários e verificações desenvolvidas no próprio projeto, mas durante o desenvolvimento foi encontrada uma solução mais rápida e mais adequada, o uso do app Django-Registration-Redux.
+Depois disso houve o estudo da logística de registro de usuários, como a aplicação deve ser aberta a qualquer pessoa, é imprescindível que haja uma forma autônoma de registro de novos usuários. No primeiro momento tentou-se implementar a funcionalidade utilizando formulários e verificações desenvolvidas no próprio projeto, mas durante o desenvolvimento foi encontrada uma solução mais rápida e mais adequada, o uso do app \emph{Django-Registration-Redux}.
 
-O django-registration-redux é uma aplicação extensível que provê as funcionalidades de registro de usuários para sites que utilizam Django. Essa aplicação já dispõe de templates e formulários para fazer a sua função, também contém um sistema de ativação de contas no qual o usuário que solicitou registro recebe um e-mail no endereço usado no cadastro que contém um link para ativar sua conta, forçando uma verificação de que o e-mail utilizado existe e pertence mesmo ao usuário.
+O \emph{Django-Registration-Redux} é uma aplicação extensível que provê as funcionalidades de registro de usuários para sites que utilizam Django. Essa aplicação já dispõe de templates e formulários para fazer a sua função, também contém um sistema de ativação de contas no qual o usuário que solicitou registro recebe um e-mail no endereço usado no cadastro que contém um link para ativar sua conta, forçando uma verificação de que o e-mail utilizado existe e pertence mesmo ao usuário.
 
 Por padrão ela mantém apenas os dados de e-mail, nome e senha do usuário que solicitou o registro, o que satisfaz os requisitos mínimos para executar sua funcionalidade, porém para o sistema em desenvolvimento, pareceu interessante ter a possibilidade de obter mais dados do usuário em seu cadastro, tais como instituição a qual o usuário pertence (Universidade, empresa, etc.), grau de escolaridade, e outras informações que podem ser úteis posteriormente ao administrador do sistema.
 
-Além disso, o django-registration-redux não tem por padrão, nenhuma forma de filtro de domínios de endereços de e-mail, o que também pode ser útil ao sistema, caso o administrador queira limitar o acesso do portal aos usuários que detenham um e-mail de um domínio específico.
+Além disso, essa aplicação não tem por padrão, nenhuma forma de filtro de domínios de endereços de e-mail, o que também pode ser útil ao sistema, caso o administrador queira limitar o acesso do portal aos usuários que detenham um e-mail de um domínio específico.
 
-Para contornar essas questões, foi criado um novo modelo de dados que estende a aplicação registration-redux, tornando possível estender as funções de registro para esse modelo novo, de modo que no processo de registro novos dados podem ser requisitados, verificados e validados pelo sistema antes de proceder com a criação do usuário.
+Para contornar essas questões, foi criado um novo modelo de dados (PortalUser) que estende o modelo de dados da aplicação(Registration User), tornando possível estender as funções de registro para esse modelo novo, de modo que no processo de registro novos campos possam ser requisitados, verificados e validados pelo sistema antes de proceder com a criação do usuário.
 
 \begin{figure}
 	\centering
@@ -267,23 +302,23 @@ Para contornar essas questões, foi criado um novo modelo de dados que estende a
 \end{figure}
 
 \section{Execução remota de tarefas}
-A execução remota de tarefas foi um requisito que exigiu outro estudo em busca de ferramentas e técnicas para sua realização. É necessário esclarecer que não é viável que o próprio processo que mantém a aplicação no ar e trata de todos os requests realizados por usuários também lide com as execuções dos experimentos solicitados pelos usuários, pois isso causaria uma lentidão muito grande no sistema.
+A execução remota de tarefas foi um requisito que exigiu outro estudo em busca de ferramentas e técnicas para sua realização. É necessário esclarecer que não é viável que o próprio processo que mantém a aplicação no ar e trata de todos os \emph{requests} realizados por usuários também lide com as execuções dos experimentos solicitados pelos mesmos, pois isso causaria uma lentidão muito grande no sistema.
 
-Para contornar esse problema foram verificadas duas técnicas: a criação de um novo processo que faria a execução do experimento, ou então o uso de alguma aplicação que gerencia-se filas de tarefas e distribuição das mesmas para demais processos e/ou máquinas.
+Para contornar esse problema foram verificadas duas técnicas: a criação de um novo processo que faria a execução do experimento, ou então o uso de alguma aplicação que gerencie filas de tarefas e distribuição das mesmas para demais processos e/ou máquinas.
 
 Compreendida a dimensão e complexidade de criar um sistema para execução de tarefas a partir do zero, optou-se por buscar por aplicações compatíveis com as tecnologias utilizadas do projeto e que pudessem satisfazer a necessidade identificada.
 
-A aplicação escolhida foi o Celery, uma aplicação que gera filas de execução de tarefas por meio de troca de mensagens. A grande vantagem dessa escolha é a integração nativa que o Celery tem com Django, e a vasta documentação existente para configuração de suas funcionalidades.
+A aplicação escolhida foi o Celery, ela gera filas de execução de tarefas por meio de troca de mensagens. A grande vantagem dessa escolha é a facilidade de configuração que o Celery tem com Django, e a vasta documentação existente para configuração de suas funcionalidades.?????? DEU RUIM O DJANGO hehe FALAR DO REDIS.
 
-Essa aplicação permite ao sistema django criar tarefas que serão executadas pelos chamados workers. Os workers são processos independentes que devem ser iniciados nas máquinas que irão executar o processamento dos algoritmos e que trocam mensagens com o sistema que solicitou a execução.
+Essa aplicação permite ao sistema Django criar tarefas que serão executadas pelos chamados \emph{workers}. Os \emph{workers} são processos independentes que devem ser iniciados nas máquinas que irão executar o processamento dos algoritmos e que trocam mensagens com o sistema que solicitou a execução.
 
-No momento, a execução das tarefas criadas pelo sistema estão todas sendo realizadas por um worker executado na mesma máquina que mantém o portal, posteriormente espera-se fazer com que isso seja alterado para que a máquina que realiza o processamento seja exclusivamente dedicada à essa tarefa.
+No momento, a execução das tarefas criadas pelo sistema estão todas sendo realizadas por um \emph{worker} executado na mesma máquina que mantém o portal, posteriormente espera-se fazer com que isso seja alterado para que a máquina que realiza o processamento seja exclusivamente dedicada à essa tarefa.
 
 
 \section{Sistema de arquivos}
 
-Como as tarefas realizadas pelo portal exigem dados para serem processados pelo algoritmo, e esse algoritmo gera novos dados, foi necessário criar um sistema de arquivos para manter uma ordem na qual seja possível recuperar esses arquivos após o seu processamento.
-O sistema foi implementado conforme a Figura  \ref{fig:filesystem} ilustra. Nele, é escolhido um diretório como sendo a raíz de todos os arquivos que o portal irá manter referente a dados de entrada e saída dos algoritmos, e esses dados serão mantidos em diretórios nomeados de acordo com o id do experimento ao qual pertencem, e esse diretório, por sua vez, será mantido em um outro diretório nomeado de acordo com o id do usuário que requisitou o experimento.
+Como as tarefas realizadas pelo portal exigem dados para serem processados pelo algoritmo, e gera novos dados, foi necessário criar um sistema de arquivos para manter uma ordem na qual seja possível recuperar esses arquivos após o seu processamento.
+O sistema foi implementado conforme a Figura  \ref{fig:filesystem} ilustra. Nele, é escolhido um diretório como sendo a raiz de todos os arquivos que o portal irá manter referente a dados de entrada e saída dos algoritmos, e esses dados serão mantidos em diretórios nomeados de acordo com o id do experimento ao qual pertencem, e esse diretório, por sua vez, será mantido em um outro diretório nomeado de acordo com o id do usuário que requisitou o experimento.
 
 Após a implementação desse sistema de arquivos e e combinando as funcionalidades com o que já havia sido implementado referente a execução de tarefas, foi possível desenvolver uma página no portal na que o usuário pudesse obter os arquivos de dados referentes a cada experimento solicitado por ele e verificar o estado de cada experimento. Esses estados são definidos de acordo com o andamento do processo de execução, sendo que até o momento, são possíveis 3 estados: 
 
@@ -291,8 +326,8 @@ Após a implementação desse sistema de arquivos e e combinando as funcionalida
 
 
 \begin{itemize}
-	\item "Aguardando": Experimento aguarda sua execução por um worker.
-	\item "Executando": Experimento está sendo executado, mas ainda não concluíu.
+	\item "Aguardando": Experimento aguarda sua execução por um \emph{worker}.
+	\item "Executando": Experimento está sendo executado, mas ainda não concluiu.
 	\item "Finalizado": Experimento já foi executado e já possui os dados disponíveis para o usuário.
 \end{itemize}
 \begin{figure}
@@ -311,7 +346,7 @@ Como continuação do trabalho realizado até o momento, são planejadas as segu
 	\item fazer a execução das tarefas em uma máquina diferente da que mantém o portal.
 	\item Implementar sistema de notificação ao usuário para quando execuções forem finalizadas.
 	\item Implementar nova classe de usuário capaz de obter dados estatísticos do sistema como número de execuções, relatórios do sistema.
-	\item Adicionar tempo de execução na classe Execution.
+	\item Adicionar tempo de execução na classe \emph{Execution}.
 \end{enumerate}
 
 \setlength{\baselineskip}{\baselineskip}
