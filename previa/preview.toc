@@ -5,13 +5,10 @@
 \contentsline {subsection}{\numberline {1.1.2}Justificativa}{7}{subsection.1.1.2}
 \contentsline {chapter}{\numberline {2}Fundamentos e Revis\IeC {\~a}o de Literatura}{8}{chapter.2}
 \contentsline {section}{\numberline {2.1}Framework Django}{8}{section.2.1}
-\contentsline {section}{\numberline {2.2}Celery Task Queue}{9}{section.2.2}
+\contentsline {section}{\numberline {2.2}Celery Task Queue}{8}{section.2.2}
 \contentsline {section}{\numberline {2.3}Redis}{9}{section.2.3}
 \contentsline {section}{\numberline {2.4}Friends of Friends}{9}{section.2.4}
 \contentsline {section}{\numberline {2.5}Trabalhos Relacionados}{10}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}New Zealand eScience - NeSI}{10}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}Algorithmia}{10}{subsection.2.5.2}
-\contentsline {subsection}{\numberline {2.5.3}HackerRank}{10}{subsection.2.5.3}
 \contentsline {chapter}{\numberline {3}Desenvolvimento}{12}{chapter.3}
 \contentsline {section}{\numberline {3.1}Funcionalidades}{12}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Usu\IeC {\'a}rio An\IeC {\^o}nimo}{12}{subsection.3.1.1}

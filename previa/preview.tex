@@ -167,6 +167,9 @@ Celery\cite{Celery} é um gerenciador de tarefas assíncronas baseado em troca d
 Além de resolver o problema de controle de tarefas, essa aplicação também traz um outro benefício ao projeto que é a possibilidade de expandir o número de \emph{workers} que irão tratar das tarefas, ou seja, conforme a demanda de execuções aumente, é prático configurar outra máquina para fazer o papel de mais um \emph{worker}.
 
 \section{Redis}
+Redis\footnote{\url{http://redis.io/}} é uma ferramenta de armazenamento e comunicação de dados mantida sob a licença BSD (open-source). Ele será utilizado neste projeto como \emph{broker} (ferramenta para fazer a troca de mensagens) entre as máquinas que vão agir como \emph{workers} e a máquina que irá manter a aplicação disponível aos usuários (Django server). 
+
+Além do Redis, há somente uma outra opção estável de \emph{broker} para ser utilizado em conjunto com o Celery: o RabbitMQ. Dentre essas duas opções, o Redis foi escolhido por apresentar mais informação na documentação e mais participação da comunidade desenvolvedora que utiliza Celery.
 
 \section{Friends of Friends}
 O \emph{Friends-of-Friends} é um algoritmo utilizado para manipular e analisar grandes quantidades de dados produzidos por simulações da área da astronomia, mais especificamente em tópicos como a distribuição de matéria escura em grande escala, a formação de halos de matéria escura, e a formação e evolução de galáxias e aglomerados. Essas simulações tem um papel fundamental no estudo desses assuntos.\cite{Bertschinger,Efstathiou}
@@ -179,14 +182,49 @@ Uma característica significativa desse algoritmo é o grande volume de dados qu
 
 \section{Trabalhos Relacionados}
 
-\subsection{New Zealand eScience - NeSI}
-o NeSI\cite{nesi} é o serviço de infraestrutura de pesquisa da Nova Zelândia, oferece vários serviços para a comunidade de pesquisa do país. Para ter acesso ao sistema é necessário estar cadastrado em algum projeto já existente, ou por meio de um formulário para aplicação de um novo projeto, que será avaliado e se aprovado, cadastrado no sistema (junto com os dados que permitem acesso ao usuário).
+Os portais de eResearch por exemplo, focam em usuários pesquisadores, que demandam alta capacidade computacional para realizarem suas pesquisas, além de acesso a certos conjuntos de dados e aplicações ligadas a suas áreas de pesquisa. Todos esses recursos são disponibilizados para o usuário através de complexas uniões de diferentes recursos, gerenciados pelas instituições que mantém o serviço e entregues para o usuário final de forma transparente, facilitando a utilização pelo mesmo.
+
+A seguir segue uma lista de alguns desses portais:
+\begin{itemize}
+	\item New Zealand eScience - NeSI
+	\item The National e-Science Centre - NeSC
+	\item Monash eResearch Centre
+\end{itemize}
+
+\iffalse
+
+Existem portais normalmente ligados ao termo eResearch que possuem características em comum, principalmente relacionadas ao modo de lidar com os usuários.
+
+
+O termo \emph{eResearch} traduz o uso de recursos computacionais distribuídos para prover aos usuários o uso de ambientes com alta performance computacional, acesso a grandes quantidades de dados e aplicações destinadas a pesquisa.
+\subsubsection{New Zealand eScience - NeSI}
+O NeSI\footnote{\url{https://www.nesi.org.nz/}} é o serviço de infraestrutura de pesquisa da Nova Zelândia, oferece vários serviços para a comunidade de pesquisa do país. Para ter acesso ao sistema é necessário estar cadastrado em algum projeto já existente, ou por meio de um formulário para aplicação de um novo projeto, que será avaliado e se aprovado, cadastrado no sistema (junto com os dados que permitem acesso ao usuário).
+\subsubsection {The National e-Science Centre - NeSC}
+A universidade de Glasgow, no Reino Unido, mantém um projeto NeSC \footnote{\url{http://www.gla.ac.uk/departments/escience/}} focado em tecnologia de Grid combinada com aplicações de pesquisa. O domínio das aplicações suportadas abrangem áreas como bio-informática, testes clínicos, epidemiologia, entre outras. O principal objetivo desse projeto é dispor ao usuário um ambiente de \emph{HPC (High-Performance Computing)} completamente transparente ao usuário final. 
+\item Assim como o NeSI, também é um projeto desenvolvido para ser executado e mantido em um conjunto de máquinas específicas, que dispõem dos requisitos necessários.
+
+\fi
+
+Existem também portais que a interação que o usuário faz com o sistema é a produção de código fonte em determinada linguagem. O objetivo desses portais varia entre o ensino de novas técnicas de programação, ensino das linguagens e desafios de desempenho de algoritmos. Para as situações de ensino, o sistema pode instruir o usuário como resolver determinado problema e solicitar que o mesmo resolva algum problema semelhante, provando que aprendeu o conteúdo proposto.
+Para desafios de algoritmos, o usuário envia a sua solução proposta para o sistema executar, e após a execução, recebe uma avaliação que é publicada em um rank, promovendo competição entre os usuários. 
+Exemplos de portais que seguem essa metodologia:
+\begin{itemize}
+	\item HackerRank
+	\item CodeinGame
+	\item Codecademy
+\end{itemize}
+
+Outro tipo de portal é o Algorithmia\footnote{\url{https://algorithmia.com}}, uma plataforma que serve de intermediário entre desenvolvedores e utilizadores de algoritmos, o Algorithmia permite aos usuários cadastrados disponibilizar e/ou utilizar algoritmos de outros usuários. Um desenvolvedor que deseja utilizar algum dos algoritmos disponíveis no Algorithmia em um projeto próprio, adiciona uma chamada do algoritmo selecionado e paga de acordo com a utilização e os preços estabelecidos pelo site.
+
+\iffalse
 
 \subsection{Algorithmia}
 Uma plataforma que serve de intermediário entre desenvolvedores e utilizadores de algoritmos, o Algorithmia\footnote{\url{https://algorithmia.com}} permite aos usuários cadastrados disponibilizar e/ou utilizar algoritmos de outros usuários. Um desenvolvedor que deseja utilizar algum dos algoritmos presentes no Algorithmia em um projeto próprio, adiciona uma chamada do algoritmo selecionado e paga de acordo com a utilização e os preços estabelecidos pelo site.
 
 \subsection{HackerRank}
 O site HackerRank\footnote{\url{https://www.hackerrank.com/}} desafia os usuários a encontrem as melhores soluções para desafios computacionais que podem ser resolvidos em várias linguagens de programação. Cada solução proposta por um usuário é avaliada de acordo com o resultado do algoritmo enviado e seu tempo de execução, essa avaliação é publica em um \emph{rank} contendo as demais avaliações da comunidade, criando uma competição associada ao desafio proposto.
+
+\fi
 
 \chapter{Desenvolvimento}
 
