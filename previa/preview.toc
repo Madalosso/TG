@@ -5,7 +5,7 @@
 \contentsline {subsection}{\numberline {1.1.2}Justificativa}{7}{subsection.1.1.2}
 \contentsline {chapter}{\numberline {2}Fundamentos e Revis\IeC {\~a}o de Literatura}{8}{chapter.2}
 \contentsline {section}{\numberline {2.1}Framework Django}{8}{section.2.1}
-\contentsline {section}{\numberline {2.2}Celery Task Queue}{8}{section.2.2}
+\contentsline {section}{\numberline {2.2}Celery Task Queue}{9}{section.2.2}
 \contentsline {section}{\numberline {2.3}Redis}{9}{section.2.3}
 \contentsline {section}{\numberline {2.4}Friends of Friends}{9}{section.2.4}
 \contentsline {section}{\numberline {2.5}Trabalhos Relacionados}{10}{section.2.5}
@@ -18,10 +18,10 @@
 \contentsline {subsection}{\numberline {3.2.1}Algorithm}{15}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Execution}{15}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}PortalUser}{15}{subsection.3.2.3}
-\contentsline {section}{\numberline {3.3}Formul\IeC {\'a}rio de Contato}{17}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Django Crispy Forms}{17}{subsection.3.3.1}
-\contentsline {section}{\numberline {3.4}Registro de Usu\IeC {\'a}rio}{17}{section.3.4}
-\contentsline {section}{\numberline {3.5}Execu\IeC {\c c}\IeC {\~a}o remota de tarefas}{18}{section.3.5}
-\contentsline {section}{\numberline {3.6}Sistema de arquivos}{19}{section.3.6}
-\contentsline {chapter}{\numberline {4}Pr\IeC {\'o}ximas Etapas}{21}{chapter.4}
-\contentsline {chapter}{Refer{\^e}ncias}{22}{chapter*.3}
+\contentsline {section}{\numberline {3.3}Formul\IeC {\'a}rio de Contato}{18}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Django Crispy Forms}{18}{subsection.3.3.1}
+\contentsline {section}{\numberline {3.4}Registro de Usu\IeC {\'a}rio}{18}{section.3.4}
+\contentsline {section}{\numberline {3.5}Execu\IeC {\c c}\IeC {\~a}o remota de tarefas}{19}{section.3.5}
+\contentsline {section}{\numberline {3.6}Sistema de arquivos}{20}{section.3.6}
+\contentsline {chapter}{\numberline {4}Pr\IeC {\'o}ximas Etapas}{23}{chapter.4}
+\contentsline {chapter}{Refer{\^e}ncias}{24}{chapter*.3}

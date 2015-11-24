@@ -284,6 +284,15 @@ Definidas as funcionalidades a serem desenvolvidas, foram criados modelos de dad
 
 Essas 4 classes compõem o modelo de dados (Figura \ref{fig:classdiagram}) que integram todas as funcionalidades do sistema até o presente estado de desenvolvimento.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{models}
+	\caption{
+		Models.py
+	}
+	\label{fig:modelo}
+\end{figure}
+
 \subsection{Algorithm}
 Essa classe é responsável por manter os dados referentes ao(s) algoritmo(s) que o sistema disponibiliza, é composto por 3 atributos que representem o nome do algoritmo, a descrição de seu propósito, e o comando que deverá ser utilizado para executá-lo.
 
@@ -298,7 +307,8 @@ Representa o usuário no portal, mantém os dados de cadastro e mais alguns refe
 	\item Password 
 	\item E-mail
 	\item Nickname (Utilizado para mensagens de contato e alertas pelo sistema)
-	\item RegisterDate (Data de quando foi feito o registro do usuário)
+	\item Company
+	\item DateRegister (Data de quando foi feito o registro do usuário)
 	\item LastAccess (Data do último acesso do usuário no sistema)
 	\item ResultsPerPage (Preferência de quantos resultados por página o usuário deseja quando for listar os experimentos que requisitou)
 \end{itemize}
@@ -346,7 +356,19 @@ Para contornar esse problema foram verificadas duas técnicas: a criação de um
 
 Compreendida a dimensão e complexidade de criar um sistema para execução de tarefas a partir do zero, optou-se por buscar por aplicações compatíveis com as tecnologias utilizadas do projeto e que pudessem satisfazer a necessidade identificada.
 
-A aplicação escolhida foi o Celery, ela gera filas de execução de tarefas por meio de troca de mensagens. A grande vantagem dessa escolha é a facilidade de configuração que o Celery tem com Django, e a vasta documentação existente para configuração de suas funcionalidades.?????? DEU RUIM O DJANGO hehe FALAR DO REDIS.
+A aplicação escolhida foi o Celery, ele gera filas de execução de tarefas por meio de troca de mensagens. A máquina que mantém o portal, também mantém um processo de execução do broker Redis, que faz o envio e recebimento de mensagens entre o processo que cria novas tarefas, e os workers disponíveis para receber tarefas.
+
+A execução de qualquer algoritmo é feita através da mesma função "RunExperiment" (Figura \ref{fig:run}). Essa função recebe como argumentos o comando que o worker deve executar e o identificador do arquivo de entrada que deve ser utilizado. Em seguida, o worker faz o download do arquivo de entrada para seu sistema de arquivos local e realiza a execução do algoritmo selecionado com essa entrada recém adquirida. Por fim, cria um formulário POST contendo o arquivo de saída da execução e o envia junto com um request para a máquina que gerou a tarefa, a view para qual o request será mapeado através da url irá salvar o arquivo recebido como a saída da execução e atualizar os dados relativos a aquele experimento.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{task}
+	\caption{
+		Função RunExperiment
+	}
+	\label{fig:run}
+\end{figure}
+
 
 Essa aplicação permite ao sistema Django criar tarefas que serão executadas pelos chamados \emph{workers}. Os \emph{workers} são processos independentes que devem ser iniciados nas máquinas que irão executar o processamento dos algoritmos e que trocam mensagens com o sistema que solicitou a execução.
 
@@ -368,6 +390,7 @@ Após a implementação desse sistema de arquivos e e combinando as funcionalida
 	\item "Executando": Experimento está sendo executado, mas ainda não concluiu.
 	\item "Finalizado": Experimento já foi executado e já possui os dados disponíveis para o usuário.
 \end{itemize}
+
 \begin{figure}
 	\centering
 	\includegraphics[width=0.3\textwidth]{filesystem}
