@@ -4,20 +4,21 @@
   Simulations of structure formation in the universe. \textbf{Annu. Rev.
   Astron. Astrophys 36}, [S.l.], 1998.
 
-\bibitem[CELERY(2009)CELERY]{Celery} CELERY. \textbf{Celery}: distributed task
+\bibitem[CELERY(2015)CELERY]{Celery} CELERY. \textbf{Celery}: distributed task
   queue. \url{http://celery.readthedocs.org/en/latest/}, acessado em Outubro de
   2015.
 
-\bibitem[DJANGO(2005)DJANGO]{Django} DJANGO. \textbf{Django Framework}.
+\bibitem[DJANGO(2015)DJANGO]{Django} DJANGO. \textbf{Django Framework}.
   \url{https://www.djangoproject.com/}, acessado em Outubro de 2015.
-
-\bibitem[FORMS(2009)FORMS]{nesi} FORMS, C\@. \textbf{Django-crispy-forms}.
-  2009.
 
 \bibitem[G.~EFSTATHIOU~M.~DAVIS(1985)G.~EFSTATHIOU~M.~DAVIS]{Efstathiou}
   G.~EFSTATHIOU~M.~DAVIS, S. D. M. W. C. S.~F\@. Numerical techniques for large
   cosmological N-body simulations. \textbf{Astrophysical Journal Supplement
   Series (ISSN 0067-0049), vol. 57}, [S.l.], 1985.
+
+\bibitem[GREENFELD; ROY(2015)GREENFELD; ROY]{twoscoopes} GREENFELD, D.; ROY,
+  A\@. \textbf{Two Scoops of Django}: best practices for django 1.8.
+  [S.l.:~s.n.], 2015.
 
 \bibitem[OTAVIO M.~MADALOSSO(2015)OTAVIO M.~MADALOSSO]{friends} OTAVIO
   M.~MADALOSSO, A. S.~C\@. Implementação do algoritmo Friends of Friends de
