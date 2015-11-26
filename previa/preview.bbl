@@ -1,5 +1,8 @@
 \begin{thebibliography}{\hspace{\parindent}}
 
+\bibitem[ALGORITHMIA(2015)ALGORITHMIA]{algor} ALGORITHMIA.
+  \url{https://algorithmia.com/}, acessado em Novembro de 2015.
+
 \bibitem[BERTSCHINGER(1998)BERTSCHINGER]{Bertschinger} BERTSCHINGER, E\@.
   Simulations of structure formation in the universe. \textbf{Annu. Rev.
   Astron. Astrophys 36}, [S.l.], 1998.
@@ -7,6 +10,12 @@
 \bibitem[CELERY(2015)CELERY]{Celery} CELERY. \textbf{Celery}: distributed task
   queue. \url{http://celery.readthedocs.org/en/latest/}, acessado em Outubro de
   2015.
+
+\bibitem[CODECADEMY(2015)CODECADEMY]{codecademy} CODECADEMY.
+  \url{https://www.codecademy.com}, acessado em Novembro de 2015.
+
+\bibitem[CODEINGAME(2015)CODEINGAME]{codeingame} CODEINGAME.
+  \url{https://www.codingame.com/}, acessado em Novembro de 2015.
 
 \bibitem[DJANGO(2015)DJANGO]{Django} DJANGO. \textbf{Django Framework}.
   \url{https://www.djangoproject.com/}, acessado em Outubro de 2015.
@@ -20,14 +29,31 @@
   A\@. \textbf{Two Scoops of Django}: best practices for django 1.8.
   [S.l.:~s.n.], 2015.
 
+\bibitem[HACKERRANK(2015)HACKERRANK]{hackerrank} HACKERRANK.
+  \url{https://www.hackerrank.com/}, acessado em Novembro de 2015.
+
+\bibitem[HUCHRA~J. P. E~GELLER(1982)HUCHRA~J. P. E~GELLER]{friendsalg}
+  HUCHRA~J. P. E~GELLER, M.~J\@. Groups of Galaxies Nearby groups. \textbf{The
+  astrophysical}, [S.l.], 1982.
+
+\bibitem[NATIONAL E-SCIENCE CENTRE(2015a)NATIONAL E-SCIENCE CENTRE]{nesc}
+  NATIONAL e-Science Centre. \url{http://www.nesc.ac.uk/}, acessado em Novembro
+  de 2015.
+
+\bibitem[NATIONAL E-SCIENCE CENTRE(2015b)NATIONAL E-SCIENCE CENTRE]{monash}
+  NATIONAL e-Science Centre. \url{https://platforms.monash.edu/eresearch/},
+  acessado em Novembro de 2015.
+
+\bibitem[NEW ZEALAND ESCIENCE INFRASTRUCTURE(2015)NEW ZEALAND ESCIENCE
+  INFRASTRUCTURE]{nesi} NEW Zealand eScience Infrastructure.
+  \url{https://www.nesi.org.nz/}, acessado em Novembro de 2015.
+
 \bibitem[OTAVIO M.~MADALOSSO(2015)OTAVIO M.~MADALOSSO]{friends} OTAVIO
   M.~MADALOSSO, A. S.~C\@. Implementação do algoritmo Friends of Friends de
   complexidade n*logn(n) para classificação de objetos astronômicos.
   \textbf{ERAD-RS XV}, [S.l.], 2015.
 
-\bibitem[SURHUD~MORE(????)SURHUD~MORE]{FoF} SURHUD~MORE, G.~E\@.
-  \textbf{Friends-of-Friends Masses}.
-  \url{https://gclusters11.wikispaces.com/SBCS+1.1+FOF+Masses}, acessado em
-  Novembro de 2015.
+\bibitem[SANFILIPPO(2015)SANFILIPPO]{redis} SANFILIPPO, S\@. \textbf{Redis}.
+  \url{http://redis.io/}, acessado em Novembro de 2015.
 
 \end{thebibliography}
