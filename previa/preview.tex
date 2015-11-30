@@ -658,16 +658,71 @@ O sistema foi implementado conforme a Figura  \ref{fig:filesystem} ilustra. Nele
 \end{figure}
 
 \chapter{Resultados}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{res1}
+	\caption{
+		Registro de Usuário
+	}
+	\label{fig:res1}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{res2}
+	\caption{
+		Visualização de execuções
+	}
+	\label{fig:res2}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{res3}
+	\caption{
+		Requisição de nova execução
+	}
+	\label{fig:res3}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{asd}
+	\caption{
+		Tabela de execuções
+	}
+	\label{fig:asd}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{res4}
+	\caption{
+		Painel de Administração
+	}
+	\label{fig:res4}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\textwidth]{res5}
+	\caption{
+		Cadastro de novo algorítmo
+	}
+	\label{fig:res5}
+\end{figure}
+
 Ao término do trabalho, foi criado um modelo que satisfaz os requisitos levantados durante a fase de planejamento do portal. Através do modelo gerado, a comunidade de pesquisadores/desenvolvedores de novos algoritmos pode disponibilizar a utilização dos mesmos para qualquer pessoa.
 
 Além disso, o modelo gerado foi utilizado para a criação de um portal que realiza a execução da versão \emph{n}*log(\emph{n}) e paralela do \emph{Friends-of-Friends}, tornando agora possível que pesquisadores utilizem o algoritmo para encontrar soluções baseadas em seus próprios conjuntos de dados e verifiquem a diferença de desempenho entre execuções utilizando diferentes algoritmos e/ou entradas. O portal em questão foi executado utilizando duas máquinas disponíveis no Laboratório de Sistemas de Computação (LSC) da UFSM, uma delas mantém o sistema Django disponibilizando o acesso e principais funcionalidades do portal, e a outra age como o único \emph{worker} do sistema, executando as tarefas que o portal gera.
 
-Os teste submetido ao portal para verificar a exatidão e consistência das operações consistiu em executar o algoritmo selecionado utilizando um certo conjunto de dados de entrada, e comparar seu resultado com uma execução feita manualmente utilizando o mesmo algoritmo e o mesmo conjunto de dado. O conjunto de dados de saída processados por ambas as execuções (manual e intermediada pelo portal) resultaram em arquivos completamente iguais, satisfazendo o teste.
+Os teste submetido ao portal para verificar a exatidão e consistência das operações consistiu em executar o algoritmo selecionado utilizando um certo conjunto de dados de entrada, e comparar seu resultado com uma execução feita manualmente utilizando o mesmo algoritmo e o mesmo conjunto de dado. O conjunto de dados de saída processados por ambas as execuções (manual e intermediada pelo portal) resultaram em arquivos completamente iguais, satisfazendo o teste. Nesse teste, foi feito um registro de um usuário com o \emph{username} "NovoUsuario", utilizando dados de \emph{e-mail} válidos para efetuar o registro da conta (Figura \ref{fig:res1}). Após o registro e a validação do e-mail utilizado pelo usuário, ele tem acesso ao ambiente restrito do portal, aonde pode visualizar suas execuções (Figura \ref{fig:res2}) ou acessar o formulário para requisição de uma nova execução (Figura \ref{fig:res3}), selecionando o algoritmo desejado e enviando um arquivo com um conjunto de dados de entrada. Finalmente, o usuário pode observar a tabela contendo os dados das execuções solicitadas e por meio dela, obter o arquivo de entrada ou saída (Figura \ref{fig:asd}).
 
-\chapter{Conclusão e Trabalhos Futuros}
-O trabalho conseguiu satisfazer os requisitos propostos, gerando um modelo de projeto Django que permite que seus usuários executem algoritmos de alto desempenho produzindo resultados disponibilizados no próprio projeto, além de uma medição do tempo de execução que não sofre interferência de disputa por recursos da máquina que mantém o projeto.
+Quanto a parte de administração, a interação que o administrador faz no sistema é feita através do painel de administração (Figura \ref{fig:res4}) aonde pode cadastrar um novo algoritmo preenchendo os campos do formulário mostrado na Figura \ref{fig:res5}.
 
-Como trabalho futuro, surgiu a ideia de utilizar a ferramenta de virtualização de ambiente "Docker", para criar um método mais prático de distribuição desse modelo.
+
+\chapter{Conclusão}
+Este trabalho teve o propósito de criar um modelo de portal capaz de satisfazer as necessidades exploradas na sessão de objetivos: Execução remota de algoritmos de alto desempenho.
+
+A etapa de desenvolvimento iniciou-se através de um levantamento de requisitos e funcionalidades do sistema, e a seguir, a implementação, feita em paralela com o estudo das melhores técnicas e ferramentas para a implementação dessas funcionalidades. 
+
+Ao término das implementações, o projeto desenvolvido conseguiu satisfazer os requisitos propostos, gerando um modelo de projeto Django que permite que seus usuários executem algoritmos de alto desempenho produzindo resultados disponibilizados no próprio projeto, além de uma medição do tempo de execução que não sofre interferência de disputa por recursos da máquina que mantém o projeto.
+
 
 \setlength{\baselineskip}{\baselineskip}
 \bibliographystyle{abnt}
