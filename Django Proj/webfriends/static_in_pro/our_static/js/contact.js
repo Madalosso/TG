@@ -1,3 +1,4 @@
+/*
 $("#id_mensagem").each(function () {
     var style = $(this).attr('style'),
         textbox = $(document.createElement('textarea')).attr('style', style);
@@ -7,4 +8,4 @@ $("#id_mensagem").each(function () {
         textbox.attr('resize',false);
 
     $(this).replaceWith(textbox);
-});
+});*/
