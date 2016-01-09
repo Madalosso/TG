@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.27)  30 NOV 2015 18:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.9.27)  23 DEC 2015 00:46
 entering extended mode
 **preview.tex
 (preview.tex
@@ -1256,27 +1256,66 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 167.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <9.79996> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 167.
+
+
+pdfTeX warning: pdflatex.exe (file ./aprove.pdf): PDF inclusion: found PDF vers
+ion <1.6>, but at most version <1.5> allowed
+<aprove.pdf, id=134, 597.23125pt x 845.1575pt>
+File: aprove.pdf Graphic file (type pdf)
+ <use aprove.pdf>
+Package pdftex.def Info: aprove.pdf used on input line 167.
+(pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./aprove.pdf): PDF inclusion: found PDF vers
+ion <1.6>, but at most version <1.5> allowed
+File: aprove.pdf Graphic file (type pdf)
+<use aprove.pdf>
+Package pdftex.def Info: aprove.pdf used on input line 167.
+(pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./aprove.pdf): PDF inclusion: found PDF vers
+ion <1.6>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex.exe (file ./aprove.pdf): PDF inclusion: found PDF vers
+ion <1.6>, but at most version <1.5> allowed
+<aprove.pdf, id=137, page=1, 597.23125pt x 845.1575pt>
+File: aprove.pdf Graphic file (type pdf)
+
+<use aprove.pdf, page 1>
+Package pdftex.def Info: aprove.pdf, page1 used on input line 167.
+(pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
+File: aprove.pdf Graphic file (type pdf)
+ <use aprove.pdf, page 1>
+Package pdftex.def Info: aprove.pdf, page1 used on input line 167.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 167.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 167.
-
-[2
-
-]
-LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <14> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 167.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 167.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 167.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 169.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 169.
- [3
+ [2
 
 ]
+File: aprove.pdf Graphic file (type pdf)
+ <use aprove.pdf, page 1>
+Package pdftex.def Info: aprove.pdf, page1 used on input line 167.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: aprove.pdf Graphic file (type pdf)
+
+<use aprove.pdf, page 1>
+Package pdftex.def Info: aprove.pdf, page1 used on input line 167.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+File: aprove.pdf Graphic file (type pdf)
+ <use aprove.pdf, page 1>
+Package pdftex.def Info: aprove.pdf, page1 used on input line 167.
+(pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 167.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 167.
+ [3 <./aprove.pdf>]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 180.
 Package babel Info: Redefining portuges shorthand "|
@@ -1284,41 +1323,42 @@ Package babel Info: Redefining portuges shorthand "|
  [4
 
 ]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 180.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
 (Font)              Font shape `T1/ptm/b/it' tried instead on input line 180.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 186.
+(babel)             in language  on input line 189.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 186.
- [5
+(babel)             in language  on input line 189.
+
+[5
+
+]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 195.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 195.
+ [6
+
 
 ] (preview.toc
-Underfull \hbox (badness 10000) in paragraph at lines 2--2
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
  []  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3--3
+Underfull \hbox (badness 10000) in paragraph at lines 5--5
  []  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7--7
+Underfull \hbox (badness 10000) in paragraph at lines 9--9
  []  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 13--13
- []  
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 30--30
- []  
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--31
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
  []  
  []
 
@@ -1327,656 +1367,663 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--32
  []  
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
+ []  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+ []  
+ []
+
 )
 \tf@toc=\write4
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 187.
+(babel)             in language  on input line 196.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 187.
- [6
-
-]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 187.
- (preview.lof)
-\tf@lof=\write5
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 197.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 197.
+(babel)             in language  on input line 196.
  [7
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 197.
+(babel)             in language  on input line 196.
+ (preview.lof)
+\tf@lof=\write5
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 209.
+(babel)             in language  on input line 206.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 211.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 215.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 218.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 218.
+(babel)             in language  on input line 206.
  [8
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 206.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 223.
- [9]
+(babel)             in language  on input line 218.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 222.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 228.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 235.
+(babel)             in language  on input line 225.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 225.
+ [9
+
+]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 229.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 236.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 236.
+ [10]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 236.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 241.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 248.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 235.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 248.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 237.
+(babel)             in language  on input line 250.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 237.
- [10
+(babel)             in language  on input line 250.
+ [11
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 247.
+(babel)             in language  on input line 260.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 252.
+(babel)             in language  on input line 265.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 270.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 257.
- [11]
+(babel)             in language  on input line 270.
+ [12]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 270.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 266.
+(babel)             in language  on input line 279.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 269.
+(babel)             in language  on input line 282.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 269.
+(babel)             in language  on input line 282.
 
-[12]
+[13]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 293.
+(babel)             in language  on input line 306.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 293.
- [13]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 311.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 306.
  [14]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 311.
+(babel)             in language  on input line 324.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 324.
+ [15]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 324.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 372.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 382.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 373.
+(babel)             in language  on input line 384.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 373.
- [15
+(babel)             in language  on input line 384.
+ [16
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 374.
+(babel)             in language  on input line 384.
 
-<UseCase_tg.png, id=254, 666.23906pt x 846.16125pt>
+<UseCase_tg.png, id=270, 666.23906pt x 846.16125pt>
 File: UseCase_tg.png Graphic file (type png)
  <use UseCase_tg.png>
-Package pdftex.def Info: UseCase_tg.png used on input line 378.
+Package pdftex.def Info: UseCase_tg.png used on input line 388.
 (pdftex.def)             Requested size: 455.24411pt x 578.19673pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 386.
+(babel)             in language  on input line 397.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 388.
+(babel)             in language  on input line 399.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 401.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 401.
 
-[16pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.
+[17pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.
 1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.390 \subsection
+l.401 \subsection
                  {Administrador}pdfTeX warning (ext4): destination with the sam
 e identifier (name{lstnumber.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.390 \subsection
+l.401 \subsection
                  {Administrador}pdfTeX warning (ext4): destination with the sam
 e identifier (name{lstnumber.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.390 \subsection
+l.401 \subsection
                  {Administrador}pdfTeX warning (ext4): destination with the sam
 e identifier (name{lstnumber.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.390 \subsection
+l.401 \subsection
                  {Administrador}pdfTeX warning (ext4): destination with the sam
 e identifier (name{lstnumber.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.390 \subsection
+l.401 \subsection
                  {Administrador}pdfTeX warning (ext4): destination with the sam
 e identifier (name{lstnumber.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.390 \subsection
+l.401 \subsection
                  {Administrador}]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 401.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 390.
- [17 <./UseCase_tg.png>]
+(babel)             in language  on input line 401.
+ [18 <./UseCase_tg.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 401.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 394.
+(babel)             in language  on input line 405.
 pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.1})
  has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.399 from 
+l.410 from 
            django.db import modelspdfTeX warning (ext4): destination with the s
 ame identifier (name{lstnumber.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.400 from 
+l.411 from 
            django.contrib.auth.models import UserpdfTeX warning (ext4): destina
 tion with the same identifier (name{lstnumber.3}) has been already used, duplic
 ate ignored
 <to be read again> 
                    \relax 
-l.403 class 
+l.414 class 
             Algorithms(models.Model):pdfTeX warning (ext4): destination with th
 e same identifier (name{lstnumber.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.403 class 
+l.414 class 
             Algorithms(models.Model):
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 460.
+(babel)             in language  on input line 471.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 463.
+(babel)             in language  on input line 474.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 466.
+(babel)             in language  on input line 476.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 468.
+(babel)             in language  on input line 476.
+ [19]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 468.
- [18]
+(babel)             in language  on input line 476.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 468.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 468.
- [19
+(babel)             in language  on input line 476.
+ [20
 
 ]
-<class_diagran_tg.png, id=338, 510.40688pt x 464.4853pt>
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 477.
+
+<class_diagran_tg.png, id=354, 510.40688pt x 464.4853pt>
 File: class_diagran_tg.png Graphic file (type png)
 
 <use class_diagran_tg.png>
-Package pdftex.def Info: class_diagran_tg.png used on input line 478.
+Package pdftex.def Info: class_diagran_tg.png used on input line 489.
 (pdftex.def)             Requested size: 455.24411pt x 414.30492pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 485.
- <diagrama.png, id=339, 534.49687pt x 388.45125pt>
-File: diagrama.png Graphic file (type png)
+(babel)             in language  on input line 496.
+ <diagrama2.png, id=355, 709.90219pt x 410.2828pt>
+File: diagrama2.png Graphic file (type png)
 
-<use diagrama.png>
-Package pdftex.def Info: diagrama.png used on input line 489.
-(pdftex.def)             Requested size: 455.24411pt x 330.86674pt.
+<use diagrama2.png>
+Package pdftex.def Info: diagrama2.png used on input line 500.
+(pdftex.def)             Requested size: 455.24411pt x 263.11223pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 498.
+(babel)             in language  on input line 509.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 500.
+(babel)             in language  on input line 511.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 503.
+(babel)             in language  on input line 514.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 507.
+(babel)             in language  on input line 516.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 507.
- [20]
+(babel)             in language  on input line 516.
+ [21]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 507.
+(babel)             in language  on input line 516.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 507.
- [21 <./class_diagran_tg.png>]
+(babel)             in language  on input line 516.
+ [22 <./class_diagran_tg.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 507.
+(babel)             in language  on input line 519.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 507.
- [22 <./diagrama.png>]
+(babel)             in language  on input line 525.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 508.
-pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.1})
- has been already used, duplicate ignored
+(babel)             in language  on input line 525.
+ [23 <./diagrama2.png>]pdfTeX warning (ext4): destination with the same identif
+ier (name{lstnumber.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.522 from 
+l.533 from 
            django import formspdfTeX warning (ext4): destination with the same 
 identifier (name{lstnumber.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.523 from 
+l.534 from 
            registration.forms import RegistrationFormUniqueEmailpdfTeX warning 
 (ext4): destination with the same identifier (name{lstnumber.3}) has been alrea
 dy used, duplicate ignored
 <to be read again> 
                    \relax 
-l.524 from 
+l.535 from 
            .models import AlgorithmspdfTeX warning (ext4): destination with the
  same identifier (name{lstnumber.4}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.527 class 
+l.538 class 
             UsuarioPortalForm(RegistrationFormUniqueEmail):pdfTeX warning (ext4
 ): destination with the same identifier (name{lstnumber.5}) has been already us
 ed, duplicate ignored
 <to be read again> 
                    \relax 
-l.527 class 
+l.538 class 
             UsuarioPortalForm(RegistrationFormUniqueEmail):pdfTeX warning (ext4
 ): destination with the same identifier (name{lstnumber.6}) has been already us
 ed, duplicate ignored
 <to be read again> 
                    \relax 
-l.527 class 
+l.538 class 
             UsuarioPortalForm(RegistrationFormUniqueEmail):pdfTeX warning (ext4
 ): destination with the same identifier (name{lstnumber.7}) has been already us
 ed, duplicate ignored
 <to be read again> 
                    \relax 
-l.528 	
+l.539 	
        nickname = forms.CharField(required=False)pdfTeX warning (ext4): destina
 tion with the same identifier (name{lstnumber.8}) has been already used, duplic
 ate ignored
 <to be read again> 
                    \relax 
-l.529 	
+l.540 	
        company = forms.CharField(required=False)pdfTeX warning (ext4): destinat
 ion with the same identifier (name{lstnumber.9}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.530 	
+l.541 	
        \end{lstlisting}pdfTeX warning (ext4): destination with the same identif
 ier (name{lstnumber.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.538 from 
+l.549 from 
            registration.backends.default.views import RegistrationViewpdfTeX wa
 rning (ext4): destination with the same identifier (name{lstnumber.2}) has been
  already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.539 from 
+l.550 from 
            experiment.forms import UsuarioPortalFormpdfTeX warning (ext4): dest
 ination with the same identifier (name{lstnumber.3}) has been already used, dup
 licate ignored
 <to be read again> 
                    \relax 
-l.540 from 
+l.551 from 
            experiment.models import UsuarioPortalpdfTeX warning (ext4): destina
 tion with the same identifier (name{lstnumber.4}) has been already used, duplic
 ate ignored
 <to be read again> 
                    \relax 
-l.542 class 
+l.553 class 
             MyRegistrationView(RegistrationView):pdfTeX warning (ext4): destina
 tion with the same identifier (name{lstnumber.5}) has been already used, duplic
 ate ignored
 <to be read again> 
                    \relax 
-l.542 class 
+l.553 class 
             MyRegistrationView(RegistrationView):pdfTeX warning (ext4): destina
 tion with the same identifier (name{lstnumber.6}) has been already used, duplic
 ate ignored
 <to be read again> 
                    \relax 
-l.544 	
+l.555 	
        form_class = UsuarioPortalFormpdfTeX warning (ext4): destination with th
 e same identifier (name{lstnumber.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.544 	
+l.555 	
        form_class = UsuarioPortalFormpdfTeX warning (ext4): destination with th
 e same identifier (name{lstnumber.8}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.546 	
+l.557 	
        def register(self,request,form_class):pdfTeX warning (ext4): destination
  with the same identifier (name{lstnumber.9}) has been already used, duplicate 
 ignored
 <to be read again> 
                    \relax 
-l.546 	
+l.557 	
        def register(self,request,form_class):pdfTeX warning (ext4): destination
  with the same identifier (name{lstnumber.10}) has been already used, duplicate
  ignored
 <to be read again> 
                    \relax 
-l.547 	
+l.558 	
        	new_user = super(MyRegistrationView,self).register(request, form_class)
 pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.11}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.548 	
+l.559 	
        	user_profile = UsuarioPortal()pdfTeX warning (ext4): destination with t
 he same identifier (name{lstnumber.12}) has been already used, duplicate ignore
 d
 <to be read again> 
                    \relax 
-l.549 	
+l.560 	
        	user_profile.usuario = new_userpdfTeX warning (ext4): destination with 
 the same identifier (name{lstnumber.13}) has been already used, duplicate ignor
 ed
 <to be read again> 
                    \relax 
-l.550 	
+l.561 	
        	user_profile.nickname = form_class.cleaned_data['nickname']pdfTeX warni
 ng (ext4): destination with the same identifier (name{lstnumber.14}) has been a
 lready used, duplicate ignored
 <to be read again> 
                    \relax 
-l.551 	
+l.562 	
        	user_profile.company = form_class.cleaned_data['company']pdfTeX warning
  (ext4): destination with the same identifier (name{lstnumber.15}) has been alr
 eady used, duplicate ignored
 <to be read again> 
                    \relax 
-l.552 	
+l.563 	
        	user_profile.save()pdfTeX warning (ext4): destination with the same ide
 ntifier (name{lstnumber.16}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.553 	
+l.564 	
        	return user_profilepdfTeX warning (ext4): destination with the same ide
 ntifier (name{lstnumber.17}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.554 	
-       		\end{lstlisting} <registro.png, id=358, 1236.62pt x 822.07124pt>
+l.565 	
+       		\end{lstlisting} <registro.png, id=374, 1236.62pt x 822.07124pt>
 File: registro.png Graphic file (type png)
 
 <use registro.png>
-Package pdftex.def Info: registro.png used on input line 564.
+Package pdftex.def Info: registro.png used on input line 575.
 (pdftex.def)             Requested size: 455.24411pt x 302.63126pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 573.
+(babel)             in language  on input line 582.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 575.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 575.
- [23]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 575.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 575.
+(babel)             in language  on input line 582.
  [24]
-Overfull \hbox (17.81337pt too wide) in paragraph at lines 582--583
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 584.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 590.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 590.
+ [25 <./registro.png>]
+Overfull \hbox (17.81337pt too wide) in paragraph at lines 593--594
 []\T1/ptm/m/n/12 A exe-cu-ção de qual-quer al-go-ritmo é feita atra-vés da mesm
 a fun-ção "Ru-nEx-pe-ri-ment"(Figura
  []
 
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 583.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 583.
-[25 <./registro.png>]pdfTeX warning (ext4): destination with the same identifie
-r (name{lstnumber.1}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.1})
+ has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.590 from 
+l.601 from 
            models import UsuarioPortal, ExecutionpdfTeX warning (ext4): destina
 tion with the same identifier (name{lstnumber.2}) has been already used, duplic
 ate ignored
 <to be read again> 
                    \relax 
-l.591 from 
+l.602 from 
            celery.utils.log import get_task_loggerpdfTeX warning (ext4): destin
 ation with the same identifier (name{lstnumber.3}) has been already used, dupli
 cate ignored
 <to be read again> 
                    \relax 
-l.592 from 
+l.603 from 
            celery.decorators import taskpdfTeX warning (ext4): destination with
  the same identifier (name{lstnumber.4}) has been already used, duplicate ignor
 ed
 <to be read again> 
                    \relax 
-l.593 import 
+l.604 import 
              requestspdfTeX warning (ext4): destination with the same identifie
 r (name{lstnumber.5}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.594 import 
+l.605 import 
              ospdfTeX warning (ext4): destination with the same identifier (nam
 e{lstnumber.6}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.595 import 
+l.606 import 
              timepdfTeX warning (ext4): destination with the same identifier (n
 ame{lstnumber.7}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.597 logger 
+l.608 logger 
              = get_task_logger(__name__)pdfTeX warning (ext4): destination with
  the same identifier (name{lstnumber.8}) has been already used, duplicate ignor
 ed
 <to be read again> 
                    \relax 
-l.597 logger 
+l.608 logger 
              = get_task_logger(__name__)pdfTeX warning (ext4): destination with
  the same identifier (name{lstnumber.9}) has been already used, duplicate ignor
 ed
 <to be read again> 
                    \relax 
-l.599 @task(
+l.610 @task(
             name="RunExperiment")pdfTeX warning (ext4): destination with the sa
 me identifier (name{lstnumber.10}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.599 @task(
+l.610 @task(
             name="RunExperiment")pdfTeX warning (ext4): destination with the sa
 me identifier (name{lstnumber.11}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.600 def 
+l.611 def 
           RunExperiment(execution, ide):pdfTeX warning (ext4): destination with
  the same identifier (name{lstnumber.12}) has been already used, duplicate igno
 red
 <to be read again> 
                    \relax 
-l.601 	
+l.612 	
        os.system("mkdir " + str(ide))pdfTeX warning (ext4): destination with th
 e same identifier (name{lstnumber.13}) has been already used, duplicate ignored
 
 <to be read again> 
                    \relax 
-l.602 	
+l.613 	
        os.system("wget http://10.1.4.28:8000/experiments/downloadInputFile?i...
 pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.14}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.603 	
+l.614 	
        str(ide) + " -O ./" + str(ide) + "/input")pdfTeX warning (ext4): destina
 tion with the same identifier (name{lstnumber.15}) has been already used, dupli
 cate ignored
 <to be read again> 
                    \relax 
-l.604 	
+l.615 	
        start = time.time()pdfTeX warning (ext4): destination with the same iden
 tifier (name{lstnumber.16}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.605 	
+l.616 	
        os.system(execution + " " + str(ide) + "/input >" + str(ide) + "/outp...
 pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.17}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.606 	
+l.617 	
        dur = time.time() - startpdfTeX warning (ext4): destination with the sam
 e identifier (name{lstnumber.18}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.607 	
+l.618 	
        files={'file': str("/"+str(ide) + "/output")}pdfTeX warning (ext4): dest
 ination with the same identifier (name{lstnumber.19}) has been already used, du
 plicate ignored
 <to be read again> 
                    \relax 
-l.608 	
+l.619 	
        path = str(str(ide)+"/output")pdfTeX warning (ext4): destination with th
 e same identifier (name{lstnumber.20}) has been already used, duplicate ignored
 
 <to be read again> 
                    \relax 
-l.609 	
+l.620 	
        files = {'file': open(path, 'rb')}pdfTeX warning (ext4): destination wit
 h the same identifier (name{lstnumber.21}) has been already used, duplicate ign
 ored
 <to be read again> 
                    \relax 
-l.610 	
+l.621 	
        data = {'id':str(ide),'time':dur}pdfTeX warning (ext4): destination with
  the same identifier (name{lstnumber.22}) has been already used, duplicate igno
 red
 <to be read again> 
                    \relax 
-l.611 	
+l.622 	
        r = requests.post('http://10.1.4.28:8000/experiments/result', files=f...
 pdfTeX warning (ext4): destination with the same identifier (name{lstnumber.23}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.612 	
+l.623 	
        print (r.status_code, r.reason)pdfTeX warning (ext4): destination with t
 he same identifier (name{lstnumber.24}) has been already used, duplicate ignore
 d
 <to be read again> 
                    \relax 
-l.613 	
+l.624 	
        	\end{lstlisting}
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 625.
+(babel)             in language  on input line 636.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 625.
+(babel)             in language  on input line 642.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 642.
  [26]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 625.
-
-<userhome.png, id=387, 1265.72874pt x 420.57124pt>
+<userhome.png, id=399, 1265.72874pt x 420.57124pt>
 File: userhome.png Graphic file (type png)
  <use userhome.png>
-Package pdftex.def Info: userhome.png used on input line 634.
+Package pdftex.def Info: userhome.png used on input line 645.
 (pdftex.def)             Requested size: 455.24411pt x 151.26434pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 646.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 650.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 650.
- [27 <./userhome.png>] <filesystem.png, id=395, 380.17032pt x 416.30531pt>
-File: filesystem.png Graphic file (type png)
+(babel)             in language  on input line 657.
 
-<use filesystem.png>
-Package pdftex.def Info: filesystem.png used on input line 653.
+<filesystem.png, id=401, 380.17032pt x 416.30531pt>
+File: filesystem.png Graphic file (type png)
+ <use filesystem.png>
+Package pdftex.def Info: filesystem.png used on input line 664.
 (pdftex.def)             Requested size: 318.66948pt x 348.96991pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 660.
+(babel)             in language  on input line 669.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 660.
- [28 <./filesystem.png>]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 660.
+(babel)             in language  on input line 669.
 
-<res1.png, id=401, 1266.7325pt x 946.53625pt>
+[27]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 671.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 671.
+ [28 <./userhome.png>]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 671.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 671.
+ [29 <./filesystem.png>]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 671.
+
+<res1.png, id=417, 1266.7325pt x 946.53625pt>
 File: res1.png Graphic file (type png)
  <use res1.png>
-Package pdftex.def Info: res1.png used on input line 663.
+Package pdftex.def Info: res1.png used on input line 674.
 (pdftex.def)             Requested size: 455.24411pt x 340.16063pt.
 
-<res2.png, id=402, 1263.72125pt x 945.5325pt>
-File: res2.png Graphic file (type png)
- <use res2.png>
-Package pdftex.def Info: res2.png used on input line 671.
-(pdftex.def)             Requested size: 455.24411pt x 340.62228pt.
-
-<res3.png, id=403, 1178.4025pt x 345.29pt>
+<res3.png, id=418, 1178.4025pt x 345.29pt>
 File: res3.png Graphic file (type png)
  <use res3.png>
-Package pdftex.def Info: res3.png used on input line 679.
+Package pdftex.def Info: res3.png used on input line 682.
 (pdftex.def)             Requested size: 455.24411pt x 133.39279pt.
 
-<asd.png, id=404, 1157.32375pt x 404.51125pt>
+<res2.png, id=419, 945.5325pt x 161.85469pt>
+File: res2.png Graphic file (type png)
+ <use res2.png>
+Package pdftex.def Info: res2.png used on input line 691.
+(pdftex.def)             Requested size: 455.24411pt x 77.92891pt.
+
+<asd.png, id=420, 1157.32375pt x 404.51125pt>
 File: asd.png Graphic file (type png)
  <use asd.png>
-Package pdftex.def Info: asd.png used on input line 687.
+Package pdftex.def Info: asd.png used on input line 699.
 (pdftex.def)             Requested size: 455.24411pt x 159.11665pt.
 
-<res4.png, id=405, 840.13875pt x 437.635pt>
+<res4.png, id=421, 840.13875pt x 437.635pt>
 File: res4.png Graphic file (type png)
  <use res4.png>
-Package pdftex.def Info: res4.png used on input line 695.
+Package pdftex.def Info: res4.png used on input line 707.
 (pdftex.def)             Requested size: 455.24411pt x 237.14073pt.
 
-<res5.png, id=406, 424.58624pt x 320.19624pt>
+<res5.png, id=422, 424.58624pt x 320.19624pt>
 File: res5.png Graphic file (type png)
  <use res5.png>
-Package pdftex.def Info: res5.png used on input line 703.
+Package pdftex.def Info: res5.png used on input line 715.
 (pdftex.def)             Requested size: 227.62206pt x 171.6575pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 719.
+(babel)             in language  on input line 733.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 719.
- [29
+(babel)             in language  on input line 733.
+ [30
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 719.
+(babel)             in language  on input line 733.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 719.
- [30 <./res1.png>]
+(babel)             in language  on input line 733.
+ [31 <./res1.png> <./res3.png> <./res2.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 719.
+(babel)             in language  on input line 733.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 719.
- [31 <./res2.png> <./res3.png>]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 719.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 719.
+(babel)             in language  on input line 733.
  [32 <./asd.png> <./res4.png> <./res5.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 719.
+(babel)             in language  on input line 733.
 
 (preview.bbl
 Package babel Info: Redefining portuges shorthand "|
@@ -1991,31 +2038,31 @@ Package babel Info: Redefining portuges shorthand "|
 ) 
 AED: lastpage setting LastPage
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 731.
+(babel)             in language  on input line 747.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 731.
+(babel)             in language  on input line 747.
 [34
 
 ]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 731.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 731.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 731.
+(babel)             in language  on input line 747.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 747.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 747.
  (preview.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 731.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 731.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 747.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 747.
 Package rerunfilecheck Info: File `preview.out' has not changed.
-(rerunfilecheck)             Checksum: 79A827AFD5BE1BE323BC11E055A86DE1;4410.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 731.
+(rerunfilecheck)             Checksum: D16C5A1E13186EC3598DA918E535B2A8;4442.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 747.
  ) 
 Here is how much of TeX's memory you used:
- 25302 strings out of 493673
- 437238 string characters out of 3141524
- 647690 words of memory out of 3000000
- 28168 multiletter control sequences out of 15000+200000
- 81150 words of font info for 125 fonts, out of 3000000 for 9000
+ 25309 strings out of 493673
+ 437364 string characters out of 3141524
+ 654908 words of memory out of 3000000
+ 28175 multiletter control sequences out of 15000+200000
+ 74501 words of font info for 120 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 42i,8n,42p,10381b,1593s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,18n,43p,10381b,1593s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x8
@@ -2023,9 +2070,9 @@ Files (x86)/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x8
 .9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
 ype1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/ti
 mes/utmri8a.pfb>
-Output written on preview.pdf (34 pages, 534535 bytes).
+Output written on preview.pdf (34 pages, 627665 bytes).
 PDF statistics:
- 511 PDF objects out of 1000 (max. 8388607)
- 159 named destinations out of 1000 (max. 500000)
- 309 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 525 PDF objects out of 1000 (max. 8388607)
+ 160 named destinations out of 1000 (max. 500000)
+ 329 words of extra memory for PDF output out of 10000 (max. 10000000)
 
